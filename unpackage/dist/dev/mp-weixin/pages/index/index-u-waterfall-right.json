@@ -1,0 +1,14 @@
+{
+  "component": true,
+  "usingComponents": {
+    "index-u-waterfall-right": "/pages/index/index-u-waterfall-right",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
+    "u-section": "/uview-ui/components/u-section/u-section",
+    "u-waterfall": "/uview-ui/components/u-waterfall/u-waterfall",
+    "u-lazy-load": "/uview-ui/components/u-lazy-load/u-lazy-load",
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
+    "foo-bar": "/components/fooBar/fooBar",
+    "models": "/components/model/model"
+  }
+}

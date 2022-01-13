@@ -1,0 +1,139 @@
+
+.bottom {
+	position: fixed;
+	left: 4%;
+	right: 0;
+	width: 92%;
+	height: 52px;
+	box-shadow: 0 0px 8px rgba(0, 0, 0, 0.06);
+	background: rgba(0, 0, 0, 0.94);
+	border-radius: 49px;
+	z-index: 10;
+	opacity: 0.8;
+}
+.nav-tab {
+	position: relative;
+	width: 100%;
+	height: 52px;
+	font-size: 12px;
+	color: #D8D8D8;
+	font-weight: 400;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.nav-box {
+	/* position: absolute; */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 100%;
+	box-sizing: border-box;
+}
+.openCss {
+	-webkit-animation-name: openLinear;
+	        animation-name: openLinear;
+	-webkit-animation-duration: 0.8s;
+	        animation-duration: 0.8s;
+	-webkit-animation-iteration-count: 1;
+	        animation-iteration-count: 1;
+	bottom: 40px;
+}
+@-webkit-keyframes openLinear {
+0% {
+		-webkit-transform: translateY(92px);
+		        transform: translateY(92px);
+}
+100% {
+		-webkit-transform: translateY(0px);
+		        transform: translateY(0px);
+}
+}
+@keyframes openLinear {
+0% {
+		-webkit-transform: translateY(92px);
+		        transform: translateY(92px);
+}
+100% {
+		-webkit-transform: translateY(0px);
+		        transform: translateY(0px);
+}
+}
+.closeCss {
+	-webkit-animation-name: closeLinear;
+	        animation-name: closeLinear;
+	-webkit-animation-duration: 0.8s;
+	        animation-duration: 0.8s;
+	-webkit-animation-iteration-count: 1;
+	        animation-iteration-count: 1;
+	bottom: -52px;
+}
+.container {
+	position: relative;
+}
+.container,
+video {
+	width: 100%;
+	height: 100%;
+}
+video {
+	position: absolute;
+}
+.bottom-container {
+	width: 100%;
+	position: absolute;
+	bottom: 50rpx;
+}
+.bottom-container,
+.download-container {
+	height: 100rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.download-container {
+	width: 70%;
+	color: #fff;
+	font-size: 32rpx;
+	border-radius: 50px;
+	background: #000;
+	opacity: .7;
+	font-weight: 700;
+}
+.back {
+	width: 45px;
+	height: 45px;
+	position: absolute;
+	background-color: #fff;
+	left: 40rpx;
+	top: 80rpx;
+	opacity: .7;
+	border-radius: 500px;
+}
+.date-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 150rpx;
+	opacity: .9;
+}
+.time {
+	font-size: 120rpx;
+	color: #fff;
+}
+.date {
+	font-size: 40rpx;
+	color: #fff;
+}
+.notice {
+	font-size: 40rpx;
+	color: #fff;
+	align-items: center;
+}
+

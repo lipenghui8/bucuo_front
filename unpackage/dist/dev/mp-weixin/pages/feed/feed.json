@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "意见反馈",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "u-form": "/uview-ui/components/u-form/u-form",
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "u-form-item": "/uview-ui/components/u-form-item/u-form-item"
+  }
+}
