@@ -76,13 +76,13 @@
         "pagePath": "pages/center/center",
         "iconPath": "static/tabbar/center.png",
         "selectedIconPath": "static/tabbar/center_art.png",
-        "text": "分类"
+        "text": "功能"
       },
       {
         "pagePath": "pages/list/list",
         "iconPath": "static/tabbar/find.png",
         "selectedIconPath": "static/tabbar/find_art.png",
-        "text": "榜单"
+        "text": "消息"
       },
       {
         "pagePath": "pages/user/user",
@@ -155,5 +155,5 @@
   },
   "permission": {},
   "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap14.json"
 }
