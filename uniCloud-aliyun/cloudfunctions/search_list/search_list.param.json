@@ -1,0 +1,13 @@
+{
+	
+  "dbName": "wx_cover_shenhe",
+  "filter": {
+	"status": 1
+  },
+  "order": {
+	"name": "view",
+	"type": "desc"
+  },
+  "pageIndex": 1,
+  "pageSize": 20
+}

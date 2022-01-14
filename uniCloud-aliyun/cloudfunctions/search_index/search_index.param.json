@@ -1,0 +1,31 @@
+{
+	"keys": [
+	      {
+	        "name": "search_list",
+	        "data": {
+	          "dbName": "wx_banner",
+	          "pageIndex": 1,
+	          "pageSize": 10,
+	          "order": {
+	            "name": "sort",
+	            "type": "desc"
+	          }
+	        }
+	      },
+	      {
+	        "name": "search_list",
+	        "data": {
+	          "dbName": "wx_cover_shenhe",
+	          "filter": {
+	            "status": 1
+	          },
+	          "order": {
+	            "name": "view",
+	            "type": "desc"
+	          },
+	          "pageIndex": 1,
+	          "pageSize": 20
+	        }
+	      }
+	    ]
+}
