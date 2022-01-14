@@ -1,6 +1,6 @@
 <template>
 	<view class="">
-		<view class="" v-show="!loadShow">
+		<view class="">
 			<view class="vtop">
 				<view v-if="!homeTop || scrollTop <= homeTop - (menuButtonInfo.top + 0 + 15)">
 					<view class="title u-flex u-row-left u-p-l-30" :style="{marginTop: menuButtonInfo.top+'px'}">

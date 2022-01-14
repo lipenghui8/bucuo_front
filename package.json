@@ -1,8 +1,8 @@
 {  	
 	"id": "wallpaper-xingchaobizhi",
-	"name": "星潮壁纸",
+	"name": "不错校园",
 	"version": "1.1.7",
-	"description": "星潮壁纸是一款由uniapp开发的双端云开发壁纸小程序，包括微信和QQ端小程序，小程序免服务器和域名，直接对接dcloud官网数据库使用。本程序包括壁纸下载，头像下载，套图下载，刘海壁纸制作，动态壁纸",
+	"description": "不错校园",
 	"keywords": [
         "壁纸",
         "最好看",
@@ -100,7 +100,7 @@
             }
         }
     },
-    "displayName": "星潮壁纸",
+    "displayName": "不错校园",
     "repository": "",
     "engines": {
         "HBuilderX": "^3.0.7"

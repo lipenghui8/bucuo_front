@@ -154,5 +154,6 @@
     "downloadFile": 60000
   },
   "permission": {},
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

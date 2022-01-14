@@ -6,7 +6,7 @@
     </li>
     <li :class="{'nav-tab-active':home===1}" @click="toIndex(1)">
         <u-icon :name="home===1?'/static/tabbar/center_art.png':'/static/tabbar/center.png'" size="44"></u-icon>
-        <p>分类</p>
+        <p>功能</p>
     </li>
     <li class="xm_tg" :class="{'nav-tab-active':home===4}">
       <view v-if="vuex_writeShow&&!vuex_isShenHe" @click="toIndex(4)">
@@ -24,7 +24,7 @@
     </li>
     <li :class="{'nav-tab-active':home===2}" @click="toIndex(2)">
         <u-icon :name="home===2?'/static/tabbar/find_art.png':'/static/tabbar/find.png'" size="44"></u-icon>
-        <p>榜单</p>
+        <p>消息</p>
     </li>
     <li :class="{'nav-tab-active':home===3}" @click="toIndex(3)">
        <u-icon :name="home===3?'/static/tabbar/user_art.png':'/static/tabbar/user.png'" size="44"></u-icon>

@@ -1,7 +1,7 @@
 {
-    "name" : "不错小程序1",
+    "name" : "不错校园",
     "appid" : "__UNI__9219DE2",
-    "description": "小猫壁纸",
+    "description": "不错校园",
     "versionName": "2.5.2",
     "versionCode": "100",
     "transformPx": false,
@@ -59,7 +59,7 @@
     },
     "quickapp": {},
     "mp-weixin": {
-        "appid": "",
+        "appid": "wx456ab1c6f2af5f04",
         "setting": {
             "urlCheck": true,
             "minified": true,
