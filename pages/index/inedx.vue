@@ -3,11 +3,17 @@
 	<view>
 		<cu-custom bgColor="bg-gradual-blue" :isBack="false">
 			<!-- <block slot="backText">返回</block> -->
-			<block slot="content">首页</block>
+			<block slot="content">“不错”校园</block>
 		</cu-custom>
 
 		<add-tip :tip="tip" :duration="duration" />
 
+		<view class="u-search-box">
+			<view class="u-search-inner">
+				<u-icon name="search" color="#909399" :size="28"></u-icon>
+				<text class="u-search-text">概率论与数理统计题型介绍</text>
+			</view>
+		</view>
 		<!-- banner图 -->
 		<view class="uni-padding-wrap">
 			<view class="page-section swiper">
@@ -53,18 +59,18 @@
 			</view>
 		</view>
 
-		<view class="cu-bar bg-white margin-top-xs">
+		<!-- <view class="cu-bar bg-white margin-top-xs">
 			<view class="action sub-title">
 				<text class="text-xl text-bold text-blue text-shadow">热门视频</text>
 				<text class="text-ABC text-blue">curriculum</text>
 			</view>
 			<view class="action" @click="goVideo"><text class="text-lg text-grey text-shadow">更多</text></view>
-		</view>
+		</view> -->
 
-		<view class="skill-sequence-panel-content-wrapper">
-			<!--左边虚化-->
+		<!-- <view class="skill-sequence-panel-content-wrapper">
+			左边虚化
 			<view class="hide-content-box hide-content-box-left"></view>
-			<!--右边虚化-->
+			右边虚化
 			<view class="hide-content-box hide-content-box-right"></view>
 			<scroll-view scroll-x="true" class="kite-classify-scroll">
 				<view class="kite-classify-cell shadow" v-for="(item, index) in curriculum" :key="index">
@@ -75,10 +81,10 @@
 					<view @click="goVideo" class="nav-btn shadow" :class="'bg-index' + (index + 1)">立即学习</view>
 				</view>
 			</scroll-view>
-		</view>
+		</view> -->
 		<view class="cu-bar bg-white margin-top-xs">
 			<view class="action sub-title">
-				<text class="text-xl text-bold text-blue text-shadow">开源项目</text>
+				<text class="text-xl text-bold text-blue text-shadow">为您推荐</text>
 				<text class="text-ABC text-blue">curriculum</text>
 			</view>
 			<view class="action" @click="goProjectList"><text class="text-lg text-grey text-shadow">更多</text></view>

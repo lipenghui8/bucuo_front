@@ -100,30 +100,6 @@
 		flex-direction: column;
 	}
 
-	.u-search-box {
-		padding: 18rpx 30rpx;
-	}
-
-	.u-menu-wrap {
-		flex: 1;
-		display: flex;
-		overflow: hidden;
-	}
-
-	.u-search-inner {
-		background-color: rgb(234, 234, 234);
-		border-radius: 100rpx;
-		display: flex;
-		align-items: center;
-		padding: 10rpx 16rpx;
-	}
-
-	.u-search-text {
-		font-size: 26rpx;
-		color: $u-tips-color;
-		margin-left: 10rpx;
-	}
-
 	.u-tab-view {
 		width: 200rpx;
 		height: 100%;
