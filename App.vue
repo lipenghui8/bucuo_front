@@ -42,7 +42,7 @@
 	@import "uview-ui/index.scss";
 
 	.u-search-box {
-		padding: 18rpx 30rpx;
+		padding: 10rpx 10rpx;
 	}
 
 	.u-menu-wrap {
@@ -56,7 +56,7 @@
 		border-radius: 100rpx;
 		display: flex;
 		align-items: center;
-		padding: 10rpx 16rpx;
+		padding: 10rpx 10rpx;
 	}
 
 	.u-search-text {

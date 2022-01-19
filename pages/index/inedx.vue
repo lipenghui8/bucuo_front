@@ -11,7 +11,7 @@
 		<view class="u-search-box">
 			<view class="u-search-inner">
 				<u-icon name="search" color="#909399" :size="28"></u-icon>
-				<text class="u-search-text">概率论与数理统计题型介绍</text>
+				<input class="u-search-text" placeholder="概率论与数理统计题型介绍"></input>
 			</view>
 		</view>
 		<!-- banner图 -->

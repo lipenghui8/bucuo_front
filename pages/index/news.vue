@@ -3,7 +3,7 @@
 	<view>
 		<cu-custom bgColor="bg-gradual-blue" :isBack="false">
 			<!-- <block slot="backText">返回</block> -->
-			<block slot="content">文章资讯</block>
+			<block slot="content">消息</block>
 		</cu-custom>
 
 		<scroll-view scroll-x class="bg-white nav" scroll-with-animation :scroll-left="scrollLeft">

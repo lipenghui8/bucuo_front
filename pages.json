@@ -6,7 +6,7 @@
 		{
 			"path": "pages/index/tabbar",
 			"style": {
-				"navigationBarTitleText": "前端铺子",
+				"navigationBarTitleText": "首页",
 				"navigationStyle": "custom"
 			}
 		},
