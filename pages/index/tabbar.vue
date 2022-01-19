@@ -57,7 +57,7 @@
 	import index from "./inedx.vue";	//首页
 	import search from "./search.vue";	//技术视频
 	import cases from "./main.vue";	//宅家学
-	import news from "./chat/chat.vue";	//消息
+	import news from "./news.vue";	//消息
 	import me from "./me.vue";	//个人中心
 	export default {
 		components: {

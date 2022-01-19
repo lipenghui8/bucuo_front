@@ -1,28 +1,6 @@
 <!-- 个人中心 -->
 <template>
 	<view class="components-theme">
-		<navigator target="miniProgram" app-id='wx307a52ca028d3c07' version='release' hover-class="none">
-			<view class="dong">
-				<view class="monster">
-					<view class="monster__face">
-						<view class="monster__eye avatar-eye avatar-eye--green eye--left">
-							<view class="avatar-eye-pupil pupil--green"><span class="avatar-eye-pupil-blackThing"><span class="avatar-eye-pupil-lightReflection"></span></span></view>
-						</view>
-						<view class="monster__eye avatar-eye avatar-eye--violet eye--right">
-							<view class="avatar-eye-pupil pupil--pink"><span class="avatar-eye-pupil-blackThing"><span class="avatar-eye-pupil-lightReflection"></span></span></view>
-						</view>
-						<view class="monster__noses">
-							<view class="monster__nose"></view>
-							<view class="monster__nose"></view>
-						</view>
-						<view class="monster__mouth">
-							<view class="monster__top"></view>
-							<view class="monster__bottom"></view>
-						</view>
-					</view>
-				</view>
-			</view>
-		</navigator>
 		<!-- 弹窗确认 -->
 		<view class="cu-modal" :class="modalName=='Modal'?'show':''">
 			<view class="cu-dialog" style="padding: 300rpx 0 70rpx;">
@@ -81,19 +59,21 @@
 						<text class='cuIcon-like'></text> 点赞</view>
 				</view>
 			</view>
-
-
 			
+			<MyList/>
 
-			
-
-		<view style="height: 110rpx;width: 1rpx;"></view>
+		<!-- <view style="height: 110rpx;width: 1rpx;"></view> -->
 
 	</view>
 </template>
 
 <script>
+	import MyList from '../../components/mylist/course.vue'
+
 	export default {
+		components:{
+			MyList
+		},
 		data() {
 			return {
 				// Custom: this.Custom,
@@ -218,18 +198,6 @@
 					url: '../me/aboutMe'
 				})
 			},
-			// 薪资排名
-			// goSalary() {
-			// 	uni.navigateTo({
-			// 		url: '../me/salary'
-			// 	})
-			// },
-			// // 课班信息
-			// goCourse() {
-			// 	uni.navigateTo({
-			// 		url: '../me/course'
-			// 	})
-			// }
 		}
 	}
 </script>
