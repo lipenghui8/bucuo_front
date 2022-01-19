@@ -1,159 +1,95 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/center/center",
-    "pages/user/user",
-    "pages/detail/detail",
-    "pages/search/search",
-    "pages/searchlist/searchlist",
-    "pages/list/list",
-    "pages/integral/task",
-    "pages/integral/record",
-    "pages/collect/collect",
+    "pages/index/tabbar",
+    "pages/me/salary",
+    "pages/me/aboutMe",
+    "pages/me/mentalTest/list",
+    "pages/me/mentalTest/index",
+    "pages/me/mentalTest/explain",
     "pages/news/news",
-    "pages/order/order",
-    "pages/write/write",
-    "pages/write/edit",
-    "pages/about/about",
-    "pages/about/agreement",
-    "pages/about/gonggao",
-    "pages/about/gengxin",
-    "pages/about/policy",
-    "pages/order/detail",
-    "pages/write/cate",
-    "pages/write/tags",
-    "pages/integral/charge",
-    "pages/system/system",
-    "pages/system/user/userList",
-    "pages/system/config/configList",
-    "pages/system/cover/coverList",
-    "pages/system/category/categoryList",
-    "pages/system/category/categoryEdit",
-    "pages/system/banner/bannerList",
-    "pages/system/banner/bannerEdit",
-    "pages/system/order/orderList",
-    "pages/system/tags/tagsList",
-    "pages/feed/feed",
-    "pages/system/design/designList",
-    "pages/system/design/designEdit",
-    "pages/system/user/integralEdit"
+    "pages/video",
+    "pages/project/list",
+    "pages/project/project",
+    "pages/timeline",
+    "pages/design",
+    "pages/main/customCamera",
+    "pages/main/posterList",
+    "pages/main/posterImg"
   ],
   "subPackages": [
     {
-      "root": "pagesOther",
+      "root": "tn_components",
       "pages": [
-        "dynamicdetail/dynamicdetail",
-        "searchvideo/searchvideo",
-        "find/find",
-        "find/design/design",
-        "find/gallery/gallery",
-        "find/dynamic/dynamic",
-        "find/profile/profile",
-        "find/photo/photo",
-        "cps/cps"
+        "pano",
+        "bggrad",
+        "bgcolor",
+        "ancube",
+        "anloading",
+        "mimicry",
+        "mapLocus",
+        "charts",
+        "poster",
+        "discern",
+        "sign",
+        "district",
+        "search",
+        "salary",
+        "course",
+        "openDocument",
+        "company",
+        "timeline",
+        "guide",
+        "request",
+        "keyboard",
+        "drag_demo/index",
+        "timetables",
+        "imageEditor",
+        "clock",
+        "medal",
+        "seat",
+        "chat/chat",
+        "chat/details/details",
+        "chat/hand/hand",
+        "login/index",
+        "login/index2",
+        "login/index3",
+        "login/index4",
+        "details"
+      ]
+    },
+    {
+      "root": "os_project",
+      "pages": [
+        "index",
+        "workOrder/index",
+        "workOrder/index2",
+        "workOrder/index3",
+        "workOrder/index4",
+        "workOrder/index_map",
+        "workOrder/index5"
       ]
     }
   ],
   "window": {
-    "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "小猫壁纸",
-    "navigationBarBackgroundColor": "#FFFFFF",
-    "backgroundColor": "#FFFFFF"
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
   },
-  "tabBar": {
-    "color": "#909399",
-    "selectedColor": "#000000",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "static/tabbar/home.png",
-        "selectedIconPath": "static/tabbar/home_art.png",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/center/center",
-        "iconPath": "static/tabbar/center.png",
-        "selectedIconPath": "static/tabbar/center_art.png",
-        "text": "功能"
-      },
-      {
-        "pagePath": "pages/list/list",
-        "iconPath": "static/tabbar/find.png",
-        "selectedIconPath": "static/tabbar/find_art.png",
-        "text": "消息"
-      },
-      {
-        "pagePath": "pages/user/user",
-        "iconPath": "static/tabbar/user.png",
-        "selectedIconPath": "static/tabbar/user_art.png",
-        "text": "我的"
-      }
-    ]
-  },
-  "preloadRule": {
-    "pagesOther/dynamicdetail/dynamicdetail": {
-      "network": "all",
-      "packages": [
-        "__APP__"
-      ]
-    },
-    "pagesOther/find/find": {
-      "network": "all",
-      "packages": [
-        "__APP__"
-      ]
-    },
-    "pagesOther/find/design/design": {
-      "network": "all",
-      "packages": [
-        "__APP__"
-      ]
-    },
-    "pagesOther/find/gallery/gallery": {
-      "network": "all",
-      "packages": [
-        "__APP__"
-      ]
-    },
-    "pagesOther/find/dynamic/dynamic": {
-      "network": "all",
-      "packages": [
-        "__APP__"
-      ]
-    },
-    "pagesOther/find/profile/profile": {
-      "network": "all",
-      "packages": [
-        "__APP__"
-      ]
-    },
-    "pagesOther/find/photo/photo": {
-      "network": "all",
-      "packages": [
-        "__APP__"
-      ]
-    },
-    "pagesOther/searchvideo/searchvideo": {
-      "network": "all",
-      "packages": [
-        "__APP__"
-      ]
-    },
-    "pagesOther/cps/cps": {
-      "network": "all",
-      "packages": [
-        "__APP__"
-      ]
+  "plugins": {
+    "tencentvideo": {
+      "version": "1.3.17",
+      "provider": "wxa75efa648b60994b"
     }
   },
-  "networkTimeout": {
-    "request": 30000,
-    "uploadFile": 60000,
-    "downloadFile": 60000
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取用户位置，制作地图定位功能"
+    }
   },
-  "permission": {},
-  "usingComponents": {},
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom",
+    "tn-custom": "/components/TnCustom/TnCustom"
+  },
   "sitemapLocation": "sitemap.json"
 }

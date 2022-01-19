@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "选择分类",
-  "enablePullDownRefresh": false,
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "u-navbar": "/uview-ui/components/u-navbar/u-navbar"
-  }
-}

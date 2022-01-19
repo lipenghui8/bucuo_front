@@ -198,10 +198,10 @@ export default {
 			this.$emit('click');
 		},
 		// 图片加载失败
-		onErrorHandler(err) {
+		onErrorHandler() {
 			this.loading = false;
 			this.isError = true;
-			this.$emit('error', err);
+			this.$emit('error');
 		},
 		// 图片加载完成，标记loading结束
 		onLoadHandler() {

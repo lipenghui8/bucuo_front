@@ -78,7 +78,7 @@
 					return {
 						loadmore: '加载更多',
 						loading: '正在加载...',
-						nomore: '人家也是有底线的~'
+						nomore: '没有更多了'
 					}
 				}
 			},

@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "刘海管理",
-  "enablePullDownRefresh": false,
-  "navigationBarTextStyle": "black",
-  "usingComponents": {
-    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore"
-  }
-}
