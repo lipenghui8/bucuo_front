@@ -1,5 +1,8 @@
 <h1 align="center"> 不错校园 </h1>
 
+### 接口文档地址
+[点我](https://www.postman.com/cloudy-shadow-287657/workspace/bucuo/collection/12794538-56002525-9f5f-46e5-a0a2-b4629e71e709)
+
 ### 项目说明
 
 1.  项目基于Vue-uniApp，使用colorUi与uview框架，部分Demo参考uniApp插件市场等，感谢各位作者～
