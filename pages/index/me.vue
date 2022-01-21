@@ -59,7 +59,11 @@
 						<text class='cuIcon-like'></text> 点赞</view>
 				</view>
 			</view>
+<<<<<<< HEAD
 			</block>
+=======
+		</block>
+>>>>>>> c36ffd54e7c58dabdea2ebc9f4dc6f15ae0339f8
 			<MyList/>
 		<!-- <view style="height: 110rpx;width: 1rpx;"></view> -->
 	</view>
