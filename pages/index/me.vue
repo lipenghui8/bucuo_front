@@ -15,6 +15,33 @@
 			</view>
 		</view>
 		<!-- 顶部背景 -->
+		<view>
+			<view class="topBox">
+				<view>
+					<view class="sm">
+						<view class="cu-avatar2 round xl margin-right-sm shadow-blur-lg bg-img open-data" style="overflow: hidden;">
+							<open-data type="userAvatarUrl"></open-data>
+						</view>
+					</view>
+					<view class="sm">
+						<view class="">
+							<view>ID:{{user.id}}</view>
+							<view>2018商学院</view>
+							<view>5级经验用户</view>
+							<view>星会员lv6</view>
+						</view>
+					</view>
+					<view class="">
+						<view>
+							<view>
+
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
 		<view class='UCenter-bg' :style="'background-image: url(' + pic[topBackGroupImageIndex].link + ');margin-top:' + CustomBar + 'px;'">
 			<view class='space' v-show="spaceShow">
 				<view class="stars ">
@@ -203,6 +230,14 @@
 </script>
 
 <style lang="scss" scoped>
+	*{
+		background-color: #FFF;
+	}
+	.topBox{
+		background-color: #F2F2FF;
+		border-radius: 20rpx;
+	}
+
 	.UCenter-bg {
 		background: #fff;
 		background-size: 100% 100%;
@@ -243,7 +278,7 @@
 	// 头像
 	.cu-avatar2 {
 		font-variant: small-caps;
-		margin: 0;
+		margin: 30rpx 100rpx;
 		padding: 0;
 		display: inline-flex;
 		text-align: center;

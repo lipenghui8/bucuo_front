@@ -1,7 +1,7 @@
 
 // const baseUrl = 'https://cdn.zhoukaiwen.com/';
 const baseUrl = 'https://www.zhoukaiwen.com/';
-
+const imgUrl = 'https://bucuo.liph.top/image/'
 
 // 不带token请求
 const httpRequest = (opts, data) => {

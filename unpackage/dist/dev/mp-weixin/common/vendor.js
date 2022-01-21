@@ -23366,7 +23366,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 // const baseUrl = 'https://cdn.zhoukaiwen.com/';
 var baseUrl = 'https://www.zhoukaiwen.com/';
-
+var imgUrl = 'https://bucuo.liph.top/image/';
 
 // 不带token请求
 var httpRequest = function httpRequest(opts, data) {
