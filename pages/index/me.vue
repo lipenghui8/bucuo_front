@@ -59,7 +59,7 @@
 						<text class='cuIcon-like'></text> 点赞</view>
 				</view>
 			</view>
-			
+		</block>
 			<MyList/>
 
 		<!-- <view style="height: 110rpx;width: 1rpx;"></view> -->
