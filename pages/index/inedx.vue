@@ -15,6 +15,13 @@
 			</view>
 		</view>
 		<!-- banner图 -->
+		<view class="cu-bar bg-white margin-top-xs">
+			<view class="action sub-title">
+				<text class="text-xl text-bold text-blue text-shadow">本周特惠</text>
+				<text class="text-ABC text-blue">preference</text>
+			</view>
+			<view class="action" @click="goProjectList"><text class="text-lg text-grey text-shadow">更多</text></view>
+		</view>
 		<view class="uni-padding-wrap">
 			<view class="page-section swiper">
 				<view class="page-section-spacing">
@@ -30,7 +37,7 @@
 			</view>
 		</view>
 
-		<!-- 导航栏 -->
+		<!-- 导航栏 
 		<view class="cu-list grid solids-bottom col-4 no-border">
 			<view class="cu-item" v-for="(item, index) in categories" :key="index"
 				:style="[{ animation: 'show ' + ((index + 1) * 0.2 + 1) + 's 1' }]" @click="goCategorieslist"
@@ -43,7 +50,8 @@
 				<text>{{ item.name }}</text>
 			</view>
 		</view>
-
+		-->
+		<!-- 竖向轮播提示信息
 		<view class="message-box">
 			<view class="page-section swiper">
 				<view class="page-section-spacing">
@@ -58,6 +66,7 @@
 				</view>
 			</view>
 		</view>
+		-->
 
 		<!-- <view class="cu-bar bg-white margin-top-xs">
 			<view class="action sub-title">
@@ -85,21 +94,29 @@
 		<view class="cu-bar bg-white margin-top-xs">
 			<view class="action sub-title">
 				<text class="text-xl text-bold text-blue text-shadow">为您推荐</text>
-				<text class="text-ABC text-blue">curriculum</text>
+				<text class="text-ABC text-blue"> recommend</text>
 			</view>
+			<!--
 			<view class="action" @click="goProjectList"><text class="text-lg text-grey text-shadow">更多</text></view>
+			-->
 		</view>
 
 		<view class="cu-card case no-card">
-			<view @click="goProject(item.id)" class="cu-item shadow" v-for="(item, index) in projectList" :key="index">
-				<view class="image">
+			<view 
+			@click="goProject(item.id)" 
+			class="cu-item shadow" 
+			v-for="(item, index) in projectList" 
+			:key="index"
+			style="display: flex;"
+			>
+				<view class="image" style="width: 30%; float: left;">
 					<image :src="item.tImg" mode="widthFix"></image>
 					<view class="cu-tag bg-gradual-orange">{{ item.tabs }}</view>
 					<view class="cu-bar bg-shadeBottom">
 						<text class="text-cut">{{ item.type }}</text>
 					</view>
 				</view>
-				<view class="cu-list menu-avatar">
+				<view class="cu-list menu-avatar" style="width: 70%; float: left;">
 					<view class="cu-item">
 						<view class="margin-lr flex-sub">
 							<view class="item-name text-grey text-lg">{{ item.title }}</view>
