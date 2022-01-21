@@ -36,7 +36,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.21.4",
   "appid": "wx456ab1c6f2af5f04",
-  "projectname": "miniprogram-3",
+  "projectname": "bucuo_front",
   "debugOptions": {
     "hidedInDevtools": []
   },
