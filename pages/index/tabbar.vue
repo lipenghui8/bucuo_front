@@ -81,7 +81,7 @@
 		// 分享小程序
 		onShareAppMessage(res) {
 			return {
-				title: '学技术·找案例，快来「前端铺子」吧！',
+				title: '“不错校园”，真不错！',
 			};
 		},
 		onLoad(){
@@ -91,7 +91,7 @@
 		},
 		onShareTimeline() {
 			return {
-				title: '学技术·找案例，快来「前端铺子」吧！',
+				title: '“不错校园”，真不错！',
 			}
 		},
 		onLoad() {
@@ -148,6 +148,7 @@
 <style lang="scss">
 	.box {
 		margin: 20upx 0;
+		background-color: #FFF;
 	}
 	.box view.cu-bar {
 		margin-top: 20upx;

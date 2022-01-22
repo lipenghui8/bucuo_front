@@ -58,13 +58,6 @@
 										<view class="store">{{ res.store }}</view>
 										<u-icon name="arrow-right" color="rgb(203,203,203)" :size="26"></u-icon>
 									</view>
-									<view class="right">
-										<text class="text-blue">进度：</text>
-										<view class="progressBox">
-											<u-line-progress :percent="res.progre" :active-color="activeColor"
-											:striped="true" :stripedActive="true"></u-line-progress>
-										</view>
-									</view>
 								</view>
 								<view class="item" v-for="(item, index) in res.goodsList" :key="index">
 									<view class="left">
@@ -95,6 +88,23 @@
 					</scroll-view>
 				</swiper-item>
 				<!-- 第三页 -->
+				<swiper-item class="swiper-item">
+					<scroll-view style="height: 100%;width: 100%;">
+						<view class="page-box">
+							<view>
+								<view class="centre">
+									<image src="http://cdn.zhoukaiwen.com/noData1.png" mode="widthFix"></image>
+									<view class="explain">
+										暂无班级信息
+										<view class="tips">可以去看看有其他课程</view>
+									</view>
+									<view class="btn">随便逛逛</view>
+								</view>
+							</view>
+						</view>
+					</scroll-view>
+				</swiper-item>
+				<!-- 第四页 -->
 				<swiper-item class="swiper-item">
 					<scroll-view style="height: 100%;width: 100%;">
 						<view class="page-box">
@@ -212,7 +222,7 @@ export default {
 			loadStatus: ['loadmore','loadmore','loadmore','loadmore'],
 		};
 	},
-	onLoad() {
+	mounted() {
 		this.getOrderList(0);
 		this.getOrderList(1);
 		this.getOrderList(3);
