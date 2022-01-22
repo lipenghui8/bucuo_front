@@ -213,7 +213,7 @@
 				],
 				curriculum: [{
 						name: 'uniapp项目开发',
-						content: 'uniapp小程序商城系统开发，实战项目...'
+						content: 'uniapp小程序商城系统开发，实战项目s...asdas'
 					},
 					{
 						name: '后台管理系统',
