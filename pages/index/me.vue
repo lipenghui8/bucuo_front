@@ -15,30 +15,38 @@
 			</view>
 		</view>
 		<!-- 顶部背景 -->
-		<view class='UCenter-bg' :style="'background-image: url(' + pic[topBackGroupImageIndex].link + ');margin-top:' + CustomBar + 'px;'">
-			<view class='space' v-show="spaceShow">
-				<view class="stars ">
-					<view class="star "></view>
-					<view class="star pink "></view>
-					<view class="star blue "></view>
-					<view class="star yellow "></view>
+		<view>
+			<view class="topBox">
+				<view class="top-share">
+					<view>分享</view>
+					<view>设置</view>
+				</view>
+				<view class="usrBox">
+					<view class="sm top-left">
+						<view class="cu-avatar2 round xl shadow-blur-lg bg-img open-data" style="overflow: hidden;">
+							<open-data type="userAvatarUrl"></open-data>
+						</view>
+					</view>
+					<view class="sm">
+						<view class="top-center">
+							<view style="font-weight: bold;font-size: 30rpx;">ID:{{user.id}}</view>
+							<view>2018商学院</view>
+							<view>5级经验用户</view>
+							<view>星会员lv6</view>
+						</view>
+					</view>
+					<view class="xs">
+						<view>
+							<view>
+								金币
+							</view>
+							<view>
+								点赞
+							</view>
+						</view>
+					</view>
 				</view>
 			</view>
-
-			<block>
-				<view class='text-center' @click="goMedal">
-					<view class="cu-avatar2 round xl margin-right-sm shadow-blur-lg bg-img open-data" style="overflow: hidden;">
-						<open-data type="userAvatarUrl"></open-data>
-					</view>
-					<view class="padding text-blue text-xl text-bold">
-						你好，<open-data type="userNickName"></open-data>
-					</view>
-
-				</view>
-			</block>
-
-			<image src='https://cdn.nlark.com/yuque/0/2019/gif/280373/1570670848649-assets/web-upload/3dbaa72a-062b-470f-9b9d-058ff8f85ab8.gif'
-			 mode='scaleToFill' class='gif-wave'></image>
 		</view>
 
 		<block>
@@ -60,8 +68,7 @@
 				</view>
 			</view>
 		</block>
-
-		<MyList/>
+			<MyList/>
 		<!-- <view style="height: 110rpx;width: 1rpx;"></view> -->
 	</view>
 </template>
@@ -202,6 +209,35 @@
 </script>
 
 <style lang="scss" scoped>
+	.topBox{
+		background-color: #FFF;
+		width: 100%;
+		height: 300rpx;
+		margin-top: 50rpx;
+	}
+	.usrBox{
+		height: 250rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #F2F2FF;
+		border: 1rpx solid #F2F2FF;
+		border-radius: 40rpx;
+		margin: 10rpx 20rpx;
+	}
+	.top-share{
+		display: flex;
+		justify-content: space-between;
+		padding: 0 40rpx;
+	}
+	.top-left{
+		width: 200rpx;
+	}
+	.top-center{
+		margin-left: 0;
+		margin-right: 100rpx;
+	}
+
 	.UCenter-bg {
 		background: #fff;
 		background-size: 100% 100%;
@@ -219,30 +255,11 @@
 		text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 	}
 
-	.UCenter-bg text {
-		opacity: 0.8;
-	}
+	
 
-	.UCenter-bg image {
-		width: 200rpx;
-		height: 200rpx;
-	}
-
-	.UCenter-bg .gif-wave {
-		position: absolute;
-		width: 100%;
-		bottom: 0;
-		left: 0;
-		z-index: 99;
-		mix-blend-mode: screen;
-		height: 100rpx;
-	}
-
-
-	// 头像
+	/* 头像 */
 	.cu-avatar2 {
 		font-variant: small-caps;
-		margin: 0;
 		padding: 0;
 		display: inline-flex;
 		text-align: center;
@@ -252,13 +269,14 @@
 		color: #fff;
 		white-space: nowrap;
 		position: relative;
-		width: 150rpx;
-		height: 150rpx;
+		width: 200rpx;
+		height: 200rpx;
 		background-size: cover;
 		background-position: center;
 		vertical-align: middle;
 		font-size: 1.5em;
 		z-index: 99;
+		margin-left:-50rpx;
 	}
 
 	.name {
