@@ -14,12 +14,18 @@
 				</view>
 			</view>
 		</view>
-		<!-- 顶部背景 -->
+		<!-- 顶部用户信息 -->
 		<view>
 			<view class="topBox">
 				<view class="top-share">
-					<view>分享</view>
-					<view>设置</view>
+					<view>
+						<button plain="true" style="border: none;height: 80rpx;" open-type="share">
+						<image style="width: 50rpx;height: 50rpx;overflow: hidden;" src="/static/me/icon/share.png"></image>
+						</button>
+					</view>
+					<view>
+						<image style="width: 30rpx;height: 30rpx;"></image>
+					</view>
 				</view>
 				<view class="usrBox">
 					<view class="sm top-left">
@@ -29,19 +35,21 @@
 					</view>
 					<view class="sm">
 						<view class="top-center">
-							<view style="font-weight: bold;font-size: 30rpx;">ID:{{user.id}}</view>
+							<view style="font-weight: 650;font-size: 35rpx;">ID:{{user.id}}</view>
 							<view>2018商学院</view>
 							<view>5级经验用户</view>
 							<view>星会员lv6</view>
 						</view>
 					</view>
 					<view class="xs">
-						<view>
+						<view class="top-right">
 							<view>
-								金币
+								<image style="width: 50rpx;height: 50rpx;margin-top: 20rpx;" src="/static/me/icon/credit.png"></image>
+								<view style="margin-top: 23rpx;margin-left:10rpx;font-weight: bold;">{{65}}</view>
 							</view>
 							<view>
-								点赞
+								<image style="width: 50rpx;height: 50rpx;margin-top: 80rpx;" src="/static/me/icon//love.png"></image>
+								<view style="margin-bottom: -80rpx;margin-left:10rpx;font-weight: bold;">{{30}}</view>
 							</view>
 						</view>
 					</view>
@@ -49,26 +57,7 @@
 			</view>
 		</view>
 
-		<block>
-			<view class='padding flex text-center text-grey bg-white shadow-warp-my'>
-				<view class='flex flex-sub flex-direction solid-right'>
-					<view class="text-xxl text-orange">20.5k+</view>
-					<view class="margin-top-sm">
-						<text class='cuIcon-hot'></text> 访客</view>
-				</view>
-				<view class='flex flex-sub flex-direction solid-right'>
-					<view class="text-xxl text-blue">2.6k</view>
-					<view class="margin-top-sm">
-						<text class='cuIcon-share'></text> 分享</view>
-				</view>
-				<view class='flex flex-sub flex-direction'>
-					<view class="text-xxl text-red">1.9k+</view>
-					<view class="margin-top-sm">
-						<text class='cuIcon-like'></text> 点赞</view>
-				</view>
-			</view>
-		</block>
-			<MyList/>
+		<MyList/>
 		<!-- <view style="height: 110rpx;width: 1rpx;"></view> -->
 	</view>
 </template>
@@ -138,6 +127,8 @@
 		onShareAppMessage(res) {
 			return {
 				title: '看看这个小程序多好玩～',
+				path: '/pages/index/tabbar',
+
 			};
 		},
 		watch:{
@@ -158,14 +149,6 @@
 			// });
 		},
 		methods: {
-			getGitee(){
-				uni.setClipboardData({
-				    data: 'https://gitee.com/kevin_chou',
-				    success: function () {
-				        console.log('success');
-				    }
-				});
-			},
 			switchImage(index, name) {
 				this.topBackGroupImageIndex = index;
 				this.modalName = null;
@@ -212,7 +195,7 @@
 	.topBox{
 		background-color: #FFF;
 		width: 100%;
-		height: 300rpx;
+		height: 380rpx;
 		margin-top: 50rpx;
 	}
 	.usrBox{
@@ -236,8 +219,27 @@
 	.top-center{
 		margin-left: 0;
 		margin-right: 100rpx;
+		color:black;
+	}
+	.top-center view{
+		margin-top:12rpx;
+	}
+	.top-right{
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.top-right>view{
+		display: flex;
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+		vertical-align: middle;
 	}
 
+
+	
 	.UCenter-bg {
 		background: #fff;
 		background-size: 100% 100%;
