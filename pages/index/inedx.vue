@@ -20,7 +20,9 @@
 				<text class="text-xl text-bold text-blue text-shadow">本周特惠</text>
 				<text class="text-ABC text-blue">preference</text>
 			</view>
+			<!-- 注释掉更多的按钮
 			<view class="action" @click="goProjectList"><text class="text-lg text-grey text-shadow">更多</text></view>
+			-->
 		</view>
 		<view class="uni-padding-wrap">
 			<view class="page-section swiper">
@@ -100,8 +102,8 @@
 			<view class="action" @click="goProjectList"><text class="text-lg text-grey text-shadow">更多</text></view>
 			-->
 		</view>
-
-		<view class="cu-card case no-card">
+		<!-- 原来的布局被修改 后来发现有直接可用的轮子 
+		<view class="cu-card case no-card article">
 			<view 
 			@click="goProject(item.id)" 
 			class="cu-item shadow" 
@@ -136,7 +138,27 @@
 				</view>
 			</view>
 		</view>
-
+		-->
+		<view class="cu-card article">
+			<view 
+			class="cu-item shadow"
+			@click="goProject(item.id)"
+			v-for="(item, index) in projectList" 
+			:key="index">
+				<view class="title"><view class="text-cut">{{ item.title }}</view></view>
+				<view class="content">
+					<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"
+					 mode="aspectFill"></image>
+					<view class="desc">
+						<view class="text-content"> {{ item.tabs }}</view>
+						<view>
+							<view class="cu-tag bg-red light sm round">{{ item.time }}</view>
+							<view class="cu-tag bg-green light sm round">{{ item.type }}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
 		<view style="height: 140rpx;width: 1rpx;"></view>
 	</view>
 </template>
