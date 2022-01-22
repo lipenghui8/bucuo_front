@@ -25,21 +25,11 @@
 									<view class="content">
 										<view class="title u-line-2 text-bold">{{ item.title }}</view>
 										<view class="type">{{ item.type }}</view>
-										<view class="delivery-time">讲师： {{ item.teacher }}</view>
 									</view>
 								</view>
-								<u-line color="#f1f1f1" margin="24rpx 0 15rpx 0"></u-line>
 								<view class="bottom">
 									<view>
-										<view class="cu-avatar-group" style="padding-left: 24rpx;">
-											<view class="cu-avatar round" v-for="(item,index) in avatar" :key="index" :style="[{ backgroundImage:'url(' + avatar[index] + ')' }]"></view>
-										</view>
-										<text class="text-blue text-shadow">学习人数:12人</text>
-									</view>
-									
-									<view class="btnBox">
-										<!-- <view class="exchange btn">分享课程</view> -->
-										<view @click="goClass" class="evaluate btn">班级信息</view>
+										<text class="text-gray text-shadow">ID:{{user.id}} 2天前</text>
 									</view>
 								</view>
 							</view>
@@ -70,18 +60,6 @@
 									</view>
 								</view>
 								<u-line color="#f1f1f1" margin="24rpx 0 15rpx 0"></u-line>
-								<view class="bottom">
-									<view>
-										<view class="cu-avatar-group" style="padding-left: 24rpx;">
-											<view class="cu-avatar round" v-for="(item,index) in avatar" :key="index" :style="[{ backgroundImage:'url(' + avatar[index] + ')' }]"></view>
-										</view>
-										<text class="text-blue text-shadow">学习人数:12人</text>
-									</view>
-									
-									<view class="btnBox">
-										<view class="evaluate btn">班级信息</view>
-									</view>
-								</view>
 							</view>
 							<u-loadmore :status="loadStatus[1]" bgColor="#f2f2f2"></u-loadmore>
 						</view>
