@@ -1,44 +1,17 @@
 <!-- TabBar 文章资讯 -->
 <template>
 	<view>
-		<cu-custom bgColor="bg-gradual-blue" :isBack="false">
-			<!-- <block slot="backText">返回</block> -->
-			<block slot="content">消息</block>
-		</cu-custom>
-
-		<scroll-view scroll-x class="bg-white nav" scroll-with-animation :scroll-left="scrollLeft">
-			<view class="cu-item" :class="index == TabCur?'text-blue cur':''" v-for="(item,index) in navTop" :key="index" @tap="tabSelect"
-			 :data-id="index">
-				{{item.title}}
-			</view>
-		</scroll-view>
-		
-		<view class="cu-card article no-card">
-			<view class="cu-item shadow borderBottom" v-for="(item, index) in newsList" :key="index" @click="goNews(item.id)">
-				<view class="title"><view class="text-cut">{{item.title}}</view></view>
-				<view class="content">
-					<image :src="item.tImg" mode="aspectFit"></image>
-					<view class="desc">
-						<view class="text-content">{{item.introduceText}}</view>
-						<view class="margin-top-xs">
-							<view class="text-gray light sm round fl">{{item.time}}</view>
-							<view class="text-gray light sm round fr">
-								<text class="text-gray cuIcon-mark" style="font-size: 34rpx;"></text>
-								<text>{{item.read}}</text>
-							</view>
-						</view>
-					</view>
-				</view>
-			</view>
-		</view>
-		
-
+		<news/>
 	</view>
 </template>
 
 <script>
 	import request from '@/common/request.js';
+	import news from '@/components/news/news.vue'
 	export default {
+		components:{
+			news
+		},
 		data() {
 			return {
 				TabCur: 0,
@@ -47,31 +20,15 @@
 				navTop:[
 					{
 						id: 1,
-						title: '全部'
+						title: '消息'
 					},
 					{
 						id: 2,
-						title: 'UI设计'
+						title: '通知'
 					},
 					{
 						id: 3,
-						title: 'Web前端'
-					},
-					{
-						id: 4,
-						title: 'Java后台'
-					},
-					{
-						id: 5,
-						title: '面试精选'
-					},
-					{
-						id: 6,
-						title: '技术前沿'
-					},
-					{
-						id: 7,
-						title: '更多资讯'
+						title: '好友'
 					}
 				]
 			};

@@ -579,7 +579,7 @@
 				}
 			};
 		},
-		onLoad(option) {
+		mounted(option) {
 			this.getMsgList();
 			//语音自然播放结束
 			this.AUDIO.onEnded((res) => {
