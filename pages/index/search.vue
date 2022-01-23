@@ -4,13 +4,12 @@
 			<!-- <block slot="backText">返回</block> -->
 			<block slot="content">技术栈</block>
 		</cu-custom>
+		<view class="action"><text class="text-lg text-grey text-shadow">更多</text></view>
+		<view>
+			<bigbutton></bigbutton>
+		</view>		
 		
-		<view class="u-search-box">
-			<view class="u-search-inner">
-				<u-icon name="search" color="#909399" :size="28"></u-icon>
-				<text class="u-search-text">搜索您想学习的技术栈</text>
-			</view>
-		</view>
+		<!--
 		<view class="u-menu-wrap">
 			<scroll-view scroll-y scroll-with-animation class="u-tab-view menu-scroll-view" :scroll-top="scrollTop">
 				<view v-for="(item,index) in tabbar" :key="index" class="u-tab-item" :class="[current==index ? 'u-tab-item-active' : '']"
@@ -36,11 +35,13 @@
 				</scroll-view>
 			</block>
 		</view>
+		-->
 	</view>
 </template>
 
 <script>
 	import classifyData from "@/common/classify.data.js";
+	import bigbutton from "@/components/bigbutton/index.vue"
 	export default {
 		data() {
 			return {
@@ -49,10 +50,14 @@
 				current: 0, // 预设当前项的值
 				menuHeight: 0, // 左边菜单的高度
 				menuItemHeight: 0, // 左边菜单item的高度
+				buttonData:[2.35,8.36,10.5],
 			}
 		},
 		computed: {
 			
+		},
+		components:{
+			bigbutton
 		},
 		methods: {
 			getImg() {
