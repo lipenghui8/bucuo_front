@@ -2,13 +2,33 @@
 	<view class="u-wrap">
 		<cu-custom bgColor="bg-gradual-blue" :isBack="false">
 			<!-- <block slot="backText">返回</block> -->
-			<block slot="content">技术栈</block>
+			<block slot="content">功能</block>
 		</cu-custom>
-		<view class="action"><text class="text-lg text-grey text-shadow">更多</text></view>
+		<view class="cu-bar bg-white  flex justify-end">
+			<navigator class="action but-margin" url="design" hover-class="none">
+				<view class="bg-white shadow " style="padding: 5px; border-radius: 8rpx;">
+					<text class="cuIcon-warnfill" style="color: #ff0000;"></text>
+					<text style="font-size: 22px;">建议</text>
+				</view>
+			</navigator>
+			<navigator class="action but-margin" url="design" hover-class="none" >
+				<view class="bg-white shadow"  style="padding: 5px; border-radius: 8rpx;">
+					<u-icon name="rmb-circle-fill" style="color: #313cd4;"></u-icon>
+					<text >赞赏</text>
+				</view>
+			</navigator>	
+		</view>
+		<view class="flex flex-wrap justify-end align-center bg-white" style="padding-right: 30rpx;">
+			<navigator class="action but-margin" url="design" hover-class="none" >
+				<view class="bg-white shadow"  style="padding: 5px; border-radius: 8rpx;">
+					<u-icon name="rmb-circle-fill" style="color: #313cd4;"></u-icon>
+					<text >拾物登记</text>
+				</view>
+			</navigator>	
+		</view>	
 		<view>
 			<bigbutton></bigbutton>
-		</view>		
-		
+		</view>	
 		<!--
 		<view class="u-menu-wrap">
 			<scroll-view scroll-y scroll-with-animation class="u-tab-view menu-scroll-view" :scroll-top="scrollTop">
@@ -103,6 +123,11 @@
 		/* #endif */
 		display: flex;
 		flex-direction: column;
+		background: #FFFFFF;
+	}
+	.but-margin {
+		margin-left: 15px;
+		font-size: 22px;
 	}
 
 	.u-tab-view {
