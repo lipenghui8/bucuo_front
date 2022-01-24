@@ -1344,7 +1344,7 @@
 </script>
 <style lang="scss">
 	@import "css/style.scss";
-
+	
 	.content .showLayer {
 		transform: translate3d(0, -43vw, 0);
 	}

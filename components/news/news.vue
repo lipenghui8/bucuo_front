@@ -1,7 +1,7 @@
 <!-- 课程班级 -->
 <template>
 	<view>
-		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+		<cu-custom bgColor="bg-gradual-blue">
 			<block slot="content">消息</block>
 		</cu-custom>
 		<view class="wrap">
@@ -11,50 +11,25 @@
 			<swiper class="swiper-box" :current="swiperCurrent" @transition="transition" @animationfinish="animationfinish">
 				<!-- 第一页 -->
 				<swiper-item class="swiper-item">
-					<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
-						<chat/>
-						<!-- <view class="page-box">
+					<scroll-view scroll-y style="height: 100%;width: 100%;"> <!-- @scrolltolower="reachBottom">-->
+						<!-- <chat/> -->
+						<view class="page-box">
 							<view class="order" v-for="(res, index) in orderList[0]" :key="res.id">
-								<view class="top">
-									<view class="left">
-										<uni-text class="cuIcon-titles text-blue"></uni-text>
-										<view class="store">{{ res.store }}</view>
-										<u-icon name="arrow-right" color="rgb(203,203,203)" :size="26"></u-icon>
-									</view>
-									<view class="right">
-										<text class="text-blue">进度：</text>
-										<view class="progressBox">
-											<u-line-progress :percent="res.progre" :active-color="activeColor"
-											:striped="true" :stripedActive="true"></u-line-progress>
-										</view>
-									</view>
-								</view>
 								<view class="item" v-for="(item, index) in res.goodsList" :key="index">
 									<view class="left">
 										<image :src="item.goodsUrl" mode="aspectFill"></image>
 									</view>
 									<view class="content">
-										<view class="title u-line-2 text-bold">{{ item.title }}</view>
-										<view class="type">{{ item.type }}</view>
-										<view class="delivery-time">讲师： {{ item.teacher }}</view>
-									</view>
-								</view>
-								<u-line color="#f1f1f1" margin="24rpx 0 15rpx 0"></u-line>
-								<view class="bottom">
-									<view>
-										<view class="cu-avatar-group" style="padding-left: 24rpx;">
-											<view class="cu-avatar round" v-for="(item,index) in avatar" :key="index" :style="[{ backgroundImage:'url(' + avatar[index] + ')' }]"></view>
+										<view class="contentItem">
+											<view class="title u-line-2 text-bold">ID:{{ item.title }}</view>
+											<view class="newsTime">18:54</view>
 										</view>
-										<text class="text-blue text-shadow">学习人数:12人</text>
-									</view>
-									
-									<view class="btnBox">
-										<view @click="goClass" class="evaluate btn">班级信息</view>
+										<view class="type">{{ item.type }}</view>
 									</view>
 								</view>
 							</view>
-							<u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
-						</view> -->
+							<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
+						</view>
 					</scroll-view>
 				</swiper-item>
 				<!-- 第二页 -->
@@ -156,8 +131,8 @@
 						goodsList: [
 							{
 								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
-								title: '第一阶段·5课时',
-								type: '课程名称：《vue-router全局导航守卫》，简介：导航首位就是变化的路由钩子...',
+								title: '040431',
+								type: '如果你想保研的话，要趁早准备，六级也得好',
 								teacher: '王老师',
 								number: 2
 							}
@@ -350,18 +325,23 @@ page {
 		.left {
 			margin-right: 20rpx;
 			image {
-				width: 260rpx;
-				height: 190rpx;
-				border-radius: 10rpx;
+				width: 120rpx;
+				height: 120rpx;
+				border-radius: 50%;
 			}
 		}
 		.content {
-			.title {
-				font-size: 28rpx;
-				line-height: 45rpx;
+			.contentItem{
+				display: flex;
+				justify-content:between;
+				.title {
+					font-size: 35rpx;
+					line-height: 45rpx;
+				}
 			}
 			.type {
-				margin: 6rpx 0;
+				margin: 10rpx 0;
+				margin-top:15rpx;
 				font-size: 24rpx;
 				color: $u-tips-color;
 				text-overflow: -o-ellipsis-lastline;
