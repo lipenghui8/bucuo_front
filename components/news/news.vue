@@ -69,9 +69,9 @@
 										<view class="contentItem">
 											<view class="title u-line-2 text-bold">ID:{{ item.title }}</view>
 											<view class="newsTime">LV5</view>
-											<view class="chatImg">
+											<navigator open-type="navigate" url="../../tn_components/chat/chat"  class="chatImg">
 												<image :src="chatImgUrl" mode="aspectFill"></image>
-											</view>
+											</navigator>
 										</view>
 									</view>
 								</view>
@@ -452,8 +452,8 @@ page {
 				.chatImg{
 					margin-right: 20rpx;
 					image {
-					width: 80rpx;
-					height: 80rpx;
+					width: 70rpx;
+					height: 70rpx;
 					}
 				}
 			}
