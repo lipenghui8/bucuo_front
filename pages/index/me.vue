@@ -43,7 +43,7 @@
 					</view>
 					<view class="xs">
 						<view class="top-right">
-							<view>
+							<view @click="showCheese">
 								<image style="width: 50rpx;height: 50rpx;margin-top: 20rpx;" src="/static/me/icon/credit.png"></image>
 								<view style="margin-top: 23rpx;margin-left:10rpx;font-weight: bold;">{{65}}</view>
 							</view>
@@ -163,7 +163,12 @@
 			hideModal(e) {
 				this.modalName = null
 			},
-
+			//芝士币交易中心
+			showCheese(){
+				uni.navigateTo({
+					url:'../me/cheese'
+				})
+			},
 			// 答题测试
 			mentalTest() {
 				uni.navigateTo({
@@ -180,13 +185,7 @@
 				uni.navigateTo({
 					url: '../../tn_components/medal'
 				})
-			},
-			// 关于作者
-			goAboutMe() {
-				uni.navigateTo({
-					url: '../me/aboutMe'
-				})
-			},
+			}
 		}
 	}
 </script>

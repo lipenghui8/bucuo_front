@@ -18,9 +18,9 @@
 			}
 		},
 		{
-			"path": "pages/me/aboutMe",
+			"path": "pages/me/cheese",
 			"style": {
-				"navigationBarTitleText": "关于作者",
+				"navigationBarTitleText": "芝士币交易中心",
 				"navigationStyle": "custom"
 			}
 		},
