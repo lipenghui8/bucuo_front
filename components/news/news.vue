@@ -69,7 +69,7 @@
 										<view class="contentItem">
 											<view class="title u-line-2 text-bold">ID:{{ item.title }}</view>
 											<view class="newsTime">LV5</view>
-											<navigator open-type="navigate" url="../../tn_components/chat/chat"  class="chatImg">
+											<navigator hover-class="none" open-type="navigate" url="../../tn_components/chat/chat"  class="chatImg">
 												<image :src="chatImgUrl" mode="aspectFill"></image>
 											</navigator>
 										</view>
