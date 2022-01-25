@@ -1,7 +1,7 @@
 <!-- 课程班级 -->
 <template>
 	<view>
-		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+		<cu-custom bgColor="bg-gradual-blue">
 			<block slot="content">消息</block>
 		</cu-custom>
 		<view class="wrap">
@@ -11,113 +11,72 @@
 			<swiper class="swiper-box" :current="swiperCurrent" @transition="transition" @animationfinish="animationfinish">
 				<!-- 第一页 -->
 				<swiper-item class="swiper-item">
-					<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
-						<chat/>
-						<!-- <view class="page-box">
-							<view class="order" v-for="(res, index) in orderList[0]" :key="res.id">
-								<view class="top">
-									<view class="left">
-										<uni-text class="cuIcon-titles text-blue"></uni-text>
-										<view class="store">{{ res.store }}</view>
-										<u-icon name="arrow-right" color="rgb(203,203,203)" :size="26"></u-icon>
-									</view>
-									<view class="right">
-										<text class="text-blue">进度：</text>
-										<view class="progressBox">
-											<u-line-progress :percent="res.progre" :active-color="activeColor"
-											:striped="true" :stripedActive="true"></u-line-progress>
-										</view>
-									</view>
-								</view>
+					<scroll-view scroll-y style="height: 100%;width: 100%;"> <!-- @scrolltolower="reachBottom">-->
+						<!-- <chat/> -->
+						<view class="page-box">
+							<navigator open-type="navigate" url="../../tn_components/chat/chat" class="order" v-for="(res, index) in newsList" :key="res.id">
 								<view class="item" v-for="(item, index) in res.goodsList" :key="index">
 									<view class="left">
 										<image :src="item.goodsUrl" mode="aspectFill"></image>
 									</view>
 									<view class="content">
-										<view class="title u-line-2 text-bold">{{ item.title }}</view>
-										<view class="type">{{ item.type }}</view>
-										<view class="delivery-time">讲师： {{ item.teacher }}</view>
-									</view>
-								</view>
-								<u-line color="#f1f1f1" margin="24rpx 0 15rpx 0"></u-line>
-								<view class="bottom">
-									<view>
-										<view class="cu-avatar-group" style="padding-left: 24rpx;">
-											<view class="cu-avatar round" v-for="(item,index) in avatar" :key="index" :style="[{ backgroundImage:'url(' + avatar[index] + ')' }]"></view>
+										<view class="contentItem">
+											<view class="title u-line-2 text-bold">ID:{{ item.title }}</view>
+											<view class="newsTime">18:54</view>
 										</view>
-										<text class="text-blue text-shadow">学习人数:12人</text>
-									</view>
-									
-									<view class="btnBox">
-										<view @click="goClass" class="evaluate btn">班级信息</view>
+										<view class="type">{{ item.type }}</view>
 									</view>
 								</view>
-							</view>
-							<u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
-						</view> -->
+							</navigator>
+							<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
+						</view>
 					</scroll-view>
 				</swiper-item>
 				<!-- 第二页 -->
 				<swiper-item class="swiper-item">
-					<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
+					<scroll-view scroll-y style="height: 100%;width: 100%;"> <!-- @scrolltolower="reachBottom">-->
+						<!-- <chat/> -->
 						<view class="page-box">
-							<view class="order" v-for="(res, index) in orderList[0]" :key="res.id">
-								<view class="top">
-									<view class="left">
-										<uni-text class="cuIcon-titles text-blue"></uni-text>
-										<view class="store">{{ res.store }}</view>
-										<u-icon name="arrow-right" color="rgb(203,203,203)" :size="26"></u-icon>
-									</view>
-									<view class="right">
-										<text class="text-blue">进度：</text>
-										<view class="progressBox">
-											<u-line-progress :percent="res.progre" :active-color="activeColor"
-											:striped="true" :stripedActive="true"></u-line-progress>
-										</view>
-									</view>
-								</view>
+							<view class="order" v-for="(res, index) in InformList" :key="res.id">
 								<view class="item" v-for="(item, index) in res.goodsList" :key="index">
 									<view class="left">
 										<image :src="item.goodsUrl" mode="aspectFill"></image>
 									</view>
 									<view class="content">
-										<view class="title u-line-2 text-bold">{{ item.title }}</view>
-										<view class="type">{{ item.type }}</view>
-										<view class="delivery-time">讲师： {{ item.teacher }}</view>
-									</view>
-								</view>
-								<u-line color="#f1f1f1" margin="24rpx 0 15rpx 0"></u-line>
-								<view class="bottom">
-									<view>
-										<view class="cu-avatar-group" style="padding-left: 24rpx;">
-											<view class="cu-avatar round" v-for="(item,index) in avatar" :key="index" :style="[{ backgroundImage:'url(' + avatar[index] + ')' }]"></view>
+										<view class="contentItem">
+											<view class="title u-line-2 text-bold">{{ item.title }}</view>
+											<view class="newsTime">18:54</view>
 										</view>
-										<text class="text-blue text-shadow">学习人数:12人</text>
-									</view>
-									
-									<view class="btnBox">
-										<view class="evaluate btn">班级信息</view>
+										<view class="type">{{ item.type }}</view>
 									</view>
 								</view>
 							</view>
-							<u-loadmore :status="loadStatus[1]" bgColor="#f2f2f2"></u-loadmore>
+							<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
 						</view>
 					</scroll-view>
 				</swiper-item>
 				<!-- 第三页 -->
 				<swiper-item class="swiper-item">
-					<scroll-view scroll-y style="height: 100%;width: 100%;">
+					<scroll-view scroll-y style="height: 100%;width: 100%;"> <!-- @scrolltolower="reachBottom">-->
+						<!-- <chat/> -->
 						<view class="page-box">
-							<view>
-								<view class="centre">
-									<image src="http://cdn.zhoukaiwen.com/noData1.png" mode="widthFix"></image>
-									<view class="explain">
-										暂无班级信息
-										<view class="tips">可以去看看有其他课程</view>
+							<view class="order" v-for="(res, index) in friendList" :key="res.id">
+								<view class="item" v-for="(item, index) in res.goodsList" :key="index">
+									<view class="left">
+										<image :src="item.goodsUrl" mode="aspectFill"></image>
 									</view>
-									<view class="btn">随便逛逛</view>
+									<view class="content">
+										<view class="contentItem">
+											<view class="title u-line-2 text-bold">ID:{{ item.title }}</view>
+											<view class="newsTime">LV5</view>
+											<navigator open-type="navigate" url="../../tn_components/chat/chat"  class="chatImg">
+												<image :src="chatImgUrl" mode="aspectFill"></image>
+											</navigator>
+										</view>
+									</view>
 								</view>
 							</view>
+							<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
 						</view>
 					</scroll-view>
 				</swiper-item>
@@ -127,11 +86,9 @@
 </template>
 
 <script>
-	import chat from '@/components/chat/chat.vue'
 	
 	export default {
 		components:{
-			chat
 		},
 		data() {
 			return {
@@ -139,7 +96,8 @@
 				activeColor: '#0081ff',
 				striped: false,
 				stripedActive: false,
-				
+				chatImgUrl:'http://bucuo.liph.top/static/news/chatImg.png',
+
 				avatar: [
 					'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg',
 					'https://ossweb-img.qq.com/images/lol/web201310/skin/big81005.jpg',
@@ -147,61 +105,159 @@
 					'https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg'
 				],
 				
-				orderList: [[], [], [], []],
-				dataList: [
+				orderList: [[], [], []],
+				newsList: [
 					{
 						id: 1,
-						store: '小班课 · 1班',
-						progre: 60,
 						goodsList: [
 							{
 								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
-								title: '第一阶段·5课时',
-								type: '课程名称：《vue-router全局导航守卫》，简介：导航首位就是变化的路由钩子...',
-								teacher: '王老师',
-								number: 2
+								title: '040431',
+								type: '如果你想保研的话，要趁早准备，六级也得好'
 							}
 						]
 					},
 					{
 						id: 2,
-						store: '精品课 · 2班',
-						progre: 39,
 						goodsList: [
 							{
 								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
-								title: 'Promise的链式调用',
-								type: 'Promise 必须为以下三种状态之一：等待态（Pending）、执行态（Fulfilled）和拒绝态（Rejected）。一旦Promise 被 resolve 或 reject，不能再迁移至其他任何状态（即状态 immutable）。',
-								teacher: 'Lee老师',
-								number: 1
+								title: '040431',
+								type: 'Promise 必须为以下三种状态之一'
 							}
 						]
 					},
 					{
 						id: 3,
-						store: '小班课 · 3班',
-						progre: 55,
 						goodsList: [
 							{
 								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
-								title: '基于vue应用中实用的性能技巧',
-								type: '1.封装项目的基础库；2.层级管理；3.缓存；4.延迟加载；5.工程化-webpack的改进；6.控制代码质量；7.自动化部署等优化方案',
-								teacher: '王老师',
-								number: 3
+								title: '040431',
+								type: '1.封装项目的基础库；2.层级管理；3.缓存；'
 							}
 						]
 					},
 					{
 						id: 4,
-						store: '小班课 · 4班',
-						progre: 80,
 						goodsList: [
 							{
 								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
-								title: '变量提升及函数提升',
-								type: '引擎在读取js代码的过程中,分为两步。第一个步骤是整个js代码的解析读取,第二个步骤是执行',
-								teacher: '王老师',
-								number: 9
+								title: '040431',
+								type: '引擎在读取js代码的过程中,分为两步。'
+							}
+						]
+					}
+				],
+				InformList:[
+					{
+						id: 1,
+						goodsList: [
+							{
+								goodsUrl: 'http://bucuo.liph.top/static/news/dianzan.png',
+								title: '点赞',
+								type: '如果你想保研的话，要趁早准备，六级也得好'
+							}
+						]
+					},
+					{
+						id: 2,
+						goodsList: [
+							{
+								goodsUrl: 'http://bucuo.liph.top/static/news/shoucan.png',
+								title: '收藏',
+								type: 'Promise 必须为以下三种状态之一'
+							}
+						]
+					},
+					{
+						id: 3,
+						goodsList: [
+							{
+								goodsUrl: 'http://bucuo.liph.top/static/news/pinglun.png',
+								title: '评论',
+								type: '1.封装项目的基础库；2.层级管理；3.缓存；'
+							}
+						]
+					},
+					{
+						id: 4,
+						goodsList: [
+							{
+								goodsUrl: 'http://bucuo.liph.top/static/news/shiwu.png',
+								title: '失物',
+								type: '引擎在读取js代码的过程中,分为两步。'
+							}
+						],
+					},
+					{
+						id: 5,
+						goodsList: [
+							{
+								goodsUrl: 'http://bucuo.liph.top/static/news/me.jpg',
+								title: '乐享君',
+								type: '引擎在读取js代码的过程中,分为两步。'
+							}
+						]
+					}
+				],
+				friendList:[
+					{
+						id: 1,
+						goodsList: [
+							{
+								goodsUrl: 'http://bucuo.liph.top/static/news/dianzan.png',
+								title: '001265',
+								type: '如果你想保研的话，要趁早准备，六级也得好'
+							}
+						]
+					},
+					{
+						id: 2,
+						goodsList: [
+							{
+								goodsUrl: 'http://bucuo.liph.top/static/news/shoucan.png',
+								title: '001266',
+								type: 'Promise 必须为以下三种状态之一'
+							}
+						]
+					},
+					{
+						id: 3,
+						goodsList: [
+							{
+								goodsUrl: 'http://bucuo.liph.top/static/news/pinglun.png',
+								title: '001267',
+								type: '1.封装项目的基础库；2.层级管理；3.缓存；'
+							}
+						]
+					},
+					{
+						id: 4,
+						goodsList: [
+							{
+								goodsUrl: 'http://bucuo.liph.top/static/news/shiwu.png',
+								title: '001268',
+								type: '引擎在读取js代码的过程中,分为两步。'
+							}
+						],
+					},
+					{
+						id: 5,
+						goodsList: [
+							{
+								goodsUrl: 'http://bucuo.liph.top/static/news/me.jpg',
+								title: '001269',
+								type: '引擎在读取js代码的过程中,分为两步。'
+							}
+						]
+					},
+					{
+						id: 6,
+						goodsList: [
+							{
+								goodsUrl: 'http://bucuo.liph.top/static/news/me.jpg',
+								title: '001269',
+								type: '引擎在读取js代码的过程中,分为两步。'
 							}
 						]
 					}
@@ -227,7 +283,7 @@
 		mounted() {
 			this.getOrderList(0);
 			this.getOrderList(1);
-			this.getOrderList(3);
+			this.getOrderList(2);
 		},
 		computed: {
 			// 价格小数
@@ -264,11 +320,30 @@
 			},
 			// 页面数据
 			getOrderList(idx) {
-				for(let i = 0; i < 5; i++) {
-					let index = this.$u.random(0, this.dataList.length - 1);
-					let data = JSON.parse(JSON.stringify(this.dataList[index]));
-					data.id = this.$u.guid();
-					this.orderList[idx].push(data);
+				let data
+				if(idx==0){
+					let len= this.newsList.length
+						for(let i = 0; i < len; i++) {
+						data = JSON.parse(JSON.stringify(this.newsList[i]));
+						data.id = this.$u.guid();
+						this.orderList[idx].push(data);
+					}
+				}
+				else if(idx==1){
+						let len= this.newsList.length
+						for(let i = 0; i < len; i++) {
+						data = JSON.parse(JSON.stringify(this.informList[i]));
+						data.id = this.$u.guid();
+						this.orderList[idx].push(data);
+					}
+				}
+				else{
+					for(let i = 0; i < 5; i++) {
+						let index = this.$u.random(0, this.newsList.length - 1);
+						data = JSON.parse(JSON.stringify(this.newsList[i]));
+						data.id = this.$u.guid();
+						this.orderList[idx].push(data);
+					}
 				}
 				this.loadStatus.splice(this.current,1,"loadmore")
 			},
@@ -291,7 +366,7 @@
 			// tab栏切换
 			change(index) {
 				this.swiperCurrent = index;
-				this.getOrderList(index);
+				//this.getOrderList(index);
 			},
 			transition({ detail: { dx } }) {
 				this.$refs.tabs.setDx(dx);
@@ -300,6 +375,11 @@
 				this.$refs.tabs.setFinishCurrent(current);
 				this.swiperCurrent = current;
 				this.current = current;
+			},
+			wander(){
+				uni.switchTab({
+					url:'/pages/index/index'
+				})
 			}
 		}
 	};
@@ -313,7 +393,6 @@ page {
 }
 /* #endif */
 </style>
-
 <style lang="scss" scoped>
 	
 .order {
@@ -349,27 +428,46 @@ page {
 		margin: 20rpx 0 0;
 		.left {
 			margin-right: 20rpx;
+			width: 100rpx;
+			height: 100rpx;
 			image {
-				width: 260rpx;
-				height: 190rpx;
-				border-radius: 10rpx;
+				width: 100rpx;
+				height: 100rpx;
+				border-radius: 50%;
 			}
 		}
 		.content {
-			.title {
-				font-size: 28rpx;
-				line-height: 45rpx;
+			width: 100%;
+			.contentItem{
+				display: flex;
+				justify-content:space-between;
+				.title {
+					font-size: 35rpx;
+					line-height: 45rpx;
+				}
+				.newsTime{
+					margin-left: 120rpx;
+					margin-top:5rpx;
+				}
+				.chatImg{
+					margin-right: 20rpx;
+					image {
+					width: 70rpx;
+					height: 70rpx;
+					}
+				}
 			}
 			.type {
-				margin: 6rpx 0;
+				margin: 10rpx 0;
+				margin-top:20rpx;
 				font-size: 24rpx;
 				color: $u-tips-color;
 				text-overflow: -o-ellipsis-lastline;
 				overflow: hidden;
 				text-overflow: ellipsis;
 				display: -webkit-box;
-				-webkit-line-clamp: 3;
-				line-clamp: 3;
+				-webkit-line-clamp: 2;
+				line-clamp: 2;
 				-webkit-box-orient: vertical;
 			}
 			.delivery-time {

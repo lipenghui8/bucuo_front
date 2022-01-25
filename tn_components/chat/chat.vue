@@ -785,7 +785,7 @@
 							id: 0,
 							type: "text",
 							content: {
-								text: "欢迎进入Kevin聊天室"
+								text: "欢迎进入不错校园聊天室"
 							}
 						}
 					},
@@ -897,7 +897,7 @@
 							id: 7,
 							type: "text",
 							content: {
-								text: "欢迎进入Kevin聊天室"
+								text: "欢迎进入不错校园聊天室"
 							}
 						}
 					},
