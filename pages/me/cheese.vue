@@ -26,8 +26,8 @@
     <view class="vip">
       <view class="middleContent" v-for="item in vipData" :key="item.id">
         <view class="mItem">
-          <image v-show="key!=2" :src="chooseFalse" style="width: 100rpx;height: 100rpx;"></image>
-          <image v-show="key==2" :src="chooseTrue" style="width: 100rpx;height: 100rpx;"></image>
+          <image v-show="item.id!=2" :src="chooseFalse" style="width: 100rpx;height: 100rpx;"></image>
+          <image v-show="item.id==2" :src="chooseTrue" style="width: 100rpx;height: 100rpx;"></image>
           <view class="itemRight">
             <view class="recordNum">{{item.cheeseNum}}芝士币</view>
             <view style="font-size:30rpx;font-weight:600;margin-left: 10rpx;margin-top: 3rpx;">{{item.info}}</view>
