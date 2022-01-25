@@ -3,7 +3,7 @@
 	<view>
 		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
 			<block slot="backText">返回</block>
-			<block slot="content">项目展示</block>
+			<block slot="content">当地</block>
 		</cu-custom>
 		<view class="wrap">
 			<view class="u-tabs-box">
@@ -52,7 +52,7 @@
 	import vip from "@/components/vip/vip.vue"
 
 	export default {
-		name: "",
+		name: "local",
 		components:{
 			vip
 		},
@@ -171,6 +171,7 @@
 		},
 		mounted() {
 			this.getOrderList(0);
+			console.log("mounted")
 		},
 		computed: {
 			// 价格小数
