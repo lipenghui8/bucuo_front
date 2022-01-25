@@ -1,6 +1,6 @@
 <template>
         <view class="u-demo-block">
-            <view class="u-demo-block__content " @click="goArticleList(exp)" >
+            <view class="u-demo-block__content " @click="goExp" >
                 <u-row customStyle="margin-bottom: 10px">
                     <u-col span="12">
                         <view class="demo-layout bg-purple-light shadow">
@@ -33,7 +33,7 @@
                     </u-col>
                 </u-row>
             </view>
-            <view class="u-demo-block__content " >
+            <view class="u-demo-block__content " @click="goSkill">
                 <u-row customStyle="margin-bottom: 10px">
                     <u-col span="12">
                         <view class="demo-layout bg-purple-light shadow">
@@ -66,7 +66,7 @@
                     </u-col>
                 </u-row>
             </view>
-            <view class="u-demo-block__content " @click="changeRoute">
+            <view class="u-demo-block__content " @click="goLocal">
                 <u-row customStyle="margin-bottom: 10px">
                     <u-col span="12">
                         <view class="demo-layout bg-purple-light shadow">
@@ -129,15 +129,19 @@
 			}
 		},
 		methods:{
-			goArticleList(category){
-				console.log(category)
+			goExp(){
 				uni.navigateTo({
-					url: '../article/articleList'
+					url: '../../pages/function/exp'
 				});
 			},
-			changeRoute(){
+			goLocal(){
 				uni.navigateTo({
-					url: '../location/main'
+					url: '../../pages/function/local'
+				});
+			},
+			goSkill(){
+				uni.navigateTo({
+					url: '../../pages/function/skill'
 				});
 			}
 		}

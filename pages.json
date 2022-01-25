@@ -114,11 +114,32 @@
 		}
 		},
 		{
-        "path": "pages/location/main",
+        "path": "pages/function/local",
         "style": {
 			"navigationStyle": "custom",
 			"navigationBarTitleText": "当地"        
 		}
+		},
+		{
+		"path": "pages/function/exp",
+		"style": {
+			"navigationStyle": "custom",
+			"navigationBarTitleText": "经验"        
+		}
+		},
+		{
+		"path": "pages/function/skill",
+		"style": {
+			"navigationStyle": "custom",
+			"navigationBarTitleText": "技能"        
+		}
+		},
+		{
+		"path": "pages/function/lost",
+		"style": {
+			"navigationStyle": "custom",
+			"navigationBarTitleText": "失物招领"        
+		}			
 		}
 	],
 	"subPackages": [{

@@ -16,9 +16,9 @@
 					<u-icon name="rmb-circle-fill" style="color: #313cd4;"></u-icon>
 					<text >赞赏</text>
 				</view>
-			</navigator>	
+			</navigator>
 		</view>
-		<view class="flex flex-wrap justify-end align-center bg-white" style="padding-right: 30rpx;">
+		<view class="flex flex-wrap justify-end align-center bg-white" style="padding-right: 30rpx;" @click="goLost">
 			<navigator class="action but-margin" url="design" hover-class="none" >
 				<view class="bg-white shadow"  style="padding: 5px; border-radius: 8rpx;">
 					<u-icon name="rmb-circle-fill" style="color: #313cd4;"></u-icon>
@@ -80,6 +80,11 @@
 			bigbutton
 		},
 		methods: {
+			goLost() {
+				uni.navigateTo({
+					url: '../../pages/function/lost'
+				});
+			},
 			getImg() {
 				return Math.floor(Math.random() * 35);
 			},
