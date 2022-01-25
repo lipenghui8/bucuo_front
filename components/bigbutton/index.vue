@@ -1,6 +1,6 @@
 <template>
         <view class="u-demo-block">
-            <view class="u-demo-block__content " >
+            <view class="u-demo-block__content " @click="goArticleList(exp)" >
                 <u-row customStyle="margin-bottom: 10px">
                     <u-col span="12">
                         <view class="demo-layout bg-purple-light shadow">
@@ -66,7 +66,7 @@
                     </u-col>
                 </u-row>
             </view>
-            <view class="u-demo-block__content ">
+            <view class="u-demo-block__content " @click="changeRoute">
                 <u-row customStyle="margin-bottom: 10px">
                     <u-col span="12">
                         <view class="demo-layout bg-purple-light shadow">
@@ -122,6 +122,26 @@
 </template>
 
 <script>
+	export default {
+		data() {
+			return {
+				
+			}
+		},
+		methods:{
+			goArticleList(category){
+				console.log(category)
+				uni.navigateTo({
+					url: '../article/articleList'
+				});
+			},
+			changeRoute(){
+				uni.navigateTo({
+					url: '../location/main'
+				});
+			}
+		}
+	}
 </script>
 
 <style lang="scss">

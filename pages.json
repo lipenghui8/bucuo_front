@@ -105,6 +105,20 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+        "path": "pages/article/articleList",
+        "style": {
+			"navigationStyle": "custom",
+			"navigationBarTitleText": "文章列表"        
+		}
+		},
+		{
+        "path": "pages/location/main",
+        "style": {
+			"navigationStyle": "custom",
+			"navigationBarTitleText": "当地"        
+		}
 		}
 	],
 	"subPackages": [{
