@@ -1,831 +1,454 @@
 <template>
-	<view class="components-home">
-		<view style="margin-top:-50rpx;height: 486rpx; position: relative;margin-bottom: 80rpx;">
-			<image src='https://zhoukaiwen.com/img/wccQQP.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
-			<!--  -->
-		</view>
-		
-		<swiper class="card-swiper round-dot" :indicator-dots="false" :circular="true" :autoplay="true" interval="5000"
-		  duration="500" @change="cardSwiper" indicator-color="#ffffff" indicator-active-color="#ffffff" style="margin-top: -320upx;">
-		  <swiper-item v-for="(item,index) in swiperList" :key="index" :class="cardCur==index?'cur':''">
-		    <view class="swiper-item shadow-shop" style="border-radius: 20rpx 20rpx 22rpx 22rpx;">
-		      <!-- <view class="" :style="'background-image:url('+item.mainImageShowData[0]['image']+');filter: blur(20px);width: 100%;height: 150px;position: absolute;'">
-		          </view>
-		    			<image :src="item.mainImageShowData[0]['image']" mode="aspectFill" ></image> -->
-		      <image :src="item.url" v-if="item.type=='image'" mode="aspectFill" class=""></image>
-		
-		    </view>
-		  </swiper-item>
-		</swiper>
-
-		<view class="title-header">
-			<view class="title-text">
-				酷 / 炫 / 组 / 件
+	<view class="wrap">
+		<u-form :model="model" :rules="rules" ref="uForm" :errorType="errorType">
+			<u-form-item :leftIconStyle="{color: '#888', fontSize: '32rpx'}" left-icon="account" label-width="120" :label-position="labelPosition" label="姓名" prop="name">
+				<u-input :border="border" placeholder="请输入姓名" v-model="model.name" type="text"></u-input>
+			</u-form-item>
+			<u-form-item :label-position="labelPosition" label="性别" prop="sex">
+				<u-input :border="border" type="select" :select-open="actionSheetShow" v-model="model.sex" placeholder="请选择性别" @click="actionSheetShow = true"></u-input>
+			</u-form-item>
+			<u-form-item :label-position="labelPosition" label="简介" prop="intro">
+				<u-input type="textarea" :border="border" placeholder="请填写简介" v-model="model.intro" />
+			</u-form-item>
+			<u-form-item :label-position="labelPosition" label="密码" prop="password">
+				<u-input :password-icon="true" :border="border" type="password" v-model="model.password" placeholder="请输入密码"></u-input>
+			</u-form-item>
+			<u-form-item :label-position="labelPosition" label="确认密码" label-width="150" prop="rePassword">
+				<u-input :border="border" type="password" v-model="model.rePassword" placeholder="请确认密码"></u-input>
+			</u-form-item>
+			<u-form-item :label-position="labelPosition" label="水果品种" label-width="150" prop="likeFruit">
+				<u-checkbox-group @change="checkboxGroupChange" :width="radioCheckWidth" :wrap="radioCheckWrap">
+					<u-checkbox v-model="item.checked" v-for="(item, index) in checkboxList" :key="index" :name="item.name">{{ item.name }}</u-checkbox>
+				</u-checkbox-group>
+			</u-form-item>
+			<u-form-item :label-position="labelPosition" label="结算方式" prop="payType" label-width="150">
+				<u-radio-group v-model="radio" @change="radioGroupChange" :width="radioCheckWidth" :wrap="radioCheckWrap">
+					<u-radio shape="circle" v-for="(item, index) in radioList" :key="index" :name="item.name">{{ item.name }}</u-radio>
+				</u-radio-group>
+			</u-form-item>
+			<u-form-item :label-position="labelPosition" label="所在地区" prop="region" label-width="150">
+				<u-input :border="border" type="select" :select-open="pickerShow" v-model="model.region" placeholder="请选择地区" @click="pickerShow = true"></u-input>
+			</u-form-item>
+			<u-form-item :label-position="labelPosition" label="商品类型" prop="goodsType" label-width="150">
+				<u-input :border="border" type="select" :select-open="selectShow" v-model="model.goodsType" placeholder="请选择商品类型" @click="selectShow = true"></u-input>
+			</u-form-item>
+			<u-form-item :rightIconStyle="{color: '#888', fontSize: '32rpx'}" right-icon="kefu-ermai" :label-position="labelPosition" label="手机号码" prop="phone" label-width="150">
+				<u-input :border="border" placeholder="请输入手机号" v-model="model.phone" type="number"></u-input>
+			</u-form-item>
+			<u-form-item :label-position="labelPosition" label="验证码" prop="code" label-width="150">
+				<u-input :border="border" placeholder="请输入验证码" v-model="model.code" type="text"></u-input>
+				<u-button slot="right" type="success" size="mini" @click="getCode">{{codeTips}}</u-button>
+			</u-form-item>
+			<!-- 此处switch的slot为right，如果不填写slot名，也即<u-switch v-model="model.remember"></u-switch>，将会左对齐 -->
+			<u-form-item :label-position="labelPosition" label="记住密码" prop="remember" label-width="150">
+				<u-switch v-model="model.remember" slot="right"></u-switch>
+			</u-form-item>
+			<u-form-item :label-position="labelPosition" label="上传图片" prop="photo" label-width="150">
+				<u-upload width="160" height="160"></u-upload>
+			</u-form-item>
+		</u-form>
+		<view class="agreement">
+			<u-checkbox v-model="check" @change="checkboxChange"></u-checkbox>
+			<view class="agreement-text">
+				勾选代表同意uView的版权协议
 			</view>
 		</view>
-
-		<view class='nav-list margin-top'>
-			<navigator open-type="navigate" hover-class='none' :url="'/tn_components/' + item.title"
-				:class="'nav-li bg-kuxuan' + (index+1)" v-for="(item, index) in kuxuan" :key="index">
-				<view class="nav-name">{{item.name}}</view>
-			</navigator>
-		</view>
-		
-		<view class="title-header">
-			<view class="title-text">
-				样 / 式 / 模 / 板
+		<u-button @click="submit">提交</u-button>
+		<u-action-sheet :list="actionSheetList" v-model="actionSheetShow" @click="actionSheetCallback"></u-action-sheet>
+		<u-select mode="single-column" :list="selectList" v-model="selectShow" @confirm="selectConfirm"></u-select>
+		<u-picker mode="region" v-model="pickerShow" @confirm="regionConfirm"></u-picker>
+		<u-verification-code seconds="60" ref="uCode" @change="codeChange"></u-verification-code>
+		<view class="u-config-wrap">
+			<view class="u-config-title u-border-bottom">
+				参数配置
+			</view>
+			<view class="u-config-item">
+				<view class="u-item-title">label对齐方式</view>
+				<u-subsection :list="['左边', '上方']" @change="labelPositionChange"></u-subsection>
+			</view>
+			<view class="u-config-item">
+				<view class="u-item-title">边框</view>
+				<u-subsection :current="borderCurrent" :list="['显示', '隐藏']" @change="borderChange"></u-subsection>
+			</view>
+			<view class="u-config-item">
+				<view class="u-item-title">radio、checkbox样式</view>
+				<u-subsection :list="['自适应', '换行', '50%宽度']" @change="radioCheckboxChange"></u-subsection>
+			</view>
+			<view class="u-config-item">
+				<view class="u-item-title">错误提示方式</view>
+				<u-subsection :list="['message', 'toast', '下划线', '输入框']" @change="errorChange"></u-subsection>
 			</view>
 		</view>
-
-		<view class='nav-list margin-top'>
-			<navigator open-type="navigate" hover-class='none' :url="'/tn_components/' + item.title"
-				:class="'nav-li bg-exper' + (index+1)" v-for="(item, index) in yangshi" :key="index">
-				<view class="nav-name">{{item.name}}</view>
-			</navigator>
-		</view>
-		
-		<view class="title-header">
-			<view class="title-text">
-				付 / 费 / 组 / 件
-			</view>
-		</view>
-		<view class='nav-list margin-top'>
-			<navigator open-type="navigate" hover-class='none' :url="'../main/' + item.title"
-				:class="'nav-li bg-index' + (index+1)" v-for="(item, index) in fufei" :key="index">
-				<view class="nav-name">{{item.name}}</view>
-			</navigator>
-		</view>
-		
-		<view class="title-header">
-			<view class="title-text">
-				设 / 计 / 模 / 版
-			</view>
-		</view>
-
-		<view class='nav-list margin-top'>
-			<navigator open-type="navigate" hover-class='none' :url="'../design?type=' + index"
-				:class="'nav-li bg-index' + (index+1)" v-for="(item, index) in Template" :key="index">
-				<view class="nav-name">{{item.name}}</view>
-			</navigator>
-		</view>
-		
-
-		<view class="title-header">
-			<view class="title-text">
-				友 / 情 / 链 / 接
-			</view>
-		</view>
-
-		<view class='nav-list margin-top'>
-			<navigator target="miniProgram" :app-id='item.appId' version='release' hover-class='none'
-				:url="'../design?type=' + index" :class="'nav-li bg-kuxuan' + (index+1)"
-				v-for="(item, index) in Links" :key="index">
-				<view class="nav-name">{{item.name}}</view>
-			</navigator>
-		</view>
-
-		<view style="height: 120rpx;width: 1rpx;"></view>
 	</view>
 </template>
 
 <script>
-	export default {
-		name: 'Components',
-		data() {
-			return {
-				swiperList: [{
-				  id: 0,
-				  type: 'image',
-				  url: 'https://zhoukaiwen.com/img/qdpz/phone1.png',
-				}, {
-				  id: 1,
-				  type: 'image',
-				  url: 'https://zhoukaiwen.com/img/qdpz/phone2.png'
-				}, {
-				  id: 2,
-				  type: 'image',
-				  url: 'https://zhoukaiwen.com/img/qdpz/phone3.png'
-				},{
-				  id: 3,
-				  type: 'image',
-				  url: 'https://zhoukaiwen.com/img/qdpz/phone4.png'
-				}],
-				cardCur: 0,
-				Links: [{
-						name: 'uView',
-						appId: 'wxc256e348c4032ebd'
+export default {
+	data() {
+		let that = this;
+		return {
+			model: {
+				name: '',
+				sex: '',
+				likeFruit: '',
+				intro: '',
+				payType: '支付宝',
+				agreement: false,
+				region: '',
+				goodsType: '',
+				phone: '',
+				code: '',
+				password: '',
+				rePassword: '',
+				remember: false,
+				photo: ''
+			},
+			selectList: [
+				{
+					value: '电子产品',
+					label: '电子产品'
+				},
+				{
+					value: '服装',
+					label: '服装'
+				},
+				{
+					value: '工艺品',
+					label: '工艺品'
+				}
+			],
+			rules: {
+				name: [
+					{
+						required: true,
+						message: '请输入姓名',
+						trigger: 'blur' ,
 					},
 					{
-						name: 'colorUi',
-						appId: 'wxfd5241d66a07713f'
+						min: 3,
+						max: 5,
+						message: '姓名长度在3到5个字符',
+						trigger: ['change','blur'],
 					},
 					{
-						name: '图鸟科技',
-						appId: 'wxa698b1eee960632f'
+						// 此为同步验证，可以直接返回true或者false，如果是异步验证，稍微不同，见下方说明
+						validator: (rule, value, callback) => {
+							// 调用uView自带的js验证规则，详见：https://www.uviewui.com/js/test.html
+							return this.$u.test.chinese(value);
+						},
+						message: '姓名必须为中文',
+						// 触发器可以同时用blur和change，二者之间用英文逗号隔开
+						trigger: ['change','blur'],
+					},
+					// 异步验证，用途：比如用户注册时输入完账号，后端检查账号是否已存在
+					// {
+					// 	trigger: ['blur'],
+					// 	// 异步验证需要通过调用callback()，并且在里面抛出new Error()
+					// 	// 抛出的内容为需要提示的信息，和其他方式的message属性的提示一样
+					// 	asyncValidator: (rule, value, callback) => {
+					// 		this.$u.post('/ebapi/public_api/index').then(res => {
+					// 			// 如果验证出错，需要在callback()抛出new Error('错误提示信息')
+					// 			if(res.error) {
+					// 				callback(new Error('姓名重复'));
+					// 			} else {
+					// 				// 如果没有错误，也要执行callback()回调
+					// 				callback();
+					// 			}
+					// 		})
+					// 	},
+					// }
+				],
+				sex: [
+					{
+						required: true,
+						message: '请选择性别',
+						trigger: 'change'
+					},
+				],
+				intro: [
+					{
+						required: true,
+						message: '请填写简介'
 					},
 					{
-						name: 'uniApp',
-						appId: 'wx999bf02c8e05dfc9'
+						min: 5,
+						message: '简介不能少于5个字',
+						trigger: 'change' ,
+					},
+					// 正则校验示例，此处用正则校验是否中文，此处仅为示例，因为uView有this.$u.test.chinese可以判断是否中文
+					{
+						pattern: /^[\u4e00-\u9fa5]+$/gi,
+						message: '简介只能为中文',
+						trigger: 'change',
+					},
+				],
+				likeFruit: [
+					{
+						required: true,
+						message: '请选择您喜欢的水果',
+						trigger: 'change',
+						type: 'array',
 					}
 				],
-				Template: [{
-						title: 'gamecube',
-						name: 'App设计',
-						color: ''
-					},
+				payType: [
 					{
-						title: 'gamecube',
-						name: '网站设计',
-						color: ''
-					},
-					{
-						title: 'gamecube',
-						name: 'Logo设计',
-						color: ''
-					},
-					{
-						title: 'gamecube',
-						name: '海报设计',
-						color: ''
+						required: true,
+						message: '请选择任意一种支付方式',
+						trigger: 'change',
 					}
 				],
-				kuxuan: [
+				region: [
 					{
-						title: 'mapLocus',
-						name: '地图轨迹',
-						color: ''
-					},
-					{
-						title: 'sign',
-						name: '电子签名',
-						color: ''
-					},
-					{
-						title: 'charts',
-						name: '图表展示',
-						color: ''
-					},
-					{
-						title: 'district',
-						name: '行政区图',
-						color: ''
-					},
-					{
-						title: 'poster',
-						name: '海报生成器',
-						color: ''
-					},
-					{
-						title: 'company',
-						name: '自定义相机',
-						color: ''
-					},
-					{
-						title: 'keyboard',
-						name: '自定义键盘',
-						color: ''
-					},
-					{
-						title: 'chat/chat',
-						name: '聊天功能',
-						color: ''
-					},
-					{
-						title: 'seat',
-						name: '在线选座',
-						color: ''
-					},
-					{
-						title: 'search',
-						name: '便捷查询',
-						color: ''
-					},
-					{
-						title: 'openDocument',
-						name: '文档预览',
-						color: ''
-					},
-					{
-						title: 'pano',
-						name: 'webview地图轨迹',
-						color: ''
-					},
-					{
-						title: 'drag_demo/index',
-						name: '悬浮球',
-						color: ''
-					},
-					{
-						title: 'request',
-						name: '模拟数据加载',
-						color: ''
+						required: true,
+						message: '请选择地区',
+						trigger: 'change',
 					}
 				],
-				yangshi: [
+				goodsType: [
 					{
-						title: 'login/index',
-						name: '登陆页合集',
-						color: ''
-					},
-					{
-						title: 'discern',
-						name: '证件识别',
-						color: ''
-					},
-					{
-						title: 'salary',
-						name: '排行榜',
-						color: ''
-					},
-					{
-						title: 'course',
-						name: '数据列表',
-						color: ''
-					},
-					{
-						title: 'details',
-						name: '通用详情页',
-						color: ''
-					},
-					{
-						title: 'clock',
-						name: '每日签到',
-						color: ''
-					},
-					{
-						title: 'timetables',
-						name: '课程表',
-						color: ''
-					},
-					{
-						title: 'bggrad',
-						name: '渐变动画',
-						color: ''
-					},
-					{
-						title: 'bgcolor',
-						name: '纯色过渡',
-						color: ''
-					},
-					{
-						title: 'ancube',
-						name: '立方体',
-						color: ''
-					},
-					{
-						title: 'anloading',
-						name: '加载动画',
-						color: ''
+						required: true,
+						message: '请选择商品类型',
+						trigger: 'change',
 					}
 				],
-				fufei:[
+				phone: [
 					{
-						title: 'posterList',
-						name: '海报设计(¥699)',
-						color: ''
+						required: true,
+						message: '请输入手机号',
+						trigger: ['change','blur'],
 					},
 					{
-						title: 'customCamera',
-						name: '图片编辑器(¥199)',
-						color: ''
+						validator: (rule, value, callback) => {
+							// 调用uView自带的js验证规则，详见：https://www.uviewui.com/js/test.html
+							return this.$u.test.mobile(value);
+						},
+						message: '手机号码不正确',
+						// 触发器可以同时用blur和change，二者之间用英文逗号隔开
+						trigger: ['change','blur'],
 					}
-				]
+				],
+				code: [
+					{
+						required: true,
+						message: '请输入验证码',
+						trigger: ['change','blur'],
+					},
+					{
+						type: 'number',
+						message: '验证码只能为数字',
+						trigger: ['change','blur'],
+					}
+				],
+				password: [
+					{
+						required: true,
+						message: '请输入密码',
+						trigger: ['change','blur'],
+					},
+					{
+						// 正则不能含有两边的引号
+						pattern: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]+\S{5,12}$/,
+						message: '需同时含有字母和数字，长度在6-12之间',
+						trigger: ['change','blur'],
+					}
+				],
+				rePassword: [
+					{
+						required: true,
+						message: '请重新输入密码',
+						trigger: ['change','blur'],
+					},
+					{
+						validator: (rule, value, callback) => {
+							return value === this.model.password;
+						},
+						message: '两次输入的密码不相等',
+						trigger: ['change','blur'],
+					}
+				],
+			},
+			border: false,
+			check: false,
+			selectStatus: 'close',
+			checkboxList: [
+				{
+					name: '荔枝',
+					checked: false,
+					disabled: false
+				},
+				{
+					name: '香蕉',
+					checked: false,
+					disabled: false
+				},
+				{
+					name: '橙子',
+					checked: false,
+					disabled: false
+				},
+				{
+					name: '草莓',
+					checked: false,
+					disabled: false
+				}
+			],
+			radioList: [
+				{
+					name: '支付宝',
+					checked: true,
+					disabled: false
+				},
+				{
+					name: '微信',
+					checked: false,
+					disabled: false
+				},
+				{
+					name: '银联',
+					checked: false,
+					disabled: false
+				},
+				{
+					name: '现金',
+					checked: false,
+					disabled: false
+				}
+			],
+			radio: '支付宝',
+			actionSheetList: [
+				{
+					text: '男'
+				},
+				{
+					text: '女'
+				},
+				{
+					text: '保密'
+				}
+			],
+			actionSheetShow: false,
+			pickerShow: false,
+			selectShow: false,
+			radioCheckWidth: 'auto',
+			radioCheckWrap: false,
+			labelPosition: 'left',
+			codeTips: '',
+			errorType: ['message'],
+		};
+	},
+	onLoad() {
+
+	},
+	computed: {
+		borderCurrent() {
+			return this.border ? 0 : 1;
+		}
+	},
+	onReady() {
+		this.$refs.uForm.setRules(this.rules);
+	},
+	methods: {
+		submit() {
+			this.$refs.uForm.validate(valid => {
+				if (valid) {
+					if(!this.model.agreement) return this.$u.toast('请勾选协议');
+					console.log('验证通过');
+				} else {
+					console.log('验证失败');
+				}
+			});
+		},
+		// 点击actionSheet回调
+		actionSheetCallback(index) {
+			uni.hideKeyboard();
+			this.model.sex = this.actionSheetList[index].text;
+		},
+		// checkbox选择发生变化
+		checkboxGroupChange(e) {
+			this.model.likeFruit = e;
+		},
+		// radio选择发生变化
+		radioGroupChange(e) {
+			this.model.payType = e;
+		},
+		// 勾选版权协议
+		checkboxChange(e) {
+			this.model.agreement = e.value;
+		},
+		// 选择地区回调
+		regionConfirm(e) {
+			this.model.region = e.province.label + '-' + e.city.label + '-' + e.area.label;
+		},
+		// 选择商品类型回调
+		selectConfirm(e) {
+			this.model.goodsType = '';
+			e.map((val, index) => {
+				this.model.goodsType += this.model.goodsType == '' ? val.label : '-' + val.label;
+			})
+		},
+		borderChange(index) {
+			this.border = !index;
+		},
+		radioCheckboxChange(index) {
+			if(index == 0) {
+				this.radioCheckWrap = false;
+				this.radioCheckWidth = 'auto';
+			} else if(index == 1) {
+				this.radioCheckWrap = true;
+				this.radioCheckWidth = 'auto';
+			} else if(index == 2) {
+				this.radioCheckWrap = false;
+				this.radioCheckWidth = '50%';
 			}
 		},
-		methods: {
-			cardSwiper(e) {
-			  this.cardCur = e.detail.current
-			},
+		labelPositionChange(index) {
+			this.labelPosition = index == 0 ? 'left' : 'top';
+		},
+		codeChange(text) {
+			this.codeTips = text;
+		},
+		// 获取验证码
+		getCode() {
+			if(this.$refs.uCode.canGetCode) {
+				// 模拟向后端请求验证码
+				uni.showLoading({
+					title: '正在获取验证码',
+					mask: true
+				})
+				setTimeout(() => {
+					uni.hideLoading();
+					// 这里此提示会被this.start()方法中的提示覆盖
+					this.$u.toast('验证码已发送');
+					// 通知验证码组件内部开始倒计时
+					this.$refs.uCode.start();
+				}, 2000);
+			} else {
+				this.$u.toast('倒计时结束后再发送');
+			}
+		},
+		errorChange(index) {
+			if(index == 0) this.errorType = ['message'];
+			if(index == 1) this.errorType = ['toast'];
+			if(index == 2) this.errorType = ['border-bottom'];
+			if(index == 3) this.errorType = ['border'];
 		}
 	}
+};
 </script>
 
-<style>
-	.card-swiper {
-	  height: 550upx !important;
-	}
-	
-	.card-swiper swiper-item {
-	  width: 260upx !important;
-	  left: 245upx;
-	  box-sizing: border-box;
-	  padding: 0upx 15upx 50upx 15upx;
-	  overflow: initial;
-	  /* margin: 100rpx 0; */
-	}
-	
-	.card-swiper swiper-item .swiper-item {
-	  width: 100%;
-	  display: block;
-	  height: 100%;
-	  border-radius: 10upx;
-	  transform: scale(0.7);
-	  transition: all 0.2s ease-in 0s;
-	  overflow: hidden;
-	}
-	
-	.card-swiper swiper-item.cur .swiper-item {
-	  transform: none;
-	  transition: all 0.2s ease-in 0s;
-	}
-	.bg-top-blue {
-		background-image: linear-gradient(135deg, #52B5FC, #746BFE);
-		color: #fff;
-	}
-
-	.nav-list {
-		display: flex;
-		flex-wrap: wrap;
-		padding: 0px 40upx 0px;
-		justify-content: space-between;
-	}
-
-	.nav-li {
-		padding: 30upx;
-		border-radius: 12upx;
-		width: 45%;
-		margin: 0 2.5% 40upx;
-		background-image: url(https://s1.ax1x.com/2020/06/27/NyU04x.png);
-		background-size: cover;
-		background-position: center;
-		position: relative;
-		z-index: 1;
-	}
-
-	.nav-li::after {
-		content: "";
-		position: absolute;
-		z-index: -1;
-		background-color: inherit;
-		width: 100%;
-		height: 100%;
-		left: 0;
-		bottom: -10%;
-		border-radius: 10upx;
-		opacity: 0.2;
-		transform: scale(0.9, 0.9);
-	}
-
-	.nav-li.cur {
-		color: #fff;
-		background: rgb(94, 185, 94);
-		box-shadow: 4upx 4upx 6upx rgba(94, 185, 94, 0.4);
-	}
-
-	.nav-title {
-		font-size: 32upx;
-		font-weight: 300;
-	}
-
-	.nav-title::first-letter {
-		font-size: 40upx;
-		margin-right: 4upx;
-	}
-
-	.nav-name {
-		font-size: 28upx;
-		text-transform: Capitalize;
-		margin-top: 20upx;
-		position: relative;
-	}
-
-	.nav-name::before {
-		content: "";
-		position: absolute;
-		display: block;
-		width: 40upx;
-		height: 6upx;
-		background: #fff;
-		bottom: 0;
-		right: 0;
-		opacity: 0.5;
-	}
-
-	.nav-name::after {
-		content: "";
-		position: absolute;
-		display: block;
-		width: 100upx;
-		height: 1px;
-		background: #fff;
-		bottom: 0;
-		right: 40upx;
-		opacity: 0.3;
-	}
-
-	.nav-name::first-letter {
-		font-weight: bold;
-		font-size: 36upx;
-		margin-right: 1px;
-	}
-
-	.nav-li text {
-		position: absolute;
-		right: 30upx;
-		top: 30upx;
-		font-size: 52upx;
-		width: 60upx;
-		height: 60upx;
-		text-align: center;
-		line-height: 60upx;
-	}
-
-	.text-light {
-		font-weight: 300;
-	}
-
-	@keyframes show {
-		0% {
-			transform: translateY(-50px);
-		}
-
-		60% {
-			transform: translateY(40upx);
-		}
-
-		100% {
-			transform: translateY(0px);
-		}
-	}
-
-	@-webkit-keyframes show {
-		0% {
-			transform: translateY(-50px);
-		}
-
-		60% {
-			transform: translateY(40upx);
-		}
-
-		100% {
-			transform: translateY(0px);
-		}
-	}
-
-	/* 
-  2f9bfe 主色蓝
-  189eff 配色蓝
-  
-  0081ff--0070FF 蓝
-  CCE6FF--E5F1FF 淡蓝
-  39B54A--7FD02B 绿
-  D7F0DB--EAF8F5 淡绿
-  FBBD08--FFD627 黄
-  f37b1d--F39902 橙
-  FEF2CE--FEF6E9 淡橙
-  1CBBB4--19CF8A 青
-  E03997--FF4F94 粉
-  8dc63f--9ddb47 橄榄绿
-  e54d42--ff3434 红
-  a5673f--7F2D00 棕
-  6739b6--6F68DF 蓝紫
-  */
-	.banner-index {
-		width: 100%;
-		padding: 0 0rpx;
-		height: 220rpx;
-	}
-
-	.title-header {
-		display: flex;
-		height: 120rpx;
-		font-size: 40rpx;
-		align-items: center;
-		justify-content: center;
-		/* padding: 40rpx 0 0 0; */
-		font-weight: bold;
-		background-image: url(https://s1.ax1x.com/2020/09/16/wccswF.png);
-		background-size: cover;
-	}
-
-	.radius-index {
-		overflow: hidden;
-		border-radius: 10rpx;
-	}
-
-	.bg-top {
-		background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
-		color: #fff;
-	}
-
-	.tn-btn {
-		height: 100%;
-		width: 110%;
-		line-height: 30rpx;
-		background: transparent;
-	}
-
-	.tn-btn::after {
-		border-color: transparent;
-	}
-
-	.tn-bg {
-		position: fixed;
-		width: 100%;
-		z-index: -1
-	}
-
-	.tn-bg-cart {
-		/* position: fixed; */
-		width: 100%;
-		z-index: -1
-	}
-
-	.bg-gradual-index {
-		/* background-image: linear-gradient(45deg, #ff9700, #ed1c24); */
-		background-image: linear-gradient(45deg, #1CA5FF, #1B6CFF);
-		color: #fff;
-	}
-
-	.tn-align {
-		text-align: justify;
-	}
-
-	.opacity-a {
-		opacity: 0.4
-	}
-
-	.strip-bottom {
-		/* background: #F2F3F9; */
-		width: 100%;
-		border-bottom: 20rpx solid rgba(241, 241, 241, 0.8);
-	}
-
-	.name-title-a {
-		-webkit-line-clamp: 1;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		text-overflow: ellipsis;
-		overflow: hidden;
-	}
-
-	.name-title-b {
-		-webkit-line-clamp: 2;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		text-overflow: ellipsis;
-		overflow: hidden;
-	}
-
-	.tn-footerfixed {
-		position: fixed;
-		width: 100%;
-		bottom: 0;
-		z-index: 1024;
-		box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.35);
-	}
-
-	.tn-border {
-		border-top: solid #F3F3F3 20rpx;
-	}
-
-	.tn-bg-color {
-		background-color: #F3F3F3;
-	}
-
-	.text-shop-active {
-		/* color: #ff8b00 */
-		/* background-image: -webkit-linear-gradient(45deg, #ff7612, #ff571c); */
-		background-image: -webkit-linear-gradient(180deg, #ff3434, #ff8a34);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-
-	.title-text {
-		background-image: -webkit-linear-gradient(0deg, #ff8a34, #FBBD12);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		/* border:10px solid #ddd;
-      border-image: -webkit-linear-gradient(red,yellow);
-     	border-image: -moz-linear-gradient(red,yellow);
-      border-image: linear-gradient(red,yellow);  */
-	}
-
-	.title-index {
-		background-image: -webkit-linear-gradient(0deg, #000, #FBBD12);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-
-	.text-shop-no {
-		color: #aaaaaa
-	}
-
-	.search-round {
-		border-radius: 5000rpx;
-		/* border-top-right-radius: 20rpx; */
-		border-bottom-left-radius: 20rpx
-	}
-
-	.shadowimport {
-		box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.1) !important;
-	}
-
-	/* 标签 */
-
-	.bg-label1.light {
-		color: #ff3434;
-		background: #fadbd9;
-	}
-
-	.bg-label2.light {
-		color: #7fd02b;
-		background: #eaf8f5;
-	}
-
-	.bg-label3.light {
-		color: #0070ff;
-		background: #e5f1ff;
-	}
-
-	.bg-label4.light {
-		color: #9ddb47;
-		background: #e8f4d9;
-	}
-
-	.bg-label5.light {
-		color: #f39902;
-		background: #fde6d2;
-	}
-
-	.bg-label6.light {
-		color: #7f2d00;
-		background: #ede1d9;
-	}
-
-	.bg-label7.light {
-		color: #ff4f94;
-		background: #f9d7ea;
-	}
-
-	.bg-label8.light {
-		color: #6f68df;
-		background: #e1d7f0;
-	}
-
-	.bg-label9.light {
-		color: #9c26b0;
-		background: #ebd4ef;
-	}
-
-	.bg-label10.light {
-		color: #19cf8a;
-		background: #d2f1f0;
-	}
-
-	.bg-label11.light {
-		color: #8799a3;
-		background: #e7ebed;
-	}
-
-
-	.bg-index1 {
-		background-color: #F33F5A;
-		color: #fff;
-	}
-
-	.bg-index2 {
-		background-color: #954FF6;
-		color: #fff;
-	}
-
-	.bg-index3 {
-		background-color: #5177EE;
-		color: #fff;
-	}
-
-	.bg-index4 {
-		background-color: #FFC32E;
-		color: #fff;
-	}
-
-	.bg-index5 {
-		background-color: #FF4F94;
-		color: #fff;
-	}
-
-	.bg-index6 {
-		background-color: #0acffe;
-		color: #fff;
-	}
-
-	/*  */
-	.bg-exper1 {
-		background-color: #FF4F94;
-		color: #fff;
-	}
-
-	.bg-exper2 {
-		background-color: #006FFF;
-		color: #fff;
-	}
-
-	.bg-exper3 {
-		background-color: #19D08B;
-		color: #fff;
-	}
-
-	.bg-exper4 {
-		background-color: #F49A02;
-		color: #fff;
-	}
-
-	.bg-exper5 {
-		background-color: #1cbbb4;
-		color: #fff;
-	}
-	.bg-exper6 {
-		background-color: #9c26b0;
-		color: #fff;
-	}
-	.bg-exper7 {
-		background-color: #8799a3;
-		color: #fff;
-	}
-	.bg-exper8 {
-		background-color: #00c4fb;
-		color: #fff;
-	}
-	.bg-exper9 {
-		color: #fff;
-		background-color: #FFC32E;
-	}
-	.bg-exper10 {
-		color: #fff;
-		background-color: #a5673f;
-	}
-	.bg-exper11 {
-		background-color: #BC78EC;
-		color: #fff;
-	}
-
-	/*  */
-	.bg-kuxuan1 {
-		background-color: #FF5656;
-		color: #fff;
-	}
-
-	.bg-kuxuan2 {
-		background-color: #6F68DF;
-		color: #fff;
-	}
-
-	.bg-kuxuan3 {
-		background-color: #9c26b0;
-		color: #fff;
-	}
-
-	.bg-kuxuan4 {
-		background-color: #0070FF;
-		color: #fff;
-	}
-
-	.bg-kuxuan5 {
-		background-color: #1cbbb4;
-		color: #fff;
-	}
-
-	.bg-kuxuan6 {
-		background-color: #BC78EC;
-		color: #fff;
-	}
-
-	.bg-kuxuan7 {
-		background-color: #f39902;
-		color: #fff;
-	}
-
-	.bg-kuxuan8 {
-		color: #fff;
-		background-color: #19CF8A;
-	}
-
-	.bg-kuxuan9 {
-		color: #fff;
-		background-color: #8799a3;
-	}
-
-	.bg-kuxuan10 {
-		color: #fff;
-		background-color: #0396FF;
-	}
-
-	.bg-kuxuan11 {
-		color: #fff;
-		background-color: #00c4fb;
-	}
-
-	.bg-kuxuan12 {
-		color: #fff;
-		background-color: #FFC32E;
-	}
-
-	.bg-kuxuan13 {
-		color: #fff;
-		background-color: #a5673f;
-	}
-	.bg-kuxuan14 {
-		color: #fff;
-		background-color: #FF4F94;
-	}
+<style scoped lang="scss">
+.wrap {
+	padding: 30rpx;
+}
+
+.agreement {
+	display: flex;
+	align-items: center;
+	margin: 40rpx 0;
+
+	.agreement-text {
+		padding-left: 8rpx;
+		color: $u-tips-color;
+	}
+}
 </style>
