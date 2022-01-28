@@ -6,52 +6,59 @@
 		</cu-custom>	
 		<view class="wrap">
 			<!-- 注意，如果需要兼容微信小程序，最好通过setRules方法设置rules规则 -->
-			<u-form
-					labelPosition="left"
-					:model="model1"
-					:rules="rules"
-					ref="form1"
-			>
-				<u-form-item
-						label="姓名"
-						prop="userInfo.name"
-						borderBottom
-						ref="item1"
+			<view class="bg-white solid-bottom text-center padding">
+				<view class="action  ">
+					<text class="cuIcon-titles text-orange">
+					登记须知
+					</text> 
+				</view>
+				</view>
+				<view class="case flex-sub text-left shadow bg-white">
+					<view class="text-black text-bold ">你需要做什么？</view>
+					<view>1.填写学号或ID号</view>
+					<view>2.填写物品名称</view>
+					<view>3.填写放置地点</view>
+					<view class="text-black text-bold">不错校园会做什么？</view>
+					<view>如果失主是星会员,失主将收到手机短信提醒</view>
+					<view>如果失主是其他用户,失主将在小程序内收到提醒</view>
+					<view>当失主确认收到物品后,你将获得1芝士币（上限10）</view>				
+					<view>此外,失主也可选择向你赠送星会员/普通会员</view>				
+				</view>
+				<view 
+				class="case flex-sub text-center shadow bg-white"
+				style="margin-top: 30rpx;"
 				>
-					<u-input
-							v-model="model1.userInfo.name"
-							border="none"
-					></u-input>
-				</u-form-item>
-				<u-form-item
-						label="性别"
-						prop="userInfo.sex"
-						borderBottom
-						@click="showSex = true; hideKeyboard()"
-						ref="item1"
-				>
-					<u-input
-							v-model="model1.userInfo.sex"
-							disabled
-							disabledColor="#ffffff"
-							placeholder="请选择性别"
-							border="none"
-					></u-input>
-					<u-icon
-							slot="right"
-							name="arrow-right"
-					></u-icon>
-				</u-form-item>
-			</u-form>
-			<u-action-sheet
-					:show="showSex"
-					:actions="actions"
-					title="请选择性别"
-					description="如果选择保密会报错"
-					@close="showSex = false"
-					@select="sexSelect"
-			>
-			</u-action-sheet>
+					<view class="action  ">
+						<text class="cuIcon-titles text-orange">
+						登记单
+						</text> 
+					</view>
+					<u-form>
+						<u-form-item
+						label="学号  "
+						>
+							<u-input></u-input>
+						</u-form-item>
+						<u-form-item
+						label="ID   ">
+							<u-input></u-input>
+						</u-form-item>
+						<u-form-item
+						label="物品名称"
+						>
+							<u-input></u-input>
+						</u-form-item>
+						<u-form-item
+						label="存放地点"
+						>
+							<u-input></u-input>
+						</u-form-item>
+					</u-form>
+					<uni-button
+					class="cu-btn round bg-cyan lg"
+					>提交登记单</uni-button>
+					
+				</view>									
 		</view>
 
 	</view>
@@ -61,47 +68,11 @@
 export default {
 	data() {
 		return {
-			showSex: false,
-			model1: {
-				userInfo: {
-					name: 'uView UI',
-					sex: '',
-				},
-			},
-			actions: [{
-				name: '男',
-				},
-				{
-					name: '女',
-				},
-				{
-					name: '保密',
-				},
-			],
-			rules: {
-				'userInfo.name': {
-					type: 'string',
-					required: true,
-					message: '请填写姓名',
-					trigger: ['blur', 'change']
-				},
-				'userInfo.sex': {
-					type: 'string',
-					max: 1,
-					required: true,
-					message: '请选择男或女',
-					trigger: ['blur', 'change']
-				},
-			},
-			radio: '',
-			switchVal: false
-		};
+			showSex: false
+	}
 	},
 	methods: {
-		sexSelect(e) {
-			this.model1.userInfo.sex = e.name
-			this.$refs.form1.validateField('userInfo.sex')
-		},
+
 	},
 };
 </script>
