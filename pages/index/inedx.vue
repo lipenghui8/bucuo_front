@@ -407,7 +407,7 @@
 	.nav-li {
 		padding: 40rpx 30rpx;
 		width: 100%;
-		background-image: url(https://s1.ax1x.com/2020/06/27/NyU04x.png);
+		background-image: url(https://bucuo.liph.top/images/NyU04x.png);
 		background-size: cover;
 		background-position: center;
 		position: relative;
