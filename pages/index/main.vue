@@ -3,8 +3,8 @@
 		<view class="title">发布帖子</view>
 		<u-form :model="model" :rules="rules" ref="uForm" :errorType="errorType">
 			<u-form-item :leftIconStyle="{color: '#888', fontSize: '32rpx'}" left-icon="" label-width="150"
-				:label-position="labelPosition" label="帖子标题" prop="name">
-				<u-input :border="border" placeholder="请输入帖子标题" v-model="model.name" type="text"></u-input>
+				:label-position="labelPosition" label="帖子标题" prop="title">
+				<u-input :border="border" placeholder="请输入帖子标题" v-model="model.title" type="text"></u-input>
 			</u-form-item>
 			<u-form-item :label-position="labelPosition" label="所属类型" prop="type" label-width="150">
 				<u-radio-group v-model="radio" @change="radioGroupChange" :width="radioCheckWidth"
@@ -17,11 +17,11 @@
 				<u-input :border="border" type="select" :select-open="actionSheetShow" v-model="model.column"
 					placeholder="请选择所属栏目" @click="actionSheetShow = true"></u-input>
 			</u-form-item>
-			<u-form-item :label-position="labelPosition" label="帖子标签" prop="label" label-width="150">
-				<u-input type="textarea" :border="border" placeholder="请填写标签，以分号分隔" v-model="model.label" />
+			<u-form-item :label-position="labelPosition" label="帖子标签" prop="labels" label-width="150">
+				<u-input type="textarea" :border="border" placeholder="请填写标签，以分号分隔" v-model="model.labels" />
 			</u-form-item>
-			<u-form-item v-show="labels" :label-position="labelPosition" class="labelBox">
-				<view class="labelItem" v-for="(item,index) in labels" :key="index">
+			<u-form-item v-show="labelHandle">			
+				<view class="labelItem" v-for="(item,index) in labelHandle" :key="index">
 					<u-tag :text="item" type="success" />
 				</view>
 			</u-form-item>
@@ -30,11 +30,11 @@
 				<u-upload width="160" height="160"></u-upload>
 			</u-form-item>
 			<u-form-item :label-position="labelPosition" prop="content">
-				<view class="content">
+				<!-- <view class="content">
 					<view>{{model.content}}1111</view>
 					<editor id="editor" class="ql-container" :placeholder="placeholder" v-model="model.content" @blur="blur" @ready="onEditorReady"></editor>
-				</view>
-				<!-- <u-input type="textarea" :border="border" placeholder="请输入帖子内容" v-model="model.content" /> -->
+				</view> -->
+				<u-input type="textarea" :border="border" placeholder="请输入帖子内容" v-model="model.content" />
 			</u-form-item>
 		</u-form>
 		<!-- <view class="agreement">
@@ -59,16 +59,15 @@
 			return {
 				placeholder: '请输入帖子内容...',
 				model: {
-					name: '',
+					title: '',
 					column: '',
-					label: '',
+					labels: '',
 					type: '经验',
-					agreement: false,
 					content: '',
 					photo: ''
 				},
 				rules: {
-					name: [{
+					title: [{
 							required: true,
 							message: '请输入帖子标题',
 							trigger: 'blur',
@@ -90,7 +89,7 @@
 							trigger: ['change', 'blur'],
 						}
 					],
-					label: [{
+					labels: [{
 							required: true,
 							message: '请填写标签'
 						},
@@ -168,9 +167,9 @@
 			typeChange() {
 				return this.model.type != '经验';
 			},
-			labels() {
-				if (this.model.label)
-					return this.model.label.split("；");
+			labelHandle() {
+				if (this.model.labels)
+					return this.model.labels.split("；");
 				else
 					return false
 			}
@@ -213,16 +212,37 @@
 					if (valid) {
 						// if(!this.model.agreement) return this.$u.toast('请勾选协议');
 						console.log('验证通过');
-						const requestTask = uni.request({
-							url: '/api/auth/exprpost', //仅为示例，并非真实接口地址。
-							data: {
-								name: 'name',
-								age: 18
-							},
-							success: function (res) {
-								console.log(res.data);
+						let opts = {
+							url: 'api/auth/exprpost',
+							method: 'post'
+						};
+						let that =this
+						let data={
+							Title:that.model.title,
+							Content:that.model.content,
+							Column:that.model.column,
+							labels:that.labelHandle
+						}
+						uni.showLoading({
+							title: '提交中'
+						});
+						// request.getToken()
+						request.myHttpTokenRequest(opts,data).then(res => {
+							// console.log(res);
+							uni.hideLoading();
+							if (res.statusCode == 200) {
+								uni.showToast({
+								title: '发布成功！',
+								duration: 2000
+							});
+							} else {
+								uni.showToast({
+								title: '发布失败！',
+								duration: 2000
+							});
 							}
 						});
+						
 					} else {
 						console.log('验证失败');
 					}
@@ -244,13 +264,6 @@
 			// 勾选版权协议
 			checkboxChange(e) {
 				this.model.agreement = e.value;
-			},
-			// 选择商品类型回调
-			selectConfirm(e) {
-				this.model.goodsType = '';
-				e.map((val, index) => {
-					this.model.goodsType += this.model.goodsType == '' ? val.label : '-' + val.label;
-				})
 			},
 			borderChange(index) {
 				this.border = !index;

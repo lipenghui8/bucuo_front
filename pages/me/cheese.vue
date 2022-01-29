@@ -15,7 +15,7 @@
         </view>
         <view class="topRight">
           <view class="gold">
-            <image style="width: 50rpx;height: 50rpx;margin-top: 20rpx;" src="/static/me/icon/credit.png"></image>
+            <image style="width: 50rpx;height: 50rpx;margin-top: 20rpx;" src="http://bucuo.liph.top/static/me/icon/credit.png"></image>
             <text style="margin-top: 30rpx;margin-left:10rpx;font-weight: bold;">{{65}}</text>
           </view>
           <view class="record">交易记录</view>
@@ -39,7 +39,7 @@
   </view>
 
   <!-- <button class='' open-type="contact">
-        <image src='../../static/logo.png' class='share-img png round shadow-lg bg-white' mode='aspectFit'>
+        <image src='https://bucuo.liph.top/static/logo.png' class='share-img png round shadow-lg bg-white' mode='aspectFit'>
         </image>
       </button> -->
 
@@ -58,8 +58,8 @@
         animation_timer: null, // 动画定时器
         width: 375,
         height: 1920,
-        chooseFalse:'/static/me/icon/gou_false.png',
-        chooseTrue:'/static/me/icon/gou_true.png',
+        chooseFalse:'http://bucuo.liph.top/static/me/icon/gou_false.png',
+        chooseTrue:'http://bucuo.liph.top/static/me/icon/gou_true.png',
         vipData:[
           {
             id:1,

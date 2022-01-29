@@ -7,7 +7,7 @@
 					<!-- 第二名 -->
 					<view class="top3">
 						<view class="num_two">
-							<image class="huangguan2" src="../../static/rank/two.png"></image>
+							<image class="huangguan2" src="https://bucuo.liph.top/static/rank/two.png"></image>
 							<image class="top3_head" src="http://cdn.zhoukaiwen.com/head2.jpg"></image>
 							<!-- <view class="top_name">{{twoName}}</view> -->
 							<view class="top_name">李*</view>
@@ -18,7 +18,7 @@
 					<!-- 第一名 -->
 					<view class="top3">
 						<view class="num_one">
-							<image class="huangguan1" src="../../static/rank/one.png"></image>
+							<image class="huangguan1" src="https://bucuo.liph.top/static/rank/one.png"></image>
 							<image class="top3_head" src="http://cdn.zhoukaiwen.com/head1.jpg"></image>
 							<!-- <view class="top_name" style="font-size: 30rpx;">{{oneName}}</view> -->
 							<view class="top_name text-bold" style="font-size: 30rpx;">王 * 鑫</view>
@@ -29,7 +29,7 @@
 					<!-- 第三名 -->
 					<view class="top3">
 						<view class="num_three">
-							<image class="huangguan2" src="../../static/rank/three.png"></image>
+							<image class="huangguan2" src="https://bucuo.liph.top/static/rank/three.png"></image>
 							<image class="top3_head" src="http://cdn.zhoukaiwen.com/head12.jpeg"></image>
 							<view class="top_name">郭 * 杰</view>
 							<view class="top_sy">西安·17500<span>元/月</span></view>
@@ -55,7 +55,7 @@
 							<view class="danwei">就业率</view>
 						</view>
 
-						<image mode="widthFix" class="xiaoding_bg" src="../../static/rank/Intersect.png"></image>
+						<image mode="widthFix" class="xiaoding_bg" src="https://bucuo.liph.top/static/rank/Intersect.png"></image>
 					</view>
 				</view>
 			</view>
@@ -76,7 +76,7 @@
 						<view class="color_ccc">{{item.city}} ｜ <text class="text-blue">{{item.salary}}</text>元/月</view>
 					</view>
 					<view class="download_box">
-						<image mode="widthFix" src="../../static/rank/download.png"></image>
+						<image mode="widthFix" src="https://bucuo.liph.top/static/rank/download.png"></image>
 					</view>
 				</view>
 			</view>

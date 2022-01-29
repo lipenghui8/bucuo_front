@@ -36,7 +36,7 @@ let _app = {
 						image = '';
 						break;
 					default:
-						image = '/static/1.png';
+						image = 'http://bucuo.liph.top/static/1.png';
 						break;
 				}
 			}
@@ -344,13 +344,13 @@ let _app = {
 								payTypeArray[i] = {
 									name: '微信支付',
 									value: providers[i],
-									img: '/static/image/wei.png'
+									img: 'http://bucuo.liph.top/static/image/wei.png'
 								};
 							} else if (providers[i] == 'alipay') {
 								payTypeArray[i] = {
 									name: "支付宝支付",
 									value: providers[i],
-									img: '/static/image/ali.png'
+									img: 'http://bucuo.liph.top/static/image/ali.png'
 								};
 							}
 						}

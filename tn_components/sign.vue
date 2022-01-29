@@ -2,9 +2,9 @@
 	<view>
 		<view class="wrapper">
 			<view class="handBtn">
-				<image @click="selectColorEvent('black','#1A1A1A')" :src="selectColor === 'black' ? '../static/other/color_black_selected.png' : '../static/other/color_black.png'"
+				<image @click="selectColorEvent('black','#1A1A1A')" :src="selectColor === 'black' ? 'http://bucuo.liph.top/static/other/color_black_selected.png' : 'http://bucuo.liph.top/static/other/color_black.png'"
 				 :class="[selectColor === 'black' ? 'color_select' : '', 'black-select']"></image>
-				<image @click="selectColorEvent('red','#ca262a')" :src="selectColor === 'red' ? '../static/other/color_red_selected.png' : '../static/other/color_red.png'"
+				<image @click="selectColorEvent('red','#ca262a')" :src="selectColor === 'red' ? 'http://bucuo.liph.top/static/other/color_red_selected.png' : 'http://bucuo.liph.top/static/other/color_red.png'"
 				 :class="[selectColor === 'red' ? 'color_select' : '', 'black-select']"></image>
 				<button @click="retDraw" class="delBtn">重写</button>
 				<button @click="saveCanvasAsImg" class="saveBtn">保存</button>

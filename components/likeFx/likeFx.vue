@@ -37,7 +37,7 @@
       /**点赞 */
       likeClick() {
 
-        const image = "/static/likeFx/" + this.getRandomInt(1, 33) + ".png";
+        const image = "http://bucuo.liph.top/static/likeFx/" + this.getRandomInt(1, 33) + ".png";
         const anmationData = {
           id: new Date().getTime(),
           timer: 0,

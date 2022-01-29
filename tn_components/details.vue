@@ -135,7 +135,7 @@
 					<view v-if="joinList.length < 1" class="padding text-center text-grey">暂无数据</view>
 					<view class="cu-item" style="padding: 0;">
 						<view class="content">
-							<image src="../static/logo.png" class="png cu-avatar round sm" mode="aspectFit"></image>
+							<image src="http://bucuo.liph.top/static/logo.png" class="png cu-avatar round sm" mode="aspectFit"></image>
 							<text class="text-lg">凯文童鞋</text>
 						</view>
 						<view class="action">

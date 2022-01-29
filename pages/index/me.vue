@@ -20,7 +20,7 @@
 				<view class="top-share">
 					<view>
 						<button plain="true" style="border: none;height: 80rpx;" open-type="share">
-						<image style="width: 50rpx;height: 50rpx;overflow: hidden;" src="/static/me/icon/share.png"></image>
+						<image style="width: 50rpx;height: 50rpx;overflow: hidden;" src="http://bucuo.liph.top/static/me/icon/share.png"></image>
 						</button>
 					</view>
 					<view>
@@ -44,11 +44,11 @@
 					<view class="xs">
 						<view class="top-right">
 							<view @click="showCheese">
-								<image style="width: 50rpx;height: 50rpx;margin-top: 20rpx;" src="/static/me/icon/credit.png"></image>
+								<image style="width: 50rpx;height: 50rpx;margin-top: 20rpx;" src="http://bucuo.liph.top/static/me/icon/credit.png"></image>
 								<view style="margin-top: 23rpx;margin-left:10rpx;font-weight: bold;">{{65}}</view>
 							</view>
 							<view>
-								<image style="width: 50rpx;height: 50rpx;margin-top: 80rpx;" src="/static/me/icon//love.png"></image>
+								<image style="width: 50rpx;height: 50rpx;margin-top: 80rpx;" src="http://bucuo.liph.top/static/me/icon//love.png"></image>
 								<view style="margin-bottom: -80rpx;margin-left:10rpx;font-weight: bold;">{{30}}</view>
 							</view>
 						</view>
@@ -452,7 +452,7 @@
 		border-radius: 12upx;
 		width: 45%;
 		margin: 0 2.5% 40upx;
-		background-image: url(../../static/me/NyU04x.png);
+		background-image: url(https://bucuo.liph.top/static/me/NyU04x.png);
 		background-size: cover;
 		background-position: center;
 		position: relative;

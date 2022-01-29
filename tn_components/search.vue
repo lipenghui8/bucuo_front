@@ -71,10 +71,10 @@
 			return {
 				navList: ['加油站', '停车场', '厕所', '超市'],
 				markerImg: [
-					'../static/poi/gasstation.png',
-					'../static/poi/parking.png',
-					'../static/poi/wc.png',
-					'../static/poi/shop.png'
+					'http://bucuo.liph.top/static/poi/gasstation.png',
+					'http://bucuo.liph.top/static/poi/parking.png',
+					'http://bucuo.liph.top/static/poi/wc.png',
+					'http://bucuo.liph.top/static/poi/shop.png'
 				],
 				initHeight:340,
 				navIndex: 0,
@@ -92,15 +92,15 @@
 				flag: 0,
 				e_zhongxin: '',
 				e_lukuang: '',
-				placeholder: '../static/morent.png',
+				placeholder: 'http://bucuo.liph.top/static/morent.png',
 			}
 		},
 		onReady() {
 			this.map = uni.createMapContext('myMap');
 		},
 		onLoad() {
-			this.e_zhongxin = '../static/poi/e_zhongxin.png';
-			this.e_lukuang = '../static/poi/e_lukuang.png';
+			this.e_zhongxin = 'http://bucuo.liph.top/static/poi/e_zhongxin.png';
+			this.e_lukuang = 'http://bucuo.liph.top/static/poi/e_lukuang.png';
 			this.keywords = this.navList[this.navIndex]
 		},
 		mounted() {

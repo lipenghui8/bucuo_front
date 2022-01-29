@@ -24,7 +24,7 @@
 							</view>
 							<!-- 领取红包消息 -->
 							<view v-if="row.msg.type=='redEnvelope'" class="red-envelope">
-								<image src="/static/chat/red-envelope-chat.png"></image>
+								<image src="http://bucuo.liph.top/static/chat/red-envelope-chat.png"></image>
 								{{row.msg.content.text}}
 							</view>
 						</view>
@@ -54,7 +54,7 @@
 								<!-- 红包 -->
 								<view v-if="row.msg.type=='redEnvelope'" class="bubble red-envelope"
 									@tap="openRedEnvelope(row.msg,index)">
-									<image src="/static/chat/red-envelope.png"></image>
+									<image src="http://bucuo.liph.top/static/chat/red-envelope.png"></image>
 									<view class="tis">
 										<!-- 点击开红包 -->
 									</view>
@@ -100,7 +100,7 @@
 								<!-- 红包 -->
 								<view v-if="row.msg.type=='redEnvelope'" class="bubble red-envelope"
 									@tap="openRedEnvelope(row.msg,index)">
-									<image src="/static/chat/red-envelope.png"></image>
+									<image src="http://bucuo.liph.top/static/chat/red-envelope.png"></image>
 									<view class="tis">
 										<!-- 点击开红包 -->
 									</view>
@@ -731,7 +731,7 @@
 									face: "https://zhoukaiwen.com/img/qdpz/face/face_2.jpg"
 								},
 								content: {
-									url: "/static/voice/1.mp3",
+									url: "http://bucuo.liph.top/static/voice/1.mp3",
 									length: "00:06"
 								}
 							}
@@ -748,7 +748,7 @@
 									face: "https://zhoukaiwen.com/img/kevinLogo.png"
 								},
 								content: {
-									url: "/static/voice/2.mp3",
+									url: "http://bucuo.liph.top/static/voice/2.mp3",
 									length: "00:06"
 								}
 							}
@@ -833,7 +833,7 @@
 								face: "https://zhoukaiwen.com/img/qdpz/face/face_2.jpg"
 							},
 							content: {
-								url: "/static/voice/1.mp3",
+								url: "http://bucuo.liph.top/static/voice/1.mp3",
 								length: "00:06"
 							}
 						}
@@ -850,7 +850,7 @@
 								face: "https://zhoukaiwen.com/img/kevinLogo.png"
 							},
 							content: {
-								url: "/static/voice/2.mp3",
+								url: "http://bucuo.liph.top/static/voice/2.mp3",
 								length: "00:06"
 							}
 						}

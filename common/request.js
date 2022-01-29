@@ -3,7 +3,7 @@
 const baseUrl = 'https://www.zhoukaiwen.com/';
 const imgUrl = 'https://bucuo.liph.top/image/';
 const apiUrl='http://110.42.190.71:3002/';
-
+let token=''
 // 向apiUrl请求数据
 // 不带token请求
 const myHttpRequest = (opts, data) => {
@@ -54,7 +54,32 @@ const myHttpTokenRequest = (opts, data) => {
 		}
 		return false
 	});
-	let token = uni.getStorageSync('token');
+	//
+	let myopts = {
+		url: 'api/user/login',
+		method: 'post'
+	};
+	let mydata={
+		"username": "yeep1",
+		"password": "yeep2020"
+	}
+	// let token=''
+	myHttpRequest(myopts,mydata).then(res => {
+		console.log("获取Token成功！");
+		if (res.statusCode == 200) {
+			console.log("最初Token内容：",res.data.data.token);
+			uni.setStorage('token',res.data.data.token)
+			token = res.data.data.token
+		} else {
+			console.log('获取token失败！')
+			return null
+		}
+	});
+
+
+	// let token = uni.getStorage('token');
+	// let token = getToken();
+	console.log('读取token',token);
 	// hadToken()
 	if (token == '' || token == undefined || token == null) {
 		uni.showToast({
@@ -66,7 +91,8 @@ const myHttpTokenRequest = (opts, data) => {
 				});
 			}
 		});
-	} else {
+	} else 
+	{
 		let httpDefaultOpts = {
 			url: apiUrl + opts.url,
 			data: data,
@@ -77,7 +103,7 @@ const myHttpTokenRequest = (opts, data) => {
 				"Accept": "application/json",
 				"Content-Type": "application/json; charset=UTF-8"
 			} : {
-				'X-Access-Token': token,
+				'token': token,
 				'X-Requested-With': 'XMLHttpRequest',
 				'Content-Type': 'application/json; charset=UTF-8'
 			},
@@ -179,6 +205,7 @@ const httpTokenRequest = (opts, data) => {
 		return false
 	});
 	let token = uni.getStorageSync('token');
+	console.log(token);
 	// hadToken()
 	if (token == '' || token == undefined || token == null) {
 		uni.showToast({
@@ -268,6 +295,28 @@ const hadToken = () => {
 	}
 	return true
 }
+
+const getToken= () =>{
+	let opts = {
+		url: 'api/user/login',
+		method: 'post'
+	};
+	let data={
+		"username": "yeep1",
+		"password": "yeep2020"
+	}
+	myHttpRequest(opts,data).then(res => {
+		console.log("获取Token成功！");
+		if (res.statusCode == 200) {
+			console.log("最初Token内容：",res.data.data.token);
+			uni.setStorage('token',res.data.data.token)
+			token = res.data.data.token
+		} else {
+			console.log('获取token失败！')
+			return null
+		}
+	});
+}
 export default {
 	baseUrl,
 	imgUrl,
@@ -276,5 +325,6 @@ export default {
 	myHttpTokenRequest,
 	httpRequest,
 	httpTokenRequest,
-	hadToken
+	hadToken,
+	getToken
 }

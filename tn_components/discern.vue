@@ -98,16 +98,16 @@
 
 				<view class="errorBox">
 					<view class="item1">
-						<image class="iconImg" src="../static/discern/ok.png" mode="widthFix"></image>
+						<image class="iconImg" src="http://bucuo.liph.top/static/discern/ok.png" mode="widthFix"></image>
 					</view>
 					<view class="item2">
-						<image class="iconImg" src="../static/discern/no.png" mode="widthFix"></image>
+						<image class="iconImg" src="http://bucuo.liph.top/static/discern/no.png" mode="widthFix"></image>
 					</view>
 					<view class="item3">
-						<image class="iconImg" src="../static/discern/no.png" mode="widthFix"></image>
+						<image class="iconImg" src="http://bucuo.liph.top/static/discern/no.png" mode="widthFix"></image>
 					</view>
 					<view class="item4">
-						<image class="iconImg" src="../static/discern/no.png" mode="widthFix"></image>
+						<image class="iconImg" src="http://bucuo.liph.top/static/discern/no.png" mode="widthFix"></image>
 					</view>
 				</view>
 			</view>
@@ -125,7 +125,7 @@
 				list: [
 					'隐私说明：请按要求上传真实的证件照片，您所上传的行驶证仅用于平台账户绑定，请放心上传'
 				],
-				// ../static/me/zjx_me_bg6.jpg
+				// http://bucuo.liph.top/static/me/zjx_me_bg6.jpg
 				imgUrl1: '',
 				imgUrl2: ''
 			}
@@ -219,14 +219,14 @@
 			}
 
 			.imgEx1 {
-				background: url(../static/discern/ex1.png);
+				background: url(http://bucuo.liph.top/static/discern/ex1.png);
 				background-size: 82%;
 				background-repeat: no-repeat;
 				background-position: center;
 			}
 
 			.imgEx2 {
-				background: url(../static/discern/ex2.png);
+				background: url(http://bucuo.liph.top/static/discern/ex2.png);
 				background-size: 82%;
 				background-repeat: no-repeat;
 				background-position: center;
@@ -338,28 +338,28 @@
 			}
 
 			.item1 {
-				background-image: url(../static/discern/yes.png);
+				background-image: url(http://bucuo.liph.top/static/discern/yes.png);
 				background-repeat: no-repeat;
 				background-size: 100%;
 				position: relative;
 			}
 
 			.item2 {
-				background-image: url(../static/discern/error1.png);
+				background-image: url(http://bucuo.liph.top/static/discern/error1.png);
 				background-repeat: no-repeat;
 				background-size: 100%;
 				position: relative;
 			}
 
 			.item3 {
-				background-image: url(../static/discern/error2.png);
+				background-image: url(http://bucuo.liph.top/static/discern/error2.png);
 				background-repeat: no-repeat;
 				background-size: 100%;
 				position: relative;
 			}
 
 			.item4 {
-				background-image: url(../static/discern/error3.png);
+				background-image: url(http://bucuo.liph.top/static/discern/error3.png);
 				background-repeat: no-repeat;
 				background-size: 100%;
 				position: relative;

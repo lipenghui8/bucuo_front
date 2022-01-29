@@ -78,7 +78,7 @@
 									},
 									{
 										type: 'image',
-										url: '/static/logo.png',
+										url: 'http://bucuo.liph.top/static/logo.png',
 										alpha: .3,
 										dx,
 										dy: bgObj.height - bgObj.width * 0.25,

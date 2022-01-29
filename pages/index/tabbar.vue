@@ -10,30 +10,30 @@
 			<view class="cu-bar tabbar bg-white shadow foot">
 				<view class="action" @click="NavChange" data-cur="index">
 					<view class='cuIcon-cu-image'>
-						<image v-if="PageCur=='index'" src="../../static/tabBar/index_cur.png"></image>
-						<image v-if="PageCur != 'index'" src="../../static/tabBar/index.png"></image>
+						<image v-if="PageCur=='index'" src="https://bucuo.liph.top/static/tabBar/index_cur.png"></image>
+						<image v-if="PageCur != 'index'" src="https://bucuo.liph.top/static/tabBar/index.png"></image>
 					</view>
 					<view :class="PageCur=='index'?'color_main':'text-gray'">首页</view>
 				</view>
 
 				<view class="action" @click="NavChange" data-cur="search">
 					<view class='cuIcon-cu-image'>
-						<image v-if="PageCur=='search'" src="../../static/tabBar/shop_cur.png"></image>
-						<image v-if="PageCur != 'search'" src="../../static/tabBar/shop.png"></image>
+						<image v-if="PageCur=='search'" src="https://bucuo.liph.top/static/tabBar/shop_cur.png"></image>
+						<image v-if="PageCur != 'search'" src="https://bucuo.liph.top/static/tabBar/shop.png"></image>
 					</view>
 					<view :class="PageCur=='search'?'color_main':'text-gray'">功能</view>
 				</view>
 
 				<view @click="NavChange" class="action text-gray add-action" data-cur="cases">
-					<image class="logo_btn" mode="widthFix" src="../../static/logo.png"></image>
+					<image class="logo_btn" mode="widthFix" src="https://bucuo.liph.top/static/logo.png"></image>
 					<!-- <view :class="PageCur=='cases'?'color_main':'text-gray'">发布</view> -->
 				</view>
 
 				<view class="action" @click="NavChange" data-cur="news">
 					<view class='cuIcon-cu-image'>
 						<view class="cu-tag badge">{{message}}</view>
-						<image v-if="PageCur=='news'" src="../../static/tabBar/order_cur.png"></image>
-						<image v-if="PageCur != 'news'" src="../../static/tabBar/order.png"></image>
+						<image v-if="PageCur=='news'" src="https://bucuo.liph.top/static/tabBar/order_cur.png"></image>
+						<image v-if="PageCur != 'news'" src="https://bucuo.liph.top/static/tabBar/order.png"></image>
 					</view>
 					<view :class="PageCur=='news'?'color_main':'text-gray'">消息</view>
 				</view>
@@ -41,8 +41,8 @@
 				<view class="action" @click="NavChange" data-cur="me">
 					<view class='cuIcon-cu-image'>
 						<view class="cu-tag badge"><!-- 红点 --></view>
-						<image v-if="PageCur=='me'" src="../../static/tabBar/me_cur.png"></image>
-						<image v-if="PageCur != 'me'" src="../../static/tabBar/me.png"></image>
+						<image v-if="PageCur=='me'" src="https://bucuo.liph.top/static/tabBar/me_cur.png"></image>
+						<image v-if="PageCur != 'me'" src="https://bucuo.liph.top/static/tabBar/me.png"></image>
 					</view>
 					<view :class="PageCur=='me'?'color_main':'text-gray'">我的</view>
 				</view>

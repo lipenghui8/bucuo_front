@@ -17,13 +17,13 @@
 					
 					<view class="margin-top cu-steps justify-between">
 						<view class="fl margin-lr-xs">
-							<image src="../static/logo.png" mode="aspectFill" style="width: 140rpx; height: 140rpx;"></image>
+							<image src="http://bucuo.liph.top/static/logo.png" mode="aspectFill" style="width: 140rpx; height: 140rpx;"></image>
 						</view>
 						<view class="fl margin-lr-xs">
-							<image src="../static/logo.png" mode="aspectFill" style="width: 140rpx; height: 140rpx;"></image>
+							<image src="http://bucuo.liph.top/static/logo.png" mode="aspectFill" style="width: 140rpx; height: 140rpx;"></image>
 						</view>
 						<view class="fl margin-lr-xs">
-							<image src="../static/logo.png" mode="aspectFill" style="width: 140rpx; height: 140rpx;"></image>
+							<image src="http://bucuo.liph.top/static/logo.png" mode="aspectFill" style="width: 140rpx; height: 140rpx;"></image>
 						</view>
 						<view style="clear: both;"></view>
 					</view>
@@ -44,13 +44,13 @@
 					
 					<view class="margin-top cu-steps justify-between">
 						<view class="fl margin-lr-xs">
-							<image src="../static/logo.png" mode="aspectFill" style="width: 140rpx; height: 140rpx;"></image>
+							<image src="http://bucuo.liph.top/static/logo.png" mode="aspectFill" style="width: 140rpx; height: 140rpx;"></image>
 						</view>
 						<view class="fl margin-lr-xs">
-							<image src="../static/logo.png" mode="aspectFill" style="width: 140rpx; height: 140rpx;"></image>
+							<image src="http://bucuo.liph.top/static/logo.png" mode="aspectFill" style="width: 140rpx; height: 140rpx;"></image>
 						</view>
 						<view class="fl margin-lr-xs">
-							<image src="../static/logo.png" mode="aspectFill" style="width: 140rpx; height: 140rpx;"></image>
+							<image src="http://bucuo.liph.top/static/logo.png" mode="aspectFill" style="width: 140rpx; height: 140rpx;"></image>
 						</view>
 						<view style="clear: both;"></view>
 					</view>
