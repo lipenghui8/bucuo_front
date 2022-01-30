@@ -24,43 +24,43 @@
 				"navigationStyle": "custom"
 			}
 		},
-		{
-			"path": "pages/me/mentalTest/list",
-			"style": {
-				"navigationBarTitleText": "答题测试",
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/me/mentalTest/index",
-			"style": {
-				"navigationBarTitleText": "答题测试",
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/me/mentalTest/explain",
-			"style": {
-				"navigationBarTitleText": "答题规则说明"
-			}
-		},
+		// {
+		// 	"path": "pages/me/mentalTest/list",
+		// 	"style": {
+		// 		"navigationBarTitleText": "答题测试",
+		// 		"navigationStyle": "custom"
+		// 	}
+		// },
+		// {
+		// 	"path": "pages/me/mentalTest/index",
+		// 	"style": {
+		// 		"navigationBarTitleText": "答题测试",
+		// 		"navigationStyle": "custom"
+		// 	}
+		// },
+		// {
+		// 	"path": "pages/me/mentalTest/explain",
+		// 	"style": {
+		// 		"navigationBarTitleText": "答题规则说明"
+		// 	}
+		// },
 		{
 			"path": "pages/news/news",
 			"style": {
 				"navigationBarTitleText": "资讯详情"
 			}
 		},
-		{
-			"path": "pages/video",
-			"style": {
-				"navigationBarTitleText": "视频播放",
-				"usingComponents": {
-					// #ifdef  MP-WEIXIN 
-					"txv-video": "plugin://tencentvideo/video"
-					// #endif
-				}
-			}
-		},
+		// {
+		// 	"path": "pages/video",
+		// 	"style": {
+		// 		"navigationBarTitleText": "视频播放",
+		// 		"usingComponents": {
+		// 			// #ifdef  MP-WEIXIN 
+		// 			"txv-video": "plugin://tencentvideo/video"
+		// 			// #endif
+		// 		}
+		// 	}
+		// },
 		{
 			"path": "pages/project/list",
 			"style": {
