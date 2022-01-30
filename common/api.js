@@ -4,9 +4,10 @@ const baseUrl = 'https://www.zhoukaiwen.com/';
 const imgUrl = 'https://bucuo.liph.top/image/';
 const apiUrl='https://api.bucuo.liph.top/';
 
-// 向模板api请求数据
+let token=''
+// 向apiUrl请求数据
 // 不带token请求
-const httpRequest = (opts, data) => {
+const myHttpRequest = (opts, data) => {
 	uni.onNetworkStatusChange(function(res) {
 		if (!res.isConnected) {
 			uni.showToast({
@@ -17,7 +18,7 @@ const httpRequest = (opts, data) => {
 		return false
 	});
 	let httpDefaultOpts = {
-		url: baseUrl + opts.url,
+		url: apiUrl + opts.url,
 		data: data,
 		method: opts.method,
 		header: opts.method == 'get' ? {
@@ -44,7 +45,7 @@ const httpRequest = (opts, data) => {
 	return promise
 };
 //带Token请求
-const httpTokenRequest = (opts, data) => {
+const myHttpTokenRequest = (opts, data) => {
 	uni.onNetworkStatusChange(function(res) {
 		if (!res.isConnected) {
 			uni.showToast({
@@ -54,8 +55,32 @@ const httpTokenRequest = (opts, data) => {
 		}
 		return false
 	});
-	let token = uni.getStorageSync('token');
-	console.log(token);
+	//
+	let myopts = {
+		url: 'api/user/login',
+		method: 'post'
+	};
+	let mydata={
+		"username": "yeep1",
+		"password": "yeep2020"
+	}
+	// let token=''
+	myHttpRequest(myopts,mydata).then(res => {
+		console.log("获取Token成功！");
+		if (res.statusCode == 200) {
+			console.log("最初Token内容：",res.data.data.token);
+			uni.setStorage('token',res.data.data.token)
+			token = res.data.data.token
+		} else {
+			console.log('获取token失败！')
+			return null
+		}
+	});
+
+
+	// let token = uni.getStorage('token');
+	// let token = getToken();
+	console.log('读取token',token);
 	// hadToken()
 	if (token == '' || token == undefined || token == null) {
 		uni.showToast({
@@ -67,9 +92,10 @@ const httpTokenRequest = (opts, data) => {
 				});
 			}
 		});
-	} else {
+	} else 
+	{
 		let httpDefaultOpts = {
-			url: baseUrl + opts.url,
+			url: apiUrl + opts.url,
 			data: data,
 			method: opts.method,
 			header: opts.method == 'get' ? {
@@ -78,7 +104,7 @@ const httpTokenRequest = (opts, data) => {
 				"Accept": "application/json",
 				"Content-Type": "application/json; charset=UTF-8"
 			} : {
-				'X-Access-Token': token,
+				'token': token,
 				'X-Requested-With': 'XMLHttpRequest',
 				'Content-Type': 'application/json; charset=UTF-8'
 			},
@@ -128,6 +154,7 @@ const httpTokenRequest = (opts, data) => {
 	//此token是登录成功后后台返回保存在storage中的
 
 };
+
 const hadToken = () => {
 	let token = uni.getStorageSync('token');
 
@@ -146,11 +173,33 @@ const hadToken = () => {
 	return true
 }
 
+const getToken= () =>{
+	let opts = {
+		url: 'api/user/login',
+		method: 'post'
+	};
+	let data={
+		"username": "yeep1",
+		"password": "yeep2020"
+	}
+	myHttpRequest(opts,data).then(res => {
+		console.log("获取Token成功！");
+		if (res.statusCode == 200) {
+			console.log("最初Token内容：",res.data.data.token);
+			uni.setStorage('token',res.data.data.token)
+			token = res.data.data.token
+		} else {
+			console.log('获取token失败！')
+			return null
+		}
+	});
+}
 export default {
 	baseUrl,
 	imgUrl,
 	apiUrl,
-	httpRequest,
-	httpTokenRequest,
-	hadToken
+	myHttpRequest,
+	myHttpTokenRequest,
+	hadToken,
+	getToken
 }
