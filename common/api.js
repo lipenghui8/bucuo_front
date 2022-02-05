@@ -5,6 +5,7 @@ const imgUrl = 'https://bucuo.liph.top/image/';
 const apiUrl='https://api.bucuo.liph.top/';
 
 let token=''
+
 // 向apiUrl请求数据
 // 不带token请求
 const myHttpRequest = (opts, data) => {
