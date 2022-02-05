@@ -4,11 +4,10 @@ const baseUrl = 'https://www.zhoukaiwen.com/';
 const imgUrl = 'https://bucuo.liph.top/image/';
 const apiUrl='https://api.bucuo.liph.top/';
 
-let token=''
 
 // 向apiUrl请求数据
 // 不带token请求
-const myHttpRequest = (opts, data) => {
+const httpRequest = (opts, data) => {
 	uni.onNetworkStatusChange(function(res) {
 		if (!res.isConnected) {
 			uni.showToast({
@@ -46,7 +45,7 @@ const myHttpRequest = (opts, data) => {
 	return promise
 };
 //带Token请求
-const myHttpTokenRequest = (opts, data) => {
+const httpTokenRequest = (opts, data) => {
 	uni.onNetworkStatusChange(function(res) {
 		if (!res.isConnected) {
 			uni.showToast({
@@ -56,32 +55,7 @@ const myHttpTokenRequest = (opts, data) => {
 		}
 		return false
 	});
-	//
-	let myopts = {
-		url: 'api/user/login',
-		method: 'post'
-	};
-	let mydata={
-		"username": "yeep1",
-		"password": "yeep2020"
-	}
-	// let token=''
-	myHttpRequest(myopts,mydata).then(res => {
-		console.log("获取Token成功！");
-		if (res.statusCode == 200) {
-			console.log("最初Token内容：",res.data.data.token);
-			uni.setStorage('token',res.data.data.token)
-			token = res.data.data.token
-		} else {
-			console.log('获取token失败！')
-			return null
-		}
-	});
-
-
-	// let token = uni.getStorage('token');
-	// let token = getToken();
-	console.log('读取token',token);
+	let token=getToken()
 	// hadToken()
 	if (token == '' || token == undefined || token == null) {
 		uni.showToast({
@@ -176,19 +150,16 @@ const hadToken = () => {
 
 const getToken= () =>{
 	let opts = {
-		url: 'api/user/login',
-		method: 'post'
+		url: '/api/user/wxLogin',
+		method: 'get'
 	};
-	let data={
-		"username": "yeep1",
-		"password": "yeep2020"
-	}
-	myHttpRequest(opts,data).then(res => {
+	httpRequest(opts).then(res => {
 		console.log("获取Token成功！");
 		if (res.statusCode == 200) {
 			console.log("最初Token内容：",res.data.data.token);
-			uni.setStorage('token',res.data.data.token)
-			token = res.data.data.token
+			// uni.setStorage('token',res.data.data.token)
+			let token = res.data.data.token
+			return token
 		} else {
 			console.log('获取token失败！')
 			return null
@@ -199,8 +170,8 @@ export default {
 	baseUrl,
 	imgUrl,
 	apiUrl,
-	myHttpRequest,
-	myHttpTokenRequest,
+	httpRequest,
+	httpTokenRequest,
 	hadToken,
 	getToken
 }

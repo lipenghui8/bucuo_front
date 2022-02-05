@@ -73,8 +73,8 @@
 								<view class="centre">
 									<image src="http://cdn.zhoukaiwen.com/noData1.png" mode="widthFix"></image>
 									<view class="explain">
-										暂无班级信息
-										<view class="tips">可以去看看有其他课程</view>
+										暂无技能信息
+										<view class="tips">可以去添加技能哦</view>
 									</view>
 									<view class="btn">随便逛逛</view>
 								</view>
@@ -108,7 +108,9 @@
 				activeColor: '#0081ff',
 				striped: false,
 				stripedActive: false,
-				
+				user:{
+					id:'241241'
+				},
 				avatar: [
 					'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg',
 					'https://ossweb-img.qq.com/images/lol/web201310/skin/big81005.jpg',

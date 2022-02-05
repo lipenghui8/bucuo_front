@@ -76,6 +76,9 @@
 				spaceShow:true,
 				modalName: null,
 				picName: '流星之夜',
+				user:{
+					id:'521666'
+				},
 				pic: [{
 					link: 'https://cdn.zhoukaiwen.com/zjx_me_bg1.jpeg',
 					name: '春天'

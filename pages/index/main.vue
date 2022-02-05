@@ -18,7 +18,7 @@
 					placeholder="请选择所属栏目" @click="actionSheetShow = true"></u-input>
 			</u-form-item>
 			<u-form-item :label-position="labelPosition" label="帖子标签" prop="labels" label-width="150">
-				<u-input type="textarea" :border="border" placeholder="请填写标签，以分号分隔" v-model="model.labels" />
+				<u-input type="textarea" :border="border" placeholder="请填写标签，以空格分隔" v-model="model.labels" />
 			</u-form-item>
 			<u-form-item v-show="labelHandle">			
 				<view class="labelItem" v-for="(item,index) in labelHandle" :key="index">
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-	import request from '@/common/request.js';
+	import api from '@/common/api.js';
 	export default {
 		data() {
 			let that = this;
@@ -169,7 +169,7 @@
 			},
 			labelHandle() {
 				if (this.model.labels)
-					return this.model.labels.split("；");
+					return this.model.labels.split(" ");
 				else
 					return false
 			}

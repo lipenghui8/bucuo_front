@@ -1,7 +1,8 @@
 <!-- 首页 -->
 <template>
 	<view>
-		<cu-custom bgColor="bg-gradual-blue" :isBack="false">
+		<!-- <cu-custom bgColor="bg-gradual-blue" :isBack="false"> -->
+		<cu-custom bgColor="#FFF" :isBack="false">
 			<!-- <block slot="backText">返回</block> -->
 			<block slot="content">“不错”校园</block>
 		</cu-custom>
