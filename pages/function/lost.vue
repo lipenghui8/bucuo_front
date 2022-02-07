@@ -6,7 +6,9 @@
 		</cu-custom>	
 		<view class="wrap" style="margin: 32rpx;">
 			<!-- 注意，如果需要兼容微信小程序，最好通过setRules方法设置rules规则 -->
-				<view class="case flex-sub text-left shadow bg-white">
+				<view class="case flex-sub text-left shadow bg-white"
+					style="border-radius: 20rpx;"
+				>
 					<view class="cuIcon-titles text-orange text-center">
 					登记须知
 					</view> 
