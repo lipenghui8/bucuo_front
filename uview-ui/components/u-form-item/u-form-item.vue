@@ -4,13 +4,14 @@
 			flexDirection: elLabelPosition == 'left' ? 'row' : 'column'
 		}">
 			<!-- 微信小程序中，将一个参数设置空字符串，结果会变成字符串"true" -->
-			<view class="u-form-item--left" :style="{
+			<view  class="u-form-item--left" :style="{
 				width: uLabelWidth,
 				flex: `0 0 ${uLabelWidth}`,
 				marginBottom: elLabelPosition == 'left' ? 0 : '10rpx',
+
 			}">
 				<!-- 为了块对齐 -->
-				<view class="u-form-item--left__content" v-if="required || leftIcon || label">
+				<view class="u-form-item--left__content" style="margin-left: 20rpx;;" v-if="required || leftIcon || label">
 					<!-- nvue不支持伪元素before -->
 					<text v-if="required" class="u-form-item--left__content--required">*</text>
 					<view class="u-form-item--left__content__icon" v-if="leftIcon">

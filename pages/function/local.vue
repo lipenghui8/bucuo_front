@@ -20,7 +20,8 @@
 						:key="index">
 							<view class="content">
 								<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"
-								 mode="widthFix"></image>
+								 class="imgStyle"
+								 ></image>
 								<view class="desc">
 									<view class="flex solid-bottom padding justify-around">
 										<view class="text-black text-bold">{{item.title}}</view>
@@ -267,7 +268,9 @@ page {
 </style>
 
 <style lang="scss" scoped>
-	
+	.imgStyle{
+		margin-top: 10%;
+	}	
 .order {
 	width: 710rpx;
 	background-color: #ffffff;

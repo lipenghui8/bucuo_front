@@ -70,16 +70,18 @@
 									<view class="solid-bottom text-df padding">{{ item.PublisherID}}</view>
 								</view>
 								<view class="basis-xs justify-center">
-									<view class="cu-capsule justify-center round cu-item" style="height: 33%;">
-										<view class="cu-tag bg-red">
-											<text class="cuIcon-likefill"></text>
+									<view class=" justify-center round cu-item" style="height: 50%;">
+										<view style="margin-top: 23%;">
+											<view class="cu-tag bg-red">
+												<text class="cuIcon-likefill"></text>
+											</view>
+											<view class="cu-tag line-red">12</view>
 										</view>
-										<view class="cu-tag line-red">12</view>
 									</view>
-									<view class="cu-capsule cu-item" style="height: 33%;">
+									<view class=" cu-item" style="height: 20%;">
 										<view class="cu-tag bg-gradual-green">有机</view>
 									</view>
-									<view class="cu-capsule cu-item" style="height: 33%;">
+									<view class=" cu-item" style="height: 20%;">
 										<view class="cu-tag bg-gradual-pink">化学院</view>	
 									</view>
 								</view>

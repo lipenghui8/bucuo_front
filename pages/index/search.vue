@@ -6,8 +6,8 @@
 		</cu-custom> -->
 		<view class="cu-bar bg-white  flex justify-end">
 			<navigator class="action but-margin" url="design" hover-class="none">
-				<view class="bg-white shadow " style="padding: 5px; border-radius: 8rpx;">
-					<text class="cuIcon-warnfill" style="color: #ff0000;"></text>
+				<view class="bg-white shadow " style="padding: 5px; border-radius: 8rpx; display: flex;">
+					<u-image mode="widthFix" :src="warnUrl" width="22px" height="22px"></u-image>
 					<text style="font-size: 22px;">建议</text>
 				</view>
 			</navigator>
@@ -71,6 +71,8 @@
 				menuHeight: 0, // 左边菜单的高度
 				menuItemHeight: 0, // 左边菜单item的高度
 				buttonData:[2.35,8.36,10.5],
+				warnUrl: require("@/static/icons/warn.png")
+			
 			}
 		},
 		computed: {
