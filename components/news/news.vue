@@ -1,8 +1,8 @@
 <!-- 课程班级 -->
 <template>
 	<view>
-		<cu-custom bgColor="bg-gradual-blue">
-			<block slot="content">消息</block>
+		<cu-custom bgColor="#FFF">
+			<block slot="content" color="black">消息</block>
 		</cu-custom>
 		<view class="wrap">
 			<view class="u-tabs-box">

@@ -1,9 +1,9 @@
 <template>
 	<view class="u-wrap">
-		<cu-custom bgColor="bg-gradual-blue" :isBack="false">
-			<!-- <block slot="backText">返回</block> -->
+		<!-- <cu-custom bgColor="#FFF" color="black" :isBack="false">
+			
 			<block slot="content">功能</block>
-		</cu-custom>
+		</cu-custom> -->
 		<view class="cu-bar bg-white  flex justify-end">
 			<navigator class="action but-margin" url="design" hover-class="none">
 				<view class="bg-white shadow " style="padding: 5px; border-radius: 8rpx;">

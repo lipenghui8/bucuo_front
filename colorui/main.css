@@ -11,7 +11,7 @@
         初始化
  ==================== */
 body {
-	background-color: #f2f5f9;
+	background-color: #FFF;
 	font-size: 28upx;
 	color: #333333;
 	font-family: Helvetica Neue, Helvetica, sans-serif;
@@ -2452,7 +2452,7 @@ button.cuIcon.lg {
 	margin-right: auto;
 	width: 680upx;
 	max-width: 100%;
-	background-color: #f8f8f8;
+	background-color: #FFF;
 	border-radius: 10upx;
 	overflow: hidden;
 }
