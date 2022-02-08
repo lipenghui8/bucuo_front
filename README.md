@@ -7,9 +7,26 @@
 * uview-ui:https://www.uviewui.com/components/color.html
 * colorUi组件库:http://demo.color-ui.com/
 
+### 需求文档
+
+1. 经验页面搜索框固定到底部
+2. 功能页面上边距
+3. 功能页面顶部变白
+4. 消息页面去掉红包
+5. 消息图标去掉2
+6. 我的图标去掉小红点
+7. 消息页面圆形图标
+8. 会员中心页面
+9. 芝士币交易所
+10. 内容修改
+11. ID改成不一样
+12. 经验页面爱心不用方框
+13. 帖子评论点赞收藏
+14. 所有帖子可以点进去，换成指定内容
+
 ### 项目说明
 
-1.  项目基于Vue-uniApp，使用colorUi与uview框架，部分Demo参考uniApp插件市场等，感谢各位作者～
+1.  项目基于Vue-uniApp，使用colorUi与uview框架，部分Demo参考uniApp插件市场等
 2.  项目包含功能 (部分)：
 > * 自定义视频插件
 > * 自定义TabBar与顶部
@@ -138,6 +155,4 @@
 3.  将项目拖进【HBuildX】- 运行 - 微信小程序 - 完成
 
 ### 其他说明
-> *  查看最新项目，请使用微信搜索小程序：“7he丶Kevin”
-> *  如果有不错的页面功能、设计，大家都可以参与项目开发
 > *  前端铺子 首页 [qdpz.zhoukaiwen.com](https://qdpz.zhoukaiwen.com)
