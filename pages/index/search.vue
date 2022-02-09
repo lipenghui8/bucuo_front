@@ -4,28 +4,30 @@
 			
 			<block slot="content">功能</block>
 		</cu-custom> -->
-		<view class="cu-bar bg-white  flex justify-end">
-			<navigator class="action but-margin" url="design" hover-class="none">
-				<view class="bg-white shadow " style="padding: 5px; border-radius: 8rpx; display: flex;">
-					<u-image mode="widthFix" :src="warnUrl" width="22px" height="22px"></u-image>
-					<text style="font-size: 22px;">建议</text>
-				</view>
-			</navigator>
-			<navigator class="action but-margin" url="design" hover-class="none" >
-				<view class="bg-white shadow"  style="padding: 5px; border-radius: 8rpx;">
-					<u-icon name="rmb-circle-fill" style="color: #313cd4;"></u-icon>
-					<text >赞赏</text>
-				</view>
-			</navigator>
+		<view style="margin-top: 180rpx;">
+			<view class="cu-bar bg-white  flex justify-end">
+				<navigator class="action but-margin" url="design" hover-class="none">
+					<view class="bg-white shadow " style="padding: 5px; border-radius: 8rpx; display: flex;">
+						<u-image mode="widthFix" :src="warnUrl" width="22px" height="22px"></u-image>
+						<text style="font-size: 22px;">建议</text>
+					</view>
+				</navigator>
+				<navigator class="action but-margin" url="design" hover-class="none" >
+					<view class="bg-white shadow"  style="padding: 5px; border-radius: 8rpx;">
+						<u-icon name="rmb-circle-fill" style="color: #313cd4;"></u-icon>
+						<text >赞赏</text>
+					</view>
+				</navigator>
+			</view>
+			<view class="flex flex-wrap justify-end align-center bg-white" style="padding-right: 30rpx; margin-bottom: 12rpx;" @click="goLost">
+				<navigator class="action but-margin" url="design" hover-class="none" >
+					<view class="bg-white shadow"  style="padding: 5px; border-radius: 8rpx;">
+						<u-icon name="rmb-circle-fill" style="color: #313cd4;"></u-icon>
+						<text >拾物登记</text>
+					</view>
+				</navigator>	
+			</view>				
 		</view>
-		<view class="flex flex-wrap justify-end align-center bg-white" style="padding-right: 30rpx;" @click="goLost">
-			<navigator class="action but-margin" url="design" hover-class="none" >
-				<view class="bg-white shadow"  style="padding: 5px; border-radius: 8rpx;">
-					<u-icon name="rmb-circle-fill" style="color: #313cd4;"></u-icon>
-					<text >拾物登记</text>
-				</view>
-			</navigator>	
-		</view>	
 		<view>
 			<bigbutton></bigbutton>
 		</view>	

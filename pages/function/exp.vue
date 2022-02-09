@@ -71,10 +71,9 @@
 								</view>
 								<view class="basis-xs justify-center">
 									<view class=" justify-center round cu-item" style="height: 50%;">
-										<view style="margin-top: 23%;">
-											<view class="cu-tag bg-red">
-												<text class="cuIcon-likefill"></text>
-											</view>
+										<view style="margin-top: 23%; display: flex;">
+											<view>
+											<u-image mode="widthFix" :src="iconUrl" width="22px" height="22px"></u-image>											</view>
 											<view class="cu-tag line-red">12</view>
 										</view>
 									</view>
@@ -90,16 +89,17 @@
 					</view>
 					<u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
 				</view>
-				<view class="u-search-box">
-					<view class="u-search-inner">
-						<u-icon name="search" color="#909399" :size="28"></u-icon>
-						<input class=" u-search-text" 
-						placeholder="开封爬楼推荐地点"
-						style="width: 100%;"
-						></input>
-					</view>
-				</view>
 			</scroll-view>
+			<view class="u-search-box" style="position: absolute; bottom: 10rpx; width: 100%;">
+				<view class="u-search-inner">
+					<u-icon name="search" color="#909399" :size="28"></u-icon>
+					<input class=" u-search-text" 
+					placeholder="开封爬楼推荐地点"
+					style="width: 100%;"
+					></input>
+				</view>
+			</view>
+
 		</view>
 	</view>
 </template>
@@ -118,6 +118,8 @@
 				activeColor: '#0081ff',
 				striped: false,
 				stripedActive: false,
+				iconUrl: require("@/static/icons/aixin.png"),
+				
 				
 				avatar: [
 					'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg',
@@ -157,7 +159,7 @@
 				            ],
 				            "PublisherID": 2,
 				            "id": 2
-				        },
+				        }
 					],
 				dataList: [
 					{

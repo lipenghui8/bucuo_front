@@ -31,7 +31,9 @@
 
 				<view class="action" @click="NavChange" data-cur="news">
 					<view class='cuIcon-cu-image'>
+						<!-- 2
 						<view class="cu-tag badge">{{message}}</view>
+						-->
 						<image v-if="PageCur=='news'" src="https://bucuo.liph.top/static/tabBar/order_cur.png"></image>
 						<image v-if="PageCur != 'news'" src="https://bucuo.liph.top/static/tabBar/order.png"></image>
 					</view>
@@ -40,7 +42,7 @@
 
 				<view class="action" @click="NavChange" data-cur="me">
 					<view class='cuIcon-cu-image'>
-						<view class="cu-tag badge"><!-- 红点 --></view>
+						<!-- 红点   <view class="cu-tag badge"> </view> -->
 						<image v-if="PageCur=='me'" src="https://bucuo.liph.top/static/tabBar/me_cur.png"></image>
 						<image v-if="PageCur != 'me'" src="https://bucuo.liph.top/static/tabBar/me.png"></image>
 					</view>

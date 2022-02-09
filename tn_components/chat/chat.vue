@@ -22,11 +22,12 @@
 							<view v-if="row.msg.type=='text'" class="text">
 								{{row.msg.content.text}}
 							</view>
-							<!-- 领取红包消息 -->
+							<!-- 领取红包消息 
 							<view v-if="row.msg.type=='redEnvelope'" class="red-envelope">
 								<image src="http://bucuo.liph.top/static/chat/red-envelope-chat.png"></image>
 								{{row.msg.content.text}}
 							</view>
+							-->
 						</view>
 					</block>
 					<!-- 用户消息 -->
@@ -51,17 +52,18 @@
 										:style="{'width': row.msg.content.w+'px','height': row.msg.content.h+'px'}">
 									</image>
 								</view>
-								<!-- 红包 -->
+								<!-- 红包 
 								<view v-if="row.msg.type=='redEnvelope'" class="bubble red-envelope"
 									@tap="openRedEnvelope(row.msg,index)">
 									<image src="http://bucuo.liph.top/static/chat/red-envelope.png"></image>
 									<view class="tis">
-										<!-- 点击开红包 -->
+										<!-- 点击开红包 ->
 									</view>
 									<view class="blessing">
 										{{row.msg.content.blessing}}
 									</view>
 								</view>
+								-->
 
 							</view>
 							<!-- 右-头像 -->
@@ -97,17 +99,18 @@
 										:style="{'width': row.msg.content.w+'px','height': row.msg.content.h+'px'}">
 									</image>
 								</view>
-								<!-- 红包 -->
+								<!-- 红包 
 								<view v-if="row.msg.type=='redEnvelope'" class="bubble red-envelope"
 									@tap="openRedEnvelope(row.msg,index)">
 									<image src="http://bucuo.liph.top/static/chat/red-envelope.png"></image>
 									<view class="tis">
-										<!-- 点击开红包 -->
+										<!-- 点击开红包 ->
 									</view>
 									<view class="blessing">
 										{{row.msg.content.blessing}}
 									</view>
 								</view>
+								-->
 							</view>
 						</view>
 					</block>
