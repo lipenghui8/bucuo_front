@@ -122,7 +122,7 @@
 						goodsList: [
 							{
 								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
-								title: '040431',
+								title: '000951',
 								type: 'Promise 必须为以下三种状态之一'
 							}
 						]
@@ -132,7 +132,7 @@
 						goodsList: [
 							{
 								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
-								title: '040431',
+								title: '040534',
 								type: '1.封装项目的基础库；2.层级管理；3.缓存；'
 							}
 						]
@@ -142,7 +142,7 @@
 						goodsList: [
 							{
 								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
-								title: '040431',
+								title: '000653',
 								type: '引擎在读取js代码的过程中,分为两步。'
 							}
 						]

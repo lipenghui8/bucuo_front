@@ -46,8 +46,8 @@
 		
 		<view class="medal">
 			<view class="medal-title">
-				<text>特别奖章</text>
-				<text class="text">0个</text>
+				<text>会员权限</text>
+				<!-- <text class="text">0个</text> -->
 			</view>
 			
 			<view class="medal-box">
@@ -155,28 +155,28 @@
 				
 				medalList:[{
 					imgUrl: "https://zhoukaiwen.com/img/medal/icon-medal-1.png",
-					title:"VIP专属",
-					text:"成为VIP会员"
+					title:"经验贴",
+					text:"经验贴免费查看"
 				},{
 					imgUrl: "https://zhoukaiwen.com/img/medal/icon-medal-2.png",
-					title:"栏目真粉",
-					text:"订阅10个栏目"
+					title:"资料下载",
+					text:"下载资料95折"
 				},{
 					imgUrl: "https://zhoukaiwen.com/img/medal/icon-medal-3.png",
-					title:"实力听霸",
-					text:"完成200个音频"
+					title:"兴趣小组",
+					text:"创建一个兴趣小组"
 				},{
 					imgUrl: "https://zhoukaiwen.com/img/medal/icon-medal-4.png",
-					title:"时间管家",
-					text:"完成50组短听"
+					title:"失物提醒",
+					text:"失物短信提醒"
 				},{
 					imgUrl: "https://zhoukaiwen.com/img/medal/icon-medal-5.png",
-					title:"养成习惯",
-					text:"连续21天登录音频"
+					title:"折扣优惠",
+					text:"下载资料85折"
 				},{
 					imgUrl: "https://zhoukaiwen.com/img/medal/icon-medal-6.png",
-					title:"乐享达人",
-					text:"分享好友20次"
+					title:"下载更新",
+					text:"下载更新功能"
 				}]
 			}
 		}
@@ -310,7 +310,7 @@
 	}
 	.warp{
 		.swiper{
-			height: 600rpx;
+			height: 560rpx;
 			.progress{
 				.heard{
 					font-size: 36rpx;
@@ -322,7 +322,7 @@
 					font-size: 28rpx;
 				}
 				.progress-artice{
-					margin-top: 30rpx;
+					margin-top: 20rpx;
 					font-size: 28rpx;
 					.outer{
 						height: 10rpx;
@@ -397,6 +397,7 @@
 		
 		.medal{
 			margin: 10rpx 30rpx;
+			margin-bottom: 30rpx;
 			.medal-title{
 				font-size: 32rpx;
 				font-weight: 700;

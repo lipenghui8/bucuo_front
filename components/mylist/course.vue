@@ -27,9 +27,9 @@
 										<view class="type">{{ item.type }}</view>
 									</view>
 								</view>
-								<view class="bottom">
+								<view class="bottom" v-for="(user,index) in res.user" :key="index">
 									<view>
-										<text class="text-gray text-shadow">ID:{{user.id}} 2天前</text>
+										<text class="text-gray text-shadow">ID:{{user.id}} {{user.date}}天前</text>
 									</view>
 								</view>
 							</view>
@@ -124,6 +124,12 @@
 						id: 1,
 						store: '爱情与现代公司理论',
 						progre: 60,
+						user:[
+							{
+								id:'000431',
+								date:1
+							}
+						],
 						goodsList: [
 							{
 								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
@@ -138,6 +144,12 @@
 						id: 2,
 						store: '西南财经大学保研经验贴',
 						progre: 39,
+						user:[
+							{
+								id:'000530',
+								date:1
+							}
+						],
 						goodsList: [
 							{
 								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
@@ -152,6 +164,12 @@
 						id: 3,
 						store: '爱情与现代公司理论',
 						progre: 55,
+						user:[
+							{
+								id:'000210',
+								date:2
+							}
+						],
 						goodsList: [
 							{
 								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
@@ -166,6 +184,12 @@
 						id: 4,
 						store: '爱情与现代公司理论',
 						progre: 80,
+						user:[
+							{
+								id:'000430',
+								date:2
+							}
+						],
 						goodsList: [
 							{
 								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',

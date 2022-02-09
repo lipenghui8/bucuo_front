@@ -1,7 +1,7 @@
 <!-- 关于作者 -->
 <template>
   <view class="wrap">
-    <cu-custom bgColor="bg-gradual-blue" :isBack="true">
+    <cu-custom bgColor="#FFF" :isBack="true">
       <block slot="backText">芝士币交易所</block>
     </cu-custom>
     <view class="about">

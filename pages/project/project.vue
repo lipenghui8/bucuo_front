@@ -1,9 +1,9 @@
-<!-- 项目展示 -->
+<!-- 帖子内容 -->
 <template>
 	<view class="container">
-		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+		<cu-custom bgColor="#FFF" :isBack="true">
 			<block slot="backText">返回</block>
-			<block slot="content">项目展示</block>
+			<block slot="content"></block>
 		</cu-custom>
 		<view class="content" v-if="projectList.length > 0">
 			<view class="titleName">{{ projectList[isIndex].title }}</view>
