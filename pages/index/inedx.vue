@@ -185,77 +185,13 @@
 				},
 
 				bannerList: [{
-						imageUrl: 'https://cdn.zhoukaiwen.com/zjx_banner.png'
+						imageUrl: 'http://bucuo.liph.top/static/index/banner1.png'
 					},
 					{
 						imageUrl: 'https://cdn.zhoukaiwen.com/zjx_banner3.png'
 					},
 					{
 						imageUrl: 'https://cdn.zhoukaiwen.com/zjx_banner1.png'
-					},
-					{
-						imageUrl: 'https://cdn.zhoukaiwen.com/zjx_banner2.png'
-					}
-				],
-				categories: [{
-						cuIcon: 'hotfill',
-						color: 'red',
-						badge: '优惠',
-						mid: '1',
-						name: '学习技术'
-					},
-					{
-						cuIcon: 'colorlens',
-						color: 'orange',
-						badge: 1,
-						mid: '2',
-						name: '需求定制'
-					},
-					{
-						cuIcon: 'goodsnewfill',
-						color: 'yellow',
-						badge: 12,
-						mid: '3',
-						name: '客户定制'
-					},
-					{
-						cuIcon: 'calendar',
-						color: 'cyan',
-						badge: 22,
-						mid: '4',
-						name: '文章资讯'
-					}
-				],
-				messageData: [{
-						title: '「前端铺子」感谢大家的支持',
-						tag: '感谢',
-						content: '加群请在git上查看二维码或联系方式'
-					},
-					{
-						title: '组件持续更新中，敬请期待！',
-						tag: '更新',
-						content: '致力提供优质的组件，gitee保持最新'
-					}
-				],
-				curriculum: [{
-						name: 'uniapp项目开发',
-						content: 'uniapp小程序商城系统开发，实战项目s...asdas'
-					},
-					{
-						name: '后台管理系统',
-						content: 'vue+iview的后台管理系统建设系统开发...'
-					},
-					{
-						name: 'App模板',
-						content: '基于uniapp开发的效率类APP，开发至上线...'
-					},
-					{
-						name: 'PC端官网开发',
-						content: 'html/css/jQuery建设的PC端官方门户网站...'
-					},
-					{
-						name: 'uniapp多端打包',
-						content: 'uniapp开发完成上线的打包流程，上架商店等...'
 					}
 				],
 				projectList: []
@@ -287,22 +223,6 @@
 			scroll: function(e) {
 				console.log(e);
 				this.old.scrollTop = e.detail.scrollTop;
-			},
-			goCategorieslist: function(e) {
-				// console.log(e.currentTarget.dataset.mid)
-				if (e.currentTarget.dataset.mid == 1 || e.currentTarget.dataset.mid == 2) {
-					uni.navigateTo({
-						url: '../timeline?mid=' + e.currentTarget.dataset.mid
-					});
-				} else if (e.currentTarget.dataset.mid == 3) {
-					uni.navigateTo({
-						url: '../../os_project/index'
-					});
-				} else if (e.currentTarget.dataset.mid == 4) {
-					this.$emit('ShowNews', 'news')
-					console.log('文章资讯')
-
-				}
 			},
 			goProjectList() {
 				uni.navigateTo({
@@ -340,7 +260,7 @@
 		background-position: 15rpx 10rpx;
 		margin: 0rpx 0rpx 10rpx 0rpx;
 		padding-left: 130rpx;
-
+		
 		.message-tltle {
 			height: 65rpx;
 			line-height: 70rpx;

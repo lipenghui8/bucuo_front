@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
+		<cu-custom bgColor="#FFF" :isBack="true">
 			<block slot="backText">返回</block>
 			<block slot="content">失物招领</block>
 		</cu-custom>	
