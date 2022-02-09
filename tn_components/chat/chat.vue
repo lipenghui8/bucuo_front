@@ -57,7 +57,7 @@
 									@tap="openRedEnvelope(row.msg,index)">
 									<image src="http://bucuo.liph.top/static/chat/red-envelope.png"></image>
 									<view class="tis">
-										<!-- 点击开红包 ->
+										点击开红包
 									</view>
 									<view class="blessing">
 										{{row.msg.content.blessing}}
@@ -104,7 +104,7 @@
 									@tap="openRedEnvelope(row.msg,index)">
 									<image src="http://bucuo.liph.top/static/chat/red-envelope.png"></image>
 									<view class="tis">
-										<!-- 点击开红包 ->
+										点击开红包
 									</view>
 									<view class="blessing">
 										{{row.msg.content.blessing}}
@@ -702,7 +702,7 @@
 									face: "https://zhoukaiwen.com/img/kevinLogo.png"
 								},
 								content: {
-									text: "web前端开发该怎么学习？"
+									text: "期末该怎么复习？"
 								}
 							}
 						},
@@ -905,52 +905,52 @@
 						}
 					},
 
-					{
-						type: "system",
-						msg: {
-							id: 9,
-							type: "redEnvelope",
-							content: {
-								text: "售后客服008领取了你的红包"
-							}
-						}
-					},
-					{
-						type: "user",
-						msg: {
-							id: 10,
-							type: "redEnvelope",
-							time: "12:56",
-							userinfo: {
-								uid: 0,
-								username: "大黑哥",
-								face: "https://zhoukaiwen.com/img/kevinLogo.png"
-							},
-							content: {
-								blessing: "恭喜发财，大吉大利，万事如意",
-								rid: 0,
-								isReceived: false
-							}
-						}
-					},
-					{
-						type: "user",
-						msg: {
-							id: 11,
-							type: "redEnvelope",
-							time: "12:56",
-							userinfo: {
-								uid: 1,
-								username: "售后客服008",
-								face: "https://zhoukaiwen.com/img/qdpz/face/face_2.jpg"
-							},
-							content: {
-								blessing: "恭喜发财",
-								rid: 1,
-								isReceived: false
-							}
-						}
-					},
+					// {
+					// 	type: "system",
+					// 	msg: {
+					// 		id: 9,
+					// 		type: "redEnvelope",
+					// 		content: {
+					// 			text: "售后客服008领取了你的红包"
+					// 		}
+					// 	}
+					// },
+					// {
+					// 	type: "user",
+					// 	msg: {
+					// 		id: 10,
+					// 		type: "redEnvelope",
+					// 		time: "12:56",
+					// 		userinfo: {
+					// 			uid: 0,
+					// 			username: "大黑哥",
+					// 			face: "https://zhoukaiwen.com/img/kevinLogo.png"
+					// 		},
+					// 		content: {
+					// 			blessing: "恭喜发财，大吉大利，万事如意",
+					// 			rid: 0,
+					// 			isReceived: false
+					// 		}
+					// 	}
+					// },
+					// {
+					// 	type: "user",
+					// 	msg: {
+					// 		id: 11,
+					// 		type: "redEnvelope",
+					// 		time: "12:56",
+					// 		userinfo: {
+					// 			uid: 1,
+					// 			username: "售后客服008",
+					// 			face: "https://zhoukaiwen.com/img/qdpz/face/face_2.jpg"
+					// 		},
+					// 		content: {
+					// 			blessing: "恭喜发财",
+					// 			rid: 1,
+					// 			isReceived: false
+					// 		}
+					// 	}
+					// },
 				]
 				// 获取消息中的图片,并处理显示尺寸
 				for (let i = 0; i < list.length; i++) {

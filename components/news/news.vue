@@ -22,7 +22,7 @@
 									<view class="content">
 										<view class="contentItem">
 											<view class="title u-line-2 text-bold">ID:{{ item.title }}</view>
-											<view class="newsTime">18:54</view>
+											<view class="newsTime">{{item.time}}</view>
 										</view>
 										<view class="type">{{ item.type }}</view>
 									</view>
@@ -45,7 +45,7 @@
 									<view class="content">
 										<view class="contentItem">
 											<view class="title u-line-2 text-bold">{{ item.title }}</view>
-											<view class="newsTime">18:54</view>
+											<view class="newsTime">{{item.time}}</view>
 										</view>
 										<view class="type">{{ item.type }}</view>
 									</view>
@@ -68,7 +68,7 @@
 									<view class="content">
 										<view class="contentItem">
 											<view class="title u-line-2 text-bold">ID:{{ item.title }}</view>
-											<view class="newsTime">LV5</view>
+											<view class="newsTime">LV{{item.level}}</view>
 											<navigator hover-class="none" open-type="navigate" url="../../tn_components/chat/chat"  class="chatImg">
 												<image :src="chatImgUrl" mode="aspectFill"></image>
 											</navigator>
@@ -111,8 +111,9 @@
 						id: 1,
 						goodsList: [
 							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
+								goodsUrl: 'http://bucuo.liph.top/static/news/me.jpg',
 								title: '040431',
+								time:'18:54',
 								type: '如果你想保研的话，要趁早准备，六级也得好'
 							}
 						]
@@ -121,9 +122,10 @@
 						id: 2,
 						goodsList: [
 							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
+								goodsUrl: 'http://bucuo.liph.top/static/news/hy2.png',
 								title: '000951',
-								type: 'Promise 必须为以下三种状态之一'
+								time:'3天前',
+								type: '您好，请问政治经济学往年习题有答案解析吗'
 							}
 						]
 					},
@@ -131,9 +133,10 @@
 						id: 3,
 						goodsList: [
 							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
+								goodsUrl: 'http://bucuo.liph.top/static/news/hy3.png',
 								title: '040534',
-								type: '1.封装项目的基础库；2.层级管理；3.缓存；'
+								time:'12-5',
+								type: '没事，好好学习吧，争取保研去好学校'
 							}
 						]
 					},
@@ -141,9 +144,10 @@
 						id: 4,
 						goodsList: [
 							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
+								goodsUrl: 'http://bucuo.liph.top/static/news/hy4.png',
 								title: '000653',
-								type: '引擎在读取js代码的过程中,分为两步。'
+								time:'12-4',
+								type: '唉，太卷了'
 							}
 						]
 					}
@@ -155,7 +159,8 @@
 							{
 								goodsUrl: 'http://bucuo.liph.top/static/news/dianzan.png',
 								title: '点赞',
-								type: '如果你想保研的话，要趁早准备，六级也得好'
+								time:'12:44',
+								type: 'ID:008303、ID001243等点赞'
 							}
 						]
 					},
@@ -165,7 +170,8 @@
 							{
 								goodsUrl: 'http://bucuo.liph.top/static/news/shoucan.png',
 								title: '收藏',
-								type: 'Promise 必须为以下三种状态之一'
+								time:'12:43',
+								type: 'ID:008303、ID001243等收藏'
 							}
 						]
 					},
@@ -175,7 +181,8 @@
 							{
 								goodsUrl: 'http://bucuo.liph.top/static/news/pinglun.png',
 								title: '评论',
-								type: '1.封装项目的基础库；2.层级管理；3.缓存；'
+								time:'10:20',
+								type: 'ID:008303、ID001243等评论'
 							}
 						]
 					},
@@ -185,7 +192,8 @@
 							{
 								goodsUrl: 'http://bucuo.liph.top/static/news/shiwu.png',
 								title: '失物',
-								type: '引擎在读取js代码的过程中,分为两步。'
+								time: '12-9',
+								type: '您的学生卡被ID:000501放在三号楼失物招领处'
 							}
 						],
 					},
@@ -195,7 +203,8 @@
 							{
 								goodsUrl: 'http://bucuo.liph.top/static/news/me.jpg',
 								title: '乐享君',
-								type: '引擎在读取js代码的过程中,分为两步。'
+								time: '11-3',
+								type: '欢迎来到不错校园，希望您在本平台有所收获'
 							}
 						]
 					}
@@ -205,9 +214,9 @@
 						id: 1,
 						goodsList: [
 							{
-								goodsUrl: 'http://bucuo.liph.top/static/news/dianzan.png',
+								goodsUrl: 'http://bucuo.liph.top/static/news/me.jpg',
 								title: '001265',
-								type: '如果你想保研的话，要趁早准备，六级也得好'
+								level:4
 							}
 						]
 					},
@@ -215,9 +224,9 @@
 						id: 2,
 						goodsList: [
 							{
-								goodsUrl: 'http://bucuo.liph.top/static/news/shoucan.png',
+								goodsUrl: 'http://bucuo.liph.top/static/news/hy2.png',
 								title: '001266',
-								type: 'Promise 必须为以下三种状态之一'
+								level:5
 							}
 						]
 					},
@@ -225,9 +234,9 @@
 						id: 3,
 						goodsList: [
 							{
-								goodsUrl: 'http://bucuo.liph.top/static/news/pinglun.png',
+								goodsUrl: 'http://bucuo.liph.top/static/news/hy3.png',
 								title: '001267',
-								type: '1.封装项目的基础库；2.层级管理；3.缓存；'
+								level:3
 							}
 						]
 					},
@@ -235,9 +244,9 @@
 						id: 4,
 						goodsList: [
 							{
-								goodsUrl: 'http://bucuo.liph.top/static/news/shiwu.png',
+								goodsUrl: 'http://bucuo.liph.top/static/news/hy4.png',
 								title: '001268',
-								type: '引擎在读取js代码的过程中,分为两步。'
+								level: 5
 							}
 						],
 					},
@@ -245,9 +254,9 @@
 						id: 5,
 						goodsList: [
 							{
-								goodsUrl: 'http://bucuo.liph.top/static/news/me.jpg',
+								goodsUrl: 'http://bucuo.liph.top/static/news/hy5.png',
 								title: '001269',
-								type: '引擎在读取js代码的过程中,分为两步。'
+								level: 2
 							}
 						]
 					},
@@ -255,9 +264,9 @@
 						id: 6,
 						goodsList: [
 							{
-								goodsUrl: 'http://bucuo.liph.top/static/news/me.jpg',
-								title: '001269',
-								type: '引擎在读取js代码的过程中,分为两步。'
+								goodsUrl: 'http://bucuo.liph.top/static/news/hy6.png',
+								title: '001272',
+								level: 5
 							}
 						]
 					}

@@ -19,6 +19,10 @@
 			</view>
 
 			<view class="imgBox"><image v-for="(item, index) in projectList[isIndex].introduceImg" :key="index" mode="aspectFit" :src="item"></image></view>
+			<view class="like">
+				<image @click="like=!like" mode="aspectFill" :src="dianzan"></image>
+				<image @click="collect=!collect" mode="aspectFill" :src="shoucan"></image>
+			</view>
 		</view>
 	</view>
 </template>
@@ -29,8 +33,28 @@ export default {
 	data() {
 		return {
 			isIndex: 0,
-			projectList: []
+			projectList: [],
+			like: false,
+			collect: false,
 		};
+	},
+	computed:{
+		dianzan(){
+			if(this.like){
+				return 'http://bucuo.liph.top/static/news/dianzan_true.png'
+			}
+			else{
+				return 'http://bucuo.liph.top/static/news/dianzan_false.png'
+			}
+		},
+		shoucan(){
+			if(this.collect){
+				return 'http://bucuo.liph.top/static/news/shoucan_true.png'
+			}
+			else{
+				return 'http://bucuo.liph.top/static/news/shoucan_false.png'
+			}
+		}
 	},
 	watch: {},
 	onLoad(option) {
@@ -68,6 +92,23 @@ export default {
 <style scoped>
 .content {
 	padding: 30rpx;
+}
+.like{
+	width: 270rpx;
+	height: 100rpx;
+	position: fixed;
+	bottom: 10rpx;
+	right: 10rpx;
+	display: flex;
+	padding: 10rpx 10rpx;
+	justify-content: space-around;
+	background-color: #FFF;
+	border-radius: 45rpx;
+}
+.like image{
+	width: 80rpx;
+	height: 80rpx;
+	align-items: center;
 }
 .titleName {
 	text-align: center;
