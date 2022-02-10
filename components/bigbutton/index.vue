@@ -8,8 +8,8 @@
 								<view class="sub-mid">
 									<u-icon 
 									size="80" 
-									name="https://cdn.uviewui.com/uview/example/button.png"
-									style="float: left;"
+									name="https://bucuo.liph.top/static/main/jinyan.png"
+									style="float: left;margin-right:10rpx"
 									margin-left="6rpx"
 									>
 									</u-icon>
@@ -41,8 +41,8 @@
 								<view class="sub-mid">
 									<u-icon 
 									size="80" 
-									name="https://cdn.uviewui.com/uview/example/button.png"
-									style="float: left;"
+									name="https://bucuo.liph.top/static/main/jineng.png"
+									style="float: left;margin-right:10rpx"
 									margin-left="6rpx"
 									>
 									</u-icon>
@@ -74,8 +74,8 @@
 								<view class="sub-mid">
 									<u-icon 
 									size="80" 
-									name="https://cdn.uviewui.com/uview/example/button.png"
-									style="float: left;"
+									name="https://bucuo.liph.top/static/main/dangdi.png"
+									style="float: left;margin-right:10rpx"
 									margin-left="6rpx"
 									>
 									</u-icon>
@@ -105,8 +105,8 @@
 						<view class="sub-mid loadding bg-purple-light shadow">
 							<u-icon 
 								size="60" 
-								name="https://cdn.uviewui.com/uview/example/button.png"
-								style="float: left;"
+								name="https://bucuo.liph.top/static/main/jianshe.png"
+								style="float: left;margin-right:10rpx"
 								margin-left="6rpx"
 								>
 							</u-icon>

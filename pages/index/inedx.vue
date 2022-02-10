@@ -43,60 +43,6 @@
 			</view>
 		</view>
 
-		<!-- 导航栏 
-		<view class="cu-list grid solids-bottom col-4 no-border">
-			<view class="cu-item" v-for="(item, index) in categories" :key="index"
-				:style="[{ animation: 'show ' + ((index + 1) * 0.2 + 1) + 's 1' }]" @click="goCategorieslist"
-				:data-mid="item.mid">
-				<view :class="['cuIcon-' + item.cuIcon, 'text-' + item.color]">
-					<view class="cu-tag badge" v-if="item.count != 0">
-						<block v-if="item.badge != 1">{{ item.badge > 99 ? '99+' : item.badge }}</block>
-					</view>
-				</view>
-				<text>{{ item.name }}</text>
-			</view>
-		</view>
-		-->
-		<!-- 竖向轮播提示信息
-		<view class="message-box">
-			<view class="page-section swiper">
-				<view class="page-section-spacing">
-					<swiper style="height: 120rpx;" class="swiper" vertical="ture" circular="true"
-						indicator-dots='false' indicator-color="rgba(0,0,0,.0)" indicator-active-color="rgba(0,0,0,.0)"
-						autoplay="true" interval="4000">
-						<swiper-item class="swiper-list" v-for="(item, index) in messageData" :key="index">
-							<view class="message-tltle">{{item.title}}</view>
-							<view class="message-content"><span>{{item.tag}}</span>{{item.content}}</view>
-						</swiper-item>
-					</swiper>
-				</view>
-			</view>
-		</view>
-		-->
-
-		<!-- <view class="cu-bar bg-white margin-top-xs">
-			<view class="action sub-title">
-				<text class="text-xl text-bold text-blue text-shadow">热门视频</text>
-				<text class="text-ABC text-blue">curriculum</text>
-			</view>
-			<view class="action" @click="goVideo"><text class="text-lg text-grey text-shadow">更多</text></view>
-		</view> -->
-
-		<!-- <view class="skill-sequence-panel-content-wrapper">
-			左边虚化
-			<view class="hide-content-box hide-content-box-left"></view>
-			右边虚化
-			<view class="hide-content-box hide-content-box-right"></view>
-			<scroll-view scroll-x="true" class="kite-classify-scroll">
-				<view class="kite-classify-cell shadow" v-for="(item, index) in curriculum" :key="index">
-					<view :class="'nav-li bg-index' + (index + 1)">
-						<view class="nav-name">{{ item.name }}</view>
-					</view>
-					<view class="nav-content">{{ item.content }}</view>
-					<view @click="goVideo" class="nav-btn shadow" :class="'bg-index' + (index + 1)">立即学习</view>
-				</view>
-			</scroll-view>
-		</view> -->
 		<view class="cu-bar bg-white margin-top-xs">
 			<view class="action sub-title">
 				<text class="text-xl text-bold text-blue text-shadow">为您推荐</text>
@@ -106,43 +52,7 @@
 			<view class="action" @click="goProjectList"><text class="text-lg text-grey text-shadow">更多</text></view>
 			-->
 		</view>
-		<!-- 原来的布局被修改 后来发现有直接可用的轮子 
-		<view class="cu-card case no-card article">
-			<view 
-			@click="goProject(item.id)" 
-			class="cu-item shadow" 
-			v-for="(item, index) in projectList" 
-			:key="index"
-			style="display: flex;"
-			>
-				<view class="image" style="width: 30%; float: left;">
-					<image :src="item.tImg" mode="widthFix"></image>
-					<view class="cu-tag bg-gradual-orange">{{ item.tabs }}</view>
-					<view class="cu-bar bg-shadeBottom">
-						<text class="text-cut">{{ item.type }}</text>
-					</view>
-				</view>
-				<view class="cu-list menu-avatar" style="width: 70%; float: left;">
-					<view class="cu-item">
-						<view class="margin-lr flex-sub">
-							<view class="item-name text-grey text-lg">{{ item.title }}</view>
-							<view class="text-gray text-sm flex justify-between">
-								{{ item.time }}
-								<view class="text-gray text-sm">
-									<text class="cuIcon-attentionfill margin-lr-xs"></text>
-									{{ item.user[0].read }}
-									<text class="cuIcon-appreciatefill margin-lr-xs"></text>
-									{{ item.user[0].like }}
-									<text class="cuIcon-shopfill margin-lr-xs"></text>
-									{{ item.user[0].use }}
-								</view>
-							</view>
-						</view>
-					</view>
-				</view>
-			</view>
-		</view>
-		-->
+		
 		<view class="cu-card article">
 			<view 
 			class="cu-item shadow"
@@ -151,7 +61,7 @@
 			:key="index">
 				<view class="title"><view class="text-cut">{{ item.title }}</view></view>
 				<view class="content">
-					<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"
+					<image :src="item.tImg"
 					 mode="aspectFill"></image>
 					<view class="desc">
 						<view class="text-content"> {{ item.tabs }}</view>
@@ -168,7 +78,7 @@
 </template>
 
 <script>
-	import request from '@/common/request.js';
+	import request from '@/common/api.js';
 	import addTip from '../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue';
 	export default {
 		components: {
@@ -185,7 +95,7 @@
 				},
 
 				bannerList: [{
-						imageUrl: 'http://bucuo.liph.top/static/index/banner1.png'
+						imageUrl: 'https://bucuo.liph.top/static/index/banner1.png'
 					},
 					{
 						imageUrl: 'https://cdn.zhoukaiwen.com/zjx_banner3.png'
@@ -206,7 +116,7 @@
 			getData() {
 				console.log('数据加载');
 				let opts = {
-					url: 'json/project.json',
+					url: 'https://bucuo.liph.top/data/index/index.json',
 					method: 'get'
 				};
 				uni.showLoading({

@@ -10,7 +10,7 @@
 				<swiper-item class="swiper-item">
 					<scroll-view  style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
 						<view class="page-box">
-							<view class="order" v-for="(res, index) in orderList[0]" :key="res.id">
+							<view class="order" v-for="(res, index) in orderList[0]" :key="res.id" @click="goProject(res.id-1)">
 								<view class="top">
 									<view class="left">
 										<uni-text class="cuIcon-titles text-blue"></uni-text>
@@ -41,7 +41,7 @@
 				<swiper-item class="swiper-item">
 					<scroll-view style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
 						<view class="page-box">
-							<view class="order" v-for="(res, index) in orderList[0]" :key="res.id">
+							<view class="order" v-for="(res, index) in orderList[0]" :key="res.id" @click="goProject(res.id-1)">
 								<view class="top">
 									<view class="left">
 										<uni-text class="cuIcon-titles text-blue"></uni-text>
@@ -244,6 +244,11 @@
 			}
 		},
 		methods: {
+			goProject(id) {
+				uni.navigateTo({
+					url: '@/pages/project/project?proId=' + id
+				});
+			},
 			goClass(){
 				uni.showToast({
 					title: '没有权限～',

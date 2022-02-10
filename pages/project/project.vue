@@ -12,13 +12,20 @@
 				<span>{{ projectList[isIndex].time }}</span>
 			</view>
 
-			<view class="explainBox">
+			<!-- <view class="explainBox">
 				<view class="explainItem" v-for="(item, index) in projectList[isIndex].introduceText" :key="index">
 					<span>{{ projectList[isIndex].introduceText[index] }}</span>
 				</view>
+			</view> -->
+
+			<view class="explainBox" style="marin:40rpx 0;">
+				<view class="explainItem">
+					<!-- <u-parse :content="content"></u-parse> -->
+					<text decode="emsp" style="font-size:32rpx">{{projectList[isIndex].content}}</text>
+				</view>
 			</view>
 
-			<view class="imgBox"><image v-for="(item, index) in projectList[isIndex].introduceImg" :key="index" mode="aspectFit" :src="item"></image></view>
+			<!-- <view class="imgBox"><image v-for="(item, index) in projectList[isIndex].introduceImg" :key="index" mode="aspectFit" :src="item"></image></view> -->
 			<view class="like">
 				<image @click="like=!like" mode="aspectFill" :src="dianzan"></image>
 				<image @click="collect=!collect" mode="aspectFill" :src="shoucan"></image>
@@ -28,31 +35,31 @@
 </template>
 
 <script>
-import request from '@/common/request.js';
+import request from '@/common/api.js';
 export default {
 	data() {
 		return {
 			isIndex: 0,
 			projectList: [],
 			like: false,
-			collect: false,
+			collect: false
 		};
 	},
 	computed:{
 		dianzan(){
 			if(this.like){
-				return 'http://bucuo.liph.top/static/news/dianzan_true.png'
+				return 'https://bucuo.liph.top/static/news/dianzan_true.png'
 			}
 			else{
-				return 'http://bucuo.liph.top/static/news/dianzan_false.png'
+				return 'https://bucuo.liph.top/static/news/dianzan_false.png'
 			}
 		},
 		shoucan(){
 			if(this.collect){
-				return 'http://bucuo.liph.top/static/news/shoucan_true.png'
+				return 'https://bucuo.liph.top/static/news/shoucan_true.png'
 			}
 			else{
-				return 'http://bucuo.liph.top/static/news/shoucan_false.png'
+				return 'https://bucuo.liph.top/static/news/shoucan_false.png'
 			}
 		}
 	},
@@ -69,7 +76,7 @@ export default {
 		getData() {
 			console.log('数据加载');
 			let opts = {
-				url: 'json/project.json',
+				url: 'https://bucuo.liph.top/data/index/index.json',
 				method: 'get'
 			};
 			uni.showLoading({
@@ -92,6 +99,7 @@ export default {
 <style scoped>
 .content {
 	padding: 30rpx;
+	padding-bottom: 160rpx;
 }
 .like{
 	width: 270rpx;

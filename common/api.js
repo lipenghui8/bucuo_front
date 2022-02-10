@@ -2,7 +2,7 @@
 // const baseUrl = 'https://cdn.zhoukaiwen.com/';
 const baseUrl = 'https://www.zhoukaiwen.com/';
 const imgUrl = 'https://bucuo.liph.top/image/';
-const apiUrl='https://api.bucuo.liph.top/';
+const apiUrl ='https://api.bucuo.liph.top/';
 
 
 // 向apiUrl请求数据
@@ -18,7 +18,8 @@ const httpRequest = (opts, data) => {
 		return false
 	});
 	let httpDefaultOpts = {
-		url: apiUrl + opts.url,
+		// url: apiUrl + opts.url,
+		url: opts.url,//请求地址
 		data: data,
 		method: opts.method,
 		header: opts.method == 'get' ? {
@@ -70,7 +71,8 @@ const httpTokenRequest = (opts, data) => {
 	} else 
 	{
 		let httpDefaultOpts = {
-			url: apiUrl + opts.url,
+			// url: apiUrl + opts.url,
+			url: opts.url,
 			data: data,
 			method: opts.method,
 			header: opts.method == 'get' ? {
