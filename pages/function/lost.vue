@@ -4,7 +4,7 @@
 			<block slot="backText">返回</block>
 			<block slot="content">失物招领</block>
 		</cu-custom>	
-		<view class="wrap" style="margin: 32rpx;">
+		<view class="wrap" style="margin: 32rpx;font-size:32rpx">
 			<!-- 注意，如果需要兼容微信小程序，最好通过setRules方法设置rules规则 -->
 				<view class="case flex-sub text-left shadow bg-white"
 					style="border-radius: 20rpx;"
@@ -31,29 +31,32 @@
 						登记单
 						</text> 
 					</view>
-					<u-form>
+					<u-form class="formBox">
 						<u-form-item
 						label="学号  "
 						label-width="80px"
+						label-align="center"
 						>
-							<u-input></u-input>
+						<u-input></u-input>
 						</u-form-item>
 						<u-form-item
 						label="ID   "
 						label-width="80px"
+						label-align="center"
 						>
-							<u-input></u-input>
+						<u-input></u-input>
 						</u-form-item>
 						<u-form-item
 						label="物品名称"
 						label-width="80px"
+						label-align="center"
 						>
-							<u-input></u-input>
+						<u-input></u-input>
 						</u-form-item>
 						<u-form-item
 						label="存放地点"
 						label-width="80px"
-						
+						label-align="center"
 						>
 							<u-input></u-input>
 						</u-form-item>
@@ -99,7 +102,7 @@ page {
 		background-image: linear-gradient(45deg,#0081ff,#1cbbb4);
 		color: #fff;
 		border-radius: 20rpx;
-		
+		margin-right:10rpx
 	}
 </style>
 

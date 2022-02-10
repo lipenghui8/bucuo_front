@@ -10,7 +10,27 @@
 				<swiper-item class="swiper-item">
 					<scroll-view  style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
 						<view class="page-box">
-							<view class="order" v-for="(res, index) in orderList[0]" :key="res.id" @click="goProject(res.id-1)">
+							<view class="cu-card article">
+								<view 
+								class="cu-item shadow"
+								@click="goProject(item.id)"
+								v-for="(item, index) in projectList" 
+								:key="index">
+									<view class="title"><view class="text-cut">{{ item.title }}</view></view>
+									<view class="content">
+										<image :src="item.tImg"
+										mode="aspectFill"></image>
+										<view class="desc">
+											<view class="text-content"> {{ item.tabs }}</view>
+											<view>
+												<view class="cu-tag bg-red light sm round">{{ item.time }}</view>
+												<view class="cu-tag bg-green light sm round">{{ item.type }}</view>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+							<!-- <view class="order" v-for="(res, index) in orderList[0]" :key="res.id" @click="goProject(res.id-1)">
 								<view class="top">
 									<view class="left">
 										<uni-text class="cuIcon-titles text-blue"></uni-text>
@@ -32,8 +52,8 @@
 										<text class="text-gray text-shadow">ID:{{user.id}} {{user.date}}天前</text>
 									</view>
 								</view>
-							</view>
-							<u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
+							</view> -->
+							<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
 						</view>
 					</scroll-view>
 				</swiper-item>
@@ -41,7 +61,7 @@
 				<swiper-item class="swiper-item">
 					<scroll-view style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
 						<view class="page-box">
-							<view class="order" v-for="(res, index) in orderList[0]" :key="res.id" @click="goProject(res.id-1)">
+							<!-- <view class="order" v-for="(res, index) in orderList[0]" :key="res.id" @click="goProject(res.id-1)">
 								<view class="top">
 									<view class="left">
 										<uni-text class="cuIcon-titles text-blue"></uni-text>
@@ -61,7 +81,30 @@
 								</view>
 								<u-line color="#f1f1f1" margin="24rpx 0 15rpx 0"></u-line>
 							</view>
-							<u-loadmore :status="loadStatus[1]" bgColor="#f2f2f2"></u-loadmore>
+							<u-loadmore :status="loadStatus[1]" bgColor="#f2f2f2"></u-loadmore> -->
+							<view class="cu-card article">
+								<view 
+								class="cu-item shadow"
+								@click="goProject(item.id)"
+								v-for="(item, index) in projectList"
+								:key="index"
+								style="margin:0;padding:0">
+									<view v-if="index!=0">
+										<view class="title"><view class="text-cut">{{ item.title }}</view></view>
+										<view class="content">
+											<image :src="item.tImg"
+											mode="aspectFill"></image>
+											<view class="desc">
+												<view class="text-content"> {{ item.tabs }}</view>
+												<view>
+													<view class="cu-tag bg-red light sm round">{{ item.time }}</view>
+													<view class="cu-tag bg-green light sm round">{{ item.type }}</view>
+												</view>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
 						</view>
 					</scroll-view>
 				</swiper-item>
@@ -96,6 +139,7 @@
 </template>
 
 <script>
+	import request from '@/common/api.js';
 	import vip from "../vip/vip.vue"
 
 	export default {
@@ -117,90 +161,7 @@
 					'https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg',
 					'https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg'
 				],
-				
-				orderList: [[], [], [], []],
-				dataList: [
-					{
-						id: 1,
-						store: '爱情与现代公司理论',
-						progre: 60,
-						user:[
-							{
-								id:'000431',
-								date:1
-							}
-						],
-						goodsList: [
-							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
-								title: '第一阶段·5课时',
-								type: '课程名称：《vue-router全局导航守卫》，简介：导航首位就是变化的路由钩子...',
-								teacher: '王老师',
-								number: 2
-							}
-						]
-					},
-					{
-						id: 2,
-						store: '西南财经大学保研经验贴',
-						progre: 39,
-						user:[
-							{
-								id:'000530',
-								date:1
-							}
-						],
-						goodsList: [
-							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
-								title: 'Promise的链式调用',
-								type: 'Promise 必须为以下三种状态之一：等待态（Pending）、执行态（Fulfilled）和拒绝态（Rejected）。一旦Promise 被 resolve 或 reject，不能再迁移至其他任何状态（即状态 immutable）。',
-								teacher: 'Lee老师',
-								number: 1
-							}
-						]
-					},
-					{
-						id: 3,
-						store: '爱情与现代公司理论',
-						progre: 55,
-						user:[
-							{
-								id:'000210',
-								date:2
-							}
-						],
-						goodsList: [
-							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
-								title: '基于vue应用中实用的性能技巧',
-								type: '1.封装项目的基础库；2.层级管理；3.缓存；4.延迟加载；5.工程化-webpack的改进；6.控制代码质量；7.自动化部署等优化方案',
-								teacher: '王老师',
-								number: 3
-							}
-						]
-					},
-					{
-						id: 4,
-						store: '爱情与现代公司理论',
-						progre: 80,
-						user:[
-							{
-								id:'000430',
-								date:2
-							}
-						],
-						goodsList: [
-							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
-								title: '变量提升及函数提升',
-								type: '引擎在读取js代码的过程中,分为两步。第一个步骤是整个js代码的解析读取,第二个步骤是执行',
-								teacher: '王老师',
-								number: 9
-							}
-						]
-					}
-				],
+				projectList: [],
 				list: [
 					{
 						name: '我的创作'
@@ -223,9 +184,10 @@
 			};
 		},
 		mounted() {
-			this.getOrderList(0);
-			this.getOrderList(1);
-			this.getOrderList(3);
+			// this.getOrderList(0);
+			// this.getOrderList(1);
+			// this.getOrderList(3);
+			this.getData();
 		},
 		computed: {
 			// 价格小数
@@ -244,9 +206,26 @@
 			}
 		},
 		methods: {
+			getData() {
+				console.log('数据加载');
+				let opts = {
+					url: 'https://bucuo.liph.top/data/index/index.json',
+					method: 'get'
+				};
+				uni.showLoading({
+					title: '加载中'
+				});
+				request.httpRequest(opts).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.projectList = res.data.data;
+					} else {}
+				});
+			},
 			goProject(id) {
 				uni.navigateTo({
-					url: '@/pages/project/project?proId=' + id
+					url: '../../pages/project/project?proId=' + id
 				});
 			},
 			goClass(){
@@ -266,15 +245,15 @@
 				}
 			},
 			// 页面数据
-			getOrderList(idx) {
-				for(let i = 0; i < 5; i++) {
-					let index = this.$u.random(0, this.dataList.length - 1);
-					let data = JSON.parse(JSON.stringify(this.dataList[index]));
-					data.id = this.$u.guid();
-					this.orderList[idx].push(data);
-				}
-				this.loadStatus.splice(this.current,1,"loadmore")
-			},
+			// getOrderList(idx) {
+			// 	for(let i = 0; i < 5; i++) {
+			// 		let index = this.$u.random(0, this.dataList.length - 1);
+			// 		let data = JSON.parse(JSON.stringify(this.dataList[index]));
+			// 		data.id = this.$u.guid();
+			// 		this.orderList[idx].push(data);
+			// 	}
+			// 	this.loadStatus.splice(this.current,1,"loadmore")
+			// },
 			// 总价
 			totalPrice(item) {
 				let price = 0;

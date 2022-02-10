@@ -48,12 +48,12 @@
 				</view>												
 			</view>
 			<scroll-view  style="width: 100%;" @scrolltolower="reachBottom">
-				<view class="page-box">
+				<view class="page-box" style="margin-bottom:60rpx">
 					<view class="cu-card article">
 						<view 
 						class="cu-item shadow"
 						style="padding-bottom: 0;"
-						@click="goProject(item.id)"
+						@click="goProject(item.id-1)"
 						v-for="(item, index) in articleList" 
 						:key="index">
 							<view class="content" style="padding: 0;">
@@ -66,8 +66,10 @@
 										<view class="text-black text-bold">{{item.Title}}</view>
 										<view>{{item.likeNum}}</view>
 									</view>
-									<view class="text-content"> {{ item.Content }}</view>
-									<view class="solid-bottom text-df padding">{{ item.PublisherID}}</view>
+									<view class="text-content" style="margin-left:28rpx">
+										<text>{{ item.Content}}</text>
+									</view>
+									<view class="solid-bottom text-df padding">ID:{{ item.PublisherID}}</view>
 								</view>
 								<view class="basis-xs justify-center">
 									<view class=" justify-center round cu-item" style="height: 50%;">
@@ -78,19 +80,19 @@
 										</view>
 									</view>
 									<view class=" cu-item" style="height: 20%;">
-										<view class="cu-tag bg-gradual-green">有机</view>
+										<view class="cu-tag bg-gradual-green">{{item.Labels[0].Content}}</view>
 									</view>
 									<view class=" cu-item" style="height: 20%;">
-										<view class="cu-tag bg-gradual-pink">化学院</view>	
+										<view class="cu-tag bg-gradual-pink">{{item.Labels[1].Content}}</view>	
 									</view>
 								</view>
 							</view>
 						</view>
 					</view>
-					<u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
+					<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
 				</view>
 			</scroll-view>
-			<view class="u-search-box" style="position: absolute; bottom: 10rpx; width: 100%;">
+			<view class="u-search-box" style="position: fixed; bottom: 0rpx; width: 100%;">
 				<view class="u-search-inner">
 					<u-icon name="search" color="#909399" :size="28"></u-icon>
 					<input class=" u-search-text" 
@@ -105,6 +107,7 @@
 </template>
 
 <script>
+	import request from '@/common/api.js';
 	import vip from "@/components/vip/vip.vue"
 
 	export default {
@@ -129,96 +132,7 @@
 				],
 				
 				orderList: [[], [], [], []],
-				articleList: [
-				        {
-				            "Title": "测试",
-				            "Content": "我是一只小小小鸟怎么飞也飞不高！",
-				            "Column": "课程考试",
-				            "Labels": [
-				                {
-				                    "Content": "计算机与信息工程学院"
-				                },
-				                {
-				                    "Content": "数学院"
-				                }
-				            ],
-				            "PublisherID": 1,
-				            "id": 1
-				        },
-				        {
-				            "Title": "测试测试",
-				            "Content": "两只小蜜蜂啊飞到花丛中啊飞啊飞啊！",
-				            "Column": "课程考试",
-				            "Labels": [
-				                {
-				                    "Content": "文学院"
-				                },
-				                {
-				                    "Content": "历史学院"
-				                }
-				            ],
-				            "PublisherID": 2,
-				            "id": 2
-				        }
-					],
-				dataList: [
-					{
-						id: 1,
-						store: '爱情与现代公司理论',
-						progre: 60,
-						goodsList: [
-							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
-								title: '第一阶段·5课时',
-								type: '课程名称：《vue-router全局导航守卫》，简介：导航首位就是变化的路由钩子...',
-								teacher: '王老师',
-								number: 2
-							}
-						]
-					},
-					{
-						id: 2,
-						store: '西南财经大学保研经验贴',
-						progre: 39,
-						goodsList: [
-							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
-								title: 'Promise的链式调用',
-								type: 'Promise 必须为以下三种状态之一：等待态（Pending）、执行态（Fulfilled）和拒绝态（Rejected）。一旦Promise 被 resolve 或 reject，不能再迁移至其他任何状态（即状态 immutable）。',
-								teacher: 'Lee老师',
-								number: 1
-							}
-						]
-					},
-					{
-						id: 3,
-						store: '爱情与现代公司理论',
-						progre: 55,
-						goodsList: [
-							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
-								title: '基于vue应用中实用的性能技巧',
-								type: '1.封装项目的基础库；2.层级管理；3.缓存；4.延迟加载；5.工程化-webpack的改进；6.控制代码质量；7.自动化部署等优化方案',
-								teacher: '王老师',
-								number: 3
-							}
-						]
-					},
-					{
-						id: 4,
-						store: '爱情与现代公司理论',
-						progre: 80,
-						goodsList: [
-							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
-								title: '变量提升及函数提升',
-								type: '引擎在读取js代码的过程中,分为两步。第一个步骤是整个js代码的解析读取,第二个步骤是执行',
-								teacher: '王老师',
-								number: 9
-							}
-						]
-					}
-				],
+				articleList: [],
 				itemList:  ['课程考试','竞赛考证','考研保研','新生守则','其他经验'],
 				tabsHeight: 0,
 				dx: 0,
@@ -252,8 +166,8 @@
 			};
 		},
 		mounted() {
-			this.getOrderList(0);
-			console.log("mounted")
+			// this.getOrderList(0);
+			this.getData();
 		},
 		computed: {
 			// 价格小数
@@ -272,6 +186,28 @@
 			}
 		},
 		methods: {
+			getData() {
+				console.log('数据加载');
+				let opts = {
+					url: 'https://bucuo.liph.top/data/exp/exp.json',
+					method: 'get'
+				};
+				uni.showLoading({
+					title: '加载中'
+				});
+				request.httpRequest(opts).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.articleList = res.data.data;
+					} else {}
+				});
+			},
+			goProject(id) {
+				uni.navigateTo({
+					url: '../../pages/project/project?proId=' + id
+				});
+			},
 			selectOne(options) {
 				this.selecValue = options.label
 			},
@@ -296,16 +232,6 @@
 						this.getOrderList(this.current);
 					}, 1200);
 				}
-			},
-			// 页面数据
-			getOrderList(idx) {
-				for(let i = 0; i < 5; i++) {
-					let index = this.$u.random(0, this.dataList.length - 1);
-					let data = JSON.parse(JSON.stringify(this.dataList[index]));
-					data.id = this.$u.guid();
-					this.orderList[idx].push(data);
-				}
-				this.loadStatus.splice(this.current,1,"loadmore")
 			},
 			// 总价
 			totalPrice(item) {

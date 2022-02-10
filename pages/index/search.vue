@@ -8,21 +8,22 @@
 			<view class="cu-bar bg-white  flex justify-end">
 				<navigator class="action but-margin" url="design" hover-class="none">
 					<view class="bg-white shadow " style="padding: 5px; border-radius: 8rpx; display: flex;">
-						<u-image mode="widthFix" :src="warnUrl" width="22px" height="22px"></u-image>
+						<u-image mode="widthFix" :src="warnUrl" width="22px" height="22px" style="margin-top:13rpx"></u-image>
 						<text style="font-size: 22px;">建议</text>
 					</view>
 				</navigator>
 				<navigator class="action but-margin" url="design" hover-class="none" >
 					<view class="bg-white shadow"  style="padding: 5px; border-radius: 8rpx;">
-						<u-icon name="rmb-circle-fill" style="color: #313cd4;"></u-icon>
+						<u-icon size="60" name="rmb-circle-fill" style="color: #313cd4;margin-top:13rpx"></u-icon>
 						<text >赞赏</text>
 					</view>
 				</navigator>
 			</view>
 			<view class="flex flex-wrap justify-end align-center bg-white" style="padding-right: 30rpx; margin-bottom: 12rpx;" @click="goLost">
 				<navigator class="action but-margin" url="design" hover-class="none" >
-					<view class="bg-white shadow"  style="padding: 5px; border-radius: 8rpx;">
-						<u-icon name="rmb-circle-fill" style="color: #313cd4;"></u-icon>
+					<view class="bg-white shadow"  style="padding: 5px; border-radius: 8rpx;display:flex;justify-content:space-around;align-items:center">
+						<image style="width:60rpx;height:60rpx;margin-right:8rpx" src="https://bucuo.liph.top/static/main/shiwu.png"></image>
+						<!-- <u-icon name="https://bucuo.liph.top/static/main/shiwu.png"></u-icon> -->
 						<text >拾物登记</text>
 					</view>
 				</navigator>	

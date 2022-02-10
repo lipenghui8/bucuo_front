@@ -12,30 +12,34 @@
 			</view>
 			<scroll-view  style="width: 100%;" @scrolltolower="reachBottom">
 				<view class="page-box">
+					<view class="page-box" style="margin-bottom:60rpx">
 					<view class="cu-card article">
 						<view 
 						class="cu-item shadow"
-						@click="goProject(item.id)"
+						@click="goProject(item.id-1)"
 						v-for="(item, index) in articleList" 
 						:key="index">
 							<view class="content">
-								<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"
-								 class="imgStyle"
-								 ></image>
+								<image class="imgStyle" style="border-radius:10rpx" :src="item.banner" ></image>
 								<view class="desc">
-									<view class="flex solid-bottom padding justify-around">
-										<view class="text-black text-bold">{{item.title}}</view>
-										<view>{{item.likeNum}}</view>
+									<view class="flex justify-between" style="padding-right:15rpx;align-items:center">
+										<view class="text-black text-bold" style="padding:0">{{item.title}}</view>
+										<view class="likeNum">
+											<u-image mode="widthFix" :src="iconUrl" width="22px" height="22px" style="margin-right:10rpx"></u-image>	
+											<view>{{item.likeNum}}</view>
+										</view>
 									</view>
 									<view class="text-content"> {{ item.content }}</view>
-									<view> {{ item.time }}</view>
+									<!-- <view> {{ item.time }}</view> -->
 								</view>
 							</view>
 						</view>
 					</view>
-					<u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
+					<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
 				</view>
-				<view class="u-search-box">
+					<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
+				</view>
+				<view class="u-search-box" style="position: fixed; bottom: 0rpx; width: 100%;">
 					<view class="u-search-inner">
 						<u-icon name="search" color="#909399" :size="28"></u-icon>
 						<input class=" u-search-text" 
@@ -50,6 +54,7 @@
 </template>
 
 <script>
+	import request from '@/common/api.js';
 	import vip from "@/components/vip/vip.vue"
 
 	export default {
@@ -63,6 +68,7 @@
 				activeColor: '#0081ff',
 				striped: false,
 				stripedActive: false,
+				iconUrl: require("@/static/icons/aixin.png"),
 				
 				avatar: [
 					'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg',
@@ -72,94 +78,7 @@
 				],
 				
 				orderList: [[], [], [], []],
-				articleList: [
-					{
-						id: 1,
-						title: '爱情与现代公司理论',
-						time: 60,
-						content: '课程名称：《vue-router全局导航守卫》，简介：导航首位就是变化的路由钩子...',
-						likeNum: 77
-					},
-					{
-						id: 2,
-						title: '爱情与现代公司理论',
-						time: 60,
-						content: '课程名称：《vue-router全局导航守卫》，简介：导航首位就是变化的路由钩子...',
-						likeNum: 77
-					},
-					{
-						id: 3,
-						title: '爱情与现代公司理论',
-						time: 60,
-						content: '课程名称：《vue-router全局导航守卫》，简介：导航首位就是变化的路由钩子...',
-						likeNum: 77
-					},
-					{
-						id: 4,
-						title: '爱情与现代公司理论',
-						time: 60,
-						content: '课程名称：《vue-router全局导航守卫》，简介：导航首位就是变化的路由钩子...',
-						likeNum: 77
-					}
-				],
-				dataList: [
-					{
-						id: 1,
-						store: '爱情与现代公司理论',
-						progre: 60,
-						goodsList: [
-							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
-								title: '第一阶段·5课时',
-								type: '课程名称：《vue-router全局导航守卫》，简介：导航首位就是变化的路由钩子...',
-								teacher: '王老师',
-								number: 2
-							}
-						]
-					},
-					{
-						id: 2,
-						store: '西南财经大学保研经验贴',
-						progre: 39,
-						goodsList: [
-							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
-								title: 'Promise的链式调用',
-								type: 'Promise 必须为以下三种状态之一：等待态（Pending）、执行态（Fulfilled）和拒绝态（Rejected）。一旦Promise 被 resolve 或 reject，不能再迁移至其他任何状态（即状态 immutable）。',
-								teacher: 'Lee老师',
-								number: 1
-							}
-						]
-					},
-					{
-						id: 3,
-						store: '爱情与现代公司理论',
-						progre: 55,
-						goodsList: [
-							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web2.jpg',
-								title: '基于vue应用中实用的性能技巧',
-								type: '1.封装项目的基础库；2.层级管理；3.缓存；4.延迟加载；5.工程化-webpack的改进；6.控制代码质量；7.自动化部署等优化方案',
-								teacher: '王老师',
-								number: 3
-							}
-						]
-					},
-					{
-						id: 4,
-						store: '爱情与现代公司理论',
-						progre: 80,
-						goodsList: [
-							{
-								goodsUrl: 'http://cdn.zhoukaiwen.com/web1.jpg',
-								title: '变量提升及函数提升',
-								type: '引擎在读取js代码的过程中,分为两步。第一个步骤是整个js代码的解析读取,第二个步骤是执行',
-								teacher: '王老师',
-								number: 9
-							}
-						]
-					}
-				],
+				articleList: [],
 				itemList: ['美食','娱乐','生活购物'],
 				tabsHeight: 0,
 				dx: 0,
@@ -171,8 +90,7 @@
 			};
 		},
 		mounted() {
-			this.getOrderList(0);
-			console.log("mounted")
+			this.getData();
 		},
 		computed: {
 			// 价格小数
@@ -191,6 +109,28 @@
 			}
 		},
 		methods: {
+			getData() {
+				console.log('数据加载');
+				let opts = {
+					url: 'https://bucuo.liph.top/data/local/local.json',
+					method: 'get'
+				};
+				uni.showLoading({
+					title: '加载中'
+				});
+				request.httpRequest(opts).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.articleList = res.data.data;
+					} else {}
+				});
+			},
+			goProject(id) {
+				uni.navigateTo({
+					url: '../../pages/project/project?proId=' + id
+				});
+			},
 			fetchData(){
 				
 			},
@@ -209,32 +149,6 @@
 						this.getOrderList(this.current);
 					}, 1200);
 				}
-			},
-			// 页面数据
-			getOrderList(idx) {
-				for(let i = 0; i < 5; i++) {
-					let index = this.$u.random(0, this.dataList.length - 1);
-					let data = JSON.parse(JSON.stringify(this.dataList[index]));
-					data.id = this.$u.guid();
-					this.orderList[idx].push(data);
-				}
-				this.loadStatus.splice(this.current,1,"loadmore")
-			},
-			// 总价
-			totalPrice(item) {
-				let price = 0;
-				item.map(val => {
-					price += parseFloat(val.price);
-				});
-				return price.toFixed(2);
-			},
-			// 总件数
-			totalNum(item) {
-				let num = 0;
-				item.map(val => {
-					num += val.number;
-				});
-				return num;
 			},
 			// tab栏切换
 			changeItem(index) {
@@ -268,9 +182,14 @@ page {
 </style>
 
 <style lang="scss" scoped>
-	.imgStyle{
-		margin-top: 10%;
-	}	
+.likeNum{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.imgStyle{
+	margin-top: 10rpx;
+}	
 .order {
 	width: 710rpx;
 	background-color: #ffffff;
