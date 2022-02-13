@@ -7,50 +7,115 @@
 		</cu-custom>
 		<view class="wrap">
 			<view class="u-tabs-box">
-				<u-subsection :list="itemList" :current="currentItem" @change="changeItem"></u-subsection>
-				<u-subsection 
+				<u-tabs-swiper ref="tabs" :list="itemList" :current="current" swiperWidth="750" :is-scroll="false" @change="changeItem"></u-tabs-swiper>
+				<u-tabs-swiper swiperWidth="750" :is-scroll="false"
 				:list="typeList" 
 				:current="currentType" 
 				@change="changeType"
-				v-show="currentItem==0"
-				></u-subsection>
+				v-show="swiperCurrent==0"
+				></u-tabs-swiper>
 			</view>
-			<scroll-view  style="width: 100%;" @scrolltolower="reachBottom">
-				<view class="page-box" style="margin-bottom:60rpx">
-					<view class="cu-card article">
-						<view 
-						class="cu-item shadow"
-						@click="goProject(item.id-1)"
-						v-for="(item, index) in articleList" 
-						:key="index">
-							<view class="content">
-								<image class="imgStyle" style="border-radius:10rpx" :src="item.banner" ></image>
-								<view class="desc">
-									<view class="flex justify-between" style="padding-right:15rpx;align-items:center">
-										<view class="text-black text-bold" style="padding:0">{{item.title}}</view>
-										<view class="likeNum">
-											<u-image mode="widthFix" :src="iconUrl" width="22px" height="22px" style="margin-right:10rpx"></u-image>	
-											<view>{{item.likeNum}}</view>
+			<swiper class="swiper-box" :current="swiperCurrent" @transition="transition" @animationfinish="animationfinish">
+				<!-- 第一页 -->
+				<swiper-item class="swiper-item">
+					<scroll-view  style="width: 100%;" @scrolltolower="reachBottom">
+						<view class="page-box" style="margin-bottom:60rpx">
+							<view class="cu-card article">
+								<view 
+								class="cu-item shadow"
+								
+								v-for="(item, index) in articleList_1" 
+								:key="index">
+									<view class="content">
+										<image class="imgStyle" style="border-radius:10rpx" :src="item.banner" ></image>
+										<view class="desc">
+											<view class="flex justify-between" style="padding-right:15rpx;align-items:center">
+												<view class="text-black text-bold" style="padding:0">{{item.title}}</view>
+												<view class="likeNum">
+													<u-image mode="widthFix" :src="iconUrl" width="22px" height="22px" style="margin-right:10rpx"></u-image>	
+													<view>{{item.likeNum}}</view>
+												</view>
+											</view>
+											<view class="text-content"> {{ item.content }}</view>
+											<!-- <view> {{ item.time }}</view> -->
 										</view>
 									</view>
-									<view class="text-content"> {{ item.content }}</view>
-									<!-- <view> {{ item.time }}</view> -->
 								</view>
 							</view>
+							<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
 						</view>
-					</view>
-					<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
+					</scroll-view>
+				</swiper-item>
+				<!-- 第二页 -->
+				<swiper-item class="swiper-item">
+					<scroll-view  style="width: 100%;" @scrolltolower="reachBottom">
+						<view class="page-box" style="margin-bottom:60rpx">
+							<view class="cu-card article">
+								<view 
+								class="cu-item shadow"
+								@click="goProject(item.id-1)"
+								v-for="(item, index) in articleList_2" 
+								:key="index">
+									<view class="content">
+										<image class="imgStyle" style="border-radius:10rpx" :src="item.banner" ></image>
+										<view class="desc">
+											<view class="flex justify-between" style="padding-right:15rpx;align-items:center">
+												<view class="text-black text-bold" style="padding:0">{{item.title}}</view>
+												<view class="likeNum">
+													<u-image mode="widthFix" :src="iconUrl" width="22px" height="22px" style="margin-right:10rpx"></u-image>	
+													<view>{{item.likeNum}}</view>
+												</view>
+											</view>
+											<view class="text-content"> {{ item.content }}</view>
+											<!-- <view> {{ item.time }}</view> -->
+										</view>
+									</view>
+								</view>
+							</view>
+							<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
+						</view>
+					</scroll-view>
+				</swiper-item>
+				<!-- 第三页 -->
+				<swiper-item class="swiper-item">
+					<scroll-view  style="width: 100%;" @scrolltolower="reachBottom">
+						<view class="page-box" style="margin-bottom:60rpx">
+							<view class="cu-card article">
+								<view 
+								class="cu-item shadow"
+								@click="goProject(item.id-1)"
+								v-for="(item, index) in articleList_3" 
+								:key="index">
+									<view class="content">
+										<image class="imgStyle" style="border-radius:10rpx" :src="item.banner" ></image>
+										<view class="desc">
+											<view class="flex justify-between" style="padding-right:15rpx;align-items:center">
+												<view class="text-black text-bold" style="padding:0">{{item.title}}</view>
+												<view class="likeNum">
+													<u-image mode="widthFix" :src="iconUrl" width="22px" height="22px" style="margin-right:10rpx"></u-image>	
+													<view>{{item.likeNum}}</view>
+												</view>
+											</view>
+											<view class="text-content"> {{ item.content }}</view>
+											<!-- <view> {{ item.time }}</view> -->
+										</view>
+									</view>
+								</view>
+							</view>
+							<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
+						</view>
+					</scroll-view>
+				</swiper-item>
+			</swiper>
+			<view class="u-search-box" style="position: fixed; bottom: 0rpx; width: 100%;">
+				<view class="u-search-inner">
+					<u-icon name="search" color="#909399" :size="28"></u-icon>
+					<input class=" u-search-text" 
+					placeholder="厨艺提升"
+					style="width: 100%;"
+					></input>
 				</view>
-				<view class="u-search-box" style="position: fixed; bottom: 0rpx; width: 100%;">
-					<view class="u-search-inner">
-						<u-icon name="search" color="#909399" :size="28"></u-icon>
-						<input class=" u-search-text" 
-						placeholder="厨艺提升"
-						style="width: 100%;"
-						></input>
-					</view>
-				</view>
-			</scroll-view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -79,19 +144,41 @@
 				],
 				iconUrl: require("@/static/icons/aixin.png"),
 				orderList: [[], [], [], []],
-				articleList: [],
-				itemList: ['技能','交换','求助'],
+				articleList_1: [],
+				articleList_2: [],
+				articleList_3: [],
+				itemList: [
+					{
+						name: '交换'
+					},
+					{
+						name: '分享'
+					},
+					{
+						name: '求助'
+					}
+				],
 				tabsHeight: 0,
 				dx: 0,
 				loadStatus: ['loadmore','loadmore','loadmore','loadmore'],
-				typeList: ['所有', '参与'],
+				typeList: [
+					{
+						name: '所有'
+					},
+					{
+						name: '参与'
+					}
+				],
+				current: 0,
 				currentType: 0,
-				currentItem: 0,
+				swiperCurrent: 0,
 
 			};
 		},
 		mounted() {
-			this.getData();
+			this.getData_1();
+			this.getData_2();
+			this.getData_3();
 		},
 		computed: {
 			// 价格小数
@@ -110,10 +197,10 @@
 			}
 		},
 		methods: {
-			getData() {
+			getData_1() {
 				console.log('数据加载');
 				let opts = {
-					url: 'https://bucuo.liph.top/data/skill/skill.json',
+					url:'https://bucuo.liph.top/data/skill/skill_exchange/skill_exchange.json',
 					method: 'get'
 				};
 				uni.showLoading({
@@ -123,7 +210,41 @@
 					console.log(res);
 					uni.hideLoading();
 					if (res.statusCode == 200) {
-						this.articleList = res.data.data;
+						this.articleList_1 = res.data.data;
+					} else {}
+				});
+			},getData_2() {
+				console.log('数据加载');
+				let opts = {
+					url: 'https://bucuo.liph.top/data/skill/skill_share/skill_share.json',
+					method: 'get'
+				};
+				uni.showLoading({
+					title: '加载中'
+				});
+				request.httpRequest(opts).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.articleList_2 = res.data.data;
+					} else {}
+				});
+			},getData_3() {
+				console.log('数据加载');
+				let opts = {
+					// url: 'https://bucuo.liph.top/data/skill/skill_exchange/skill_exchange.json',
+					url: 'https://bucuo.liph.top/data/skill/skill_share/skill_share.json',
+
+					method: 'get'
+				};
+				uni.showLoading({
+					title: '加载中'
+				});
+				request.httpRequest(opts).then(res => {
+					console.log(res);
+					uni.hideLoading();
+					if (res.statusCode == 200) {
+						this.articleList_3 = res.data.data;
 					} else {}
 				});
 			},
@@ -142,25 +263,9 @@
 					icon: 'none'
 				});
 			},
-			reachBottom() {
-				// 此tab为空数据
-				if(this.current != 2) {
-					this.loadStatus.splice(this.current,1,"loading")
-					setTimeout(() => {
-						this.getOrderList(this.current);
-					}, 1200);
-				}
-			},
 			// tab栏切换
 			changeItem(index) {
-				this.currentItem = index;
-				this.getOrderList(index);
-			},
-			// 类型切换
-			changeType(index) {
-				console.log(index);
-				this.currentType = index;
-				this.getOrderList(index);				
+				this.swiperCurrent = index;
 			},
 			transition({ detail: { dx } }) {
 				this.$refs.tabs.setDx(dx);
@@ -169,6 +274,11 @@
 				this.$refs.tabs.setFinishCurrent(current);
 				this.swiperCurrent = current;
 				this.current = current;
+			},
+			// 类型切换
+			changeType(index) {
+				console.log(index);
+				this.currentType = index;			
 			}
 		}
 	};

@@ -30,30 +30,6 @@
 									</view>
 								</view>
 							</view>
-							<!-- <view class="order" v-for="(res, index) in orderList[0]" :key="res.id" @click="goProject(res.id-1)">
-								<view class="top">
-									<view class="left">
-										<uni-text class="cuIcon-titles text-blue"></uni-text>
-										<view class="store">{{ res.store }}</view>
-										<u-icon name="arrow-right" color="rgb(203,203,203)" :size="26"></u-icon>
-									</view>
-								</view>
-								<view class="item" v-for="(item, index) in res.goodsList" :key="index">
-									<view class="left">
-										<image :src="item.goodsUrl" mode="aspectFill"></image>
-									</view>
-									<view class="content">
-										<view class="title u-line-2 text-bold">{{ item.title }}</view>
-										<view class="type">{{ item.type }}</view>
-									</view>
-								</view>
-								<view class="bottom" v-for="(user,index) in res.user" :key="index">
-									<view>
-										<text class="text-gray text-shadow">ID:{{user.id}} {{user.date}}天前</text>
-									</view>
-								</view>
-							</view> -->
-							<!-- <u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore> -->
 						</view>
 					</scroll-view>
 				</swiper-item>

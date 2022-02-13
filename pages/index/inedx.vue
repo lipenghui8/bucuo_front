@@ -56,7 +56,7 @@
 		<view class="cu-card article">
 			<view 
 			class="cu-item shadow"
-			@click="goProject(item.id)"
+			@click="goProject(item.id-1)"
 			v-for="(item, index) in projectList" 
 			:key="index">
 				<view class="title"><view class="text-cut">{{ item.title }}</view></view>
