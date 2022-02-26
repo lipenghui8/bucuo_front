@@ -78,256 +78,527 @@
 </template>
 
 <script>
-	import request from '@/common/api.js';
-	import addTip from '../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue';
-	export default {
-		components: {
-			addTip
-		},
-		data() {
-			return {
-				tip: '点击「添加小程序」，下次访问更便捷',
-				duration: 1,
+import request from "@/common/api.js";
+import addTip from "../../components/wxcomponents/struggler-uniapp-add-tip/struggler-uniapp-add-tip.vue";
+export default {
+  components: {
+    addTip,
+  },
+  data() {
+    return {
+      tip: "点击「添加小程序」，下次访问更便捷",
+      duration: 1,
 
-				scrollTop: 0,
-				old: {
-					scrollTop: 0
-				},
+      scrollTop: 0,
+      old: {
+        scrollTop: 0,
+      },
 
-				bannerList: [{
-						imageUrl: 'https://bucuo.liph.top/static/index/banner1.png'
-					},
-					{
-						imageUrl: 'https://cdn.zhoukaiwen.com/zjx_banner3.png'
-					},
-					{
-						imageUrl: 'https://cdn.zhoukaiwen.com/zjx_banner1.png'
-					}
-				],
-				projectList: []
-			};
-		},
-		watch: {},
-		mounted() {
-			console.log(this.projectList);
-			this.getData();
-		},
-		methods: {
-			getData() {
-				console.log('数据加载');
-				let opts = {
-					url: 'https://bucuo.liph.top/data/index/index.json',
-					method: 'get'
-				};
-				uni.showLoading({
-					title: '加载中'
-				});
-				request.httpRequest(opts).then(res => {
-					console.log(res);
-					uni.hideLoading();
-					if (res.statusCode == 200) {
-						this.projectList = res.data.data;
-					} else {}
-				});
-			},
-			scroll: function(e) {
-				console.log(e);
-				this.old.scrollTop = e.detail.scrollTop;
-			},
-			goProjectList() {
-				uni.navigateTo({
-					url: '../project/list'
-				});
-			},
-			goProject(id) {
-				uni.navigateTo({
-					url: '../project/project?proId=' + id
-				});
-			},
-			goVideo() {
-				uni.navigateTo({
-					url: '../video'
-				});
-			}
-		}
-	};
+      bannerList: [
+        {
+          imageUrl: "https://bucuo.liph.top/static/index/banner1.png",
+        },
+        {
+          imageUrl: "https://cdn.zhoukaiwen.com/zjx_banner3.png",
+        },
+        {
+          imageUrl: "https://cdn.zhoukaiwen.com/zjx_banner1.png",
+        },
+      ],
+      projectList: [
+        {
+          id: 1,
+          title: "爱情与《现代公司理论》",
+          tImg: "https://bucuo.liph.top/data/index/index1.png",
+          type: "商学院",
+          time: "50分钟前",
+          tabs: "正是交易费用的存在，生活才这样特别。也正是专用性投资的存在，生活才这样复杂。",
+          user: [
+            {
+              like: "10",
+              read: "201",
+              use: "15",
+            },
+          ],
+          author: "ID：000052",
+          content:
+            "&emsp;正是交易费用的存在，生活才这样特别。\n\n&emsp;也正是专用性投资的存在，生活才这样复杂。\n\n&emsp;但更重要的是，正是机会主义、有限理性的存在，生活才充满挑战。\n\n&emsp;我们为什么越来越不愿找新朋友？\n\n&emsp;世界那么大，我们找到合适的、喜欢你还是你喜欢的人，不容分说是件困难的事情。但说困难倒也没那么困难，如果你花时间、精力、金钱去找，即便世界再大，也是可以找到的。我们在寻找过程中所花费的时间、精力、金钱，也就是搜寻成本。不过我们也可退而求其次，这样搜寻成本就会大大降低。\n\n&emsp;当我们找到对方后，就要与对方建立联系，建立联系就像是个人间的交易。在与对方建立联系的过程中，所花费的时间、精力、金钱，就是交易费用。如果没有交易费用，也就是说不需要花费时间、精力与金钱，就能与对方建立联系，既然如此，就没有必要让对方从属于我们，来节省交易费用。不过很明显，由于这是信息不对称的市场，我们的身上不会显示关于自身的信息以及对他人的态度。我们必定需要时间去慢慢了解他人，也必定需要精力去通过不同途径了解他人，有时候还需要金钱来帮助去了解他人。因此，高昂的交易费用导致我们不愿意找朋友。\n\n&emsp;当然，也有愿意找朋友的，但他们却倾向建立关系。所以为何要建立关系？\n\n&emsp;建立关系的本质是纵向一体化。\n\n&emsp;是由于专用投资的存在。我们不断地对他人投入时间、精力与金钱，这些投入是不能收回的，更不用说将这些投入用于其他人，所以这些投入就成为对这个人的专用性资产。既然没法收回这些投入，其中的方法就是让这些投入仍旧属于自己，具体来说就是与他人建立联系，拥有对这个人的所有权。不过很明显人都是独立的个体，奴隶制度也早已废除，所以不可能完全拥有对某人的所有权。于是就只能拥有部分所有权，这就是建立关系，关系是相互的，所有权也是相互的，但是双方的实力是不同的，一方就表现出是对方的所有者。当然，还有种方法解决专用性投资，那就是签订合同。这就是所谓的婚姻。婚姻无非是两者的合同。至于后契约机会主义的存在，又是合同所面临的问题。",
+        },
+        {
+          id: 2,
+          title: "Java、计算机网络基础高分经验",
+          tImg: "https://bucuo.liph.top/data/index/2.png",
+          type: "计算机",
+          time: "2小时前",
+          tabs: "当时给我们上课的老师也是计算机院的老师，老师也十分的清楚，在没有一定计算机知识基础的前提下，如果考试考得太难的话，很多同学会挂科，因此考试考的东西都是课本上而且讲过的东西，而且每一年出题的类型基本上都是一样的",
+          author: "ID：000228",
+          content:
+            "&emsp;&emsp;作为一名商学院的学生，并且还是一个计算机小白，对一门计算机语言Java能考到90+，这算是相当不容易了。但是如果掌握了恰当的方法，就期末考试而言，还是可以在短时间内取得好的成绩的。\n\n&emsp;&emsp;首先，自己得认认真真的梳理好课本上的知识体系结构，要知道这本书的体系是怎么样的，我觉得这是学习一个陌生知识的必要的思想。\n\n&emsp;&emsp;其次，认真学习课本每一道例题。这种计算机语言有时候会很抽象，在读不懂的时候可以看一下例题，结合例题有时候会很容易地掌握知识点。要知道，只有针对期末考试的话，老师是不会为难大家的，出题的根本就在于课本上的知识点，并且不会深挖知识点，只要你知道这个知识点，你就会做题。\n\n&emsp;&emsp;最后，考试题目都是这样，课本上的例题进行一定的结合。可以通过做一两套往年的考卷，分析老师是如何将题目进行结合的。\n\n&emsp;&emsp;计算机网络基础这门课程是软件学院和计算机学院的专业课，对于商学院的同学来说还是比较困难的。当时给我们上课的老师也是计算机院的老师，老师也十分的清楚，在没有一定计算机知识基础的前提下，如果考试考得太难的话，很多同学会挂科，因此考试考的东西都是课本上而且讲过的东西，而且每一年出题的类型基本上都是一样的。包括一些概念，都是课本上原原本本的东西。\n\n&emsp;&emsp;期末的话就是把老师平时让你画的重点背下来，其实很多东西也可以不背，因为就选择题而言，我们只要在脑海里有那么个印象，都可以在4个选项中选出正确答案。但是像名词解释或者是简答题这些是一定要背下来才能写上去的。\n\n&emsp;&emsp;最后会有压轴的计算题，计算题老师会在课上反反复复的讲很多遍，且明确说明了这些题是要考的，那么只要在掌握这些东西就可以了。很重要的一点就是。这门课上的最后一节课一定要去，老师在画重点的时候也会透露一些考题。",
+        },
+        {
+          id: 3,
+          title: "养生茶",
+          tImg: "https://bucuo.liph.top/data/index/3.png",
+          type: "养生茶",
+          time: "5小时前",
+          tabs: "女孩子总是要多喝点玫瑰的，理气疏肝又活血配上酸酸甜甜的蜜桃和补水的玉竹，还有清火的胎菊，给久坐容易瘀堵的你舒缓行气",
+          author: "ID：000879",
+          content:
+            "&emsp;&emsp;打工人一周 养生茶不重样。不要只会泡枸杞我又来分享养生茶啦！多少人跟我一样不喜欢喝寡淡的白开水，一定要泡点什么才能好好喝水的心。这些好喝又能调养身体悦容颜的养生茶就是我的本命!\n\n&emsp;&emsp;1.应酬党的桂圆枸杞暖暖茶\n\n&emsp;&emsp;桂圆、大枣、枸杞、普洱、玉竹\n\n&emsp;&emsp;普洱刮油助消化真的杠杠的，搭配其他养护脾胃养肝补气血的材料，应酬或者大餐后来一杯解腻刮油又养颜\n\n&emsp;&emsp;2.伏案党的蜜桃玫瑰乐乐茶\n\n&emsp;&emsp;蜜桃、玉竹、玫瑰花、胎菊\n\n&emsp;&emsp;女孩子总是要多喝点玫瑰的，理气疏肝又活血配上酸酸甜甜的蜜桃和补水的玉竹，还有清火的胎菊，给久坐容易瘀堵的你舒缓行气\n\n&emsp;&emsp;3.熬夜党的人参乌龙醒醒茶\n\n&emsp;&emsp;人参、枸杞、乌龙\n\n&emsp;&emsp;撑完夜班第二天来杯真的神清气爽，可以快速恢复元气\n\n&emsp;&emsp;4.减脂党的茉莉荷叶清清茶\n\n&emsp;&emsp;荷叶、茉莉花、决明子、胎菊、金银花\n\n&emsp;&emsp;办公室久坐肠道不畅通，又想辅助减脂的小伙伴这杯清肠又刮油",
+        },
+        {
+          id: 4,
+          title: "完美日记小细跟口红",
+          tImg: "https://bucuo.liph.top/data/index/4.png",
+          type: "唇红齿白",
+          time: "5小时前",
+          tabs: "无论薄涂厚涂都很好看，薄涂会明显的感觉到里面带着一丢丢橘色调，有点血橙感的感觉，黄皮的女生可劲儿往前冲，涂在嘴巴上非常显白",
+          author: "ID：000593",
+          content:
+            "&emsp;&emsp;完美日记新出的小细跟口红完全让人沦陷了，特别是这只l06，简直让人非常惊艳。I06有很出色的气质，颜色是玛丽珍红，应该算是比较让人赞叹的一款正红色的颜色，饱满浓郁、不偏棕调。就是这样非常纯正的正红色，涂在嘴巴上，唇红齿白非常明显。无论薄涂厚涂都很好看，薄涂会明显的感觉到里面带着一丢丢橘色调，有点血橙感的感觉，黄皮的女生可劲儿往前冲，涂在嘴巴上非常显白。厚涂就是饱满浓郁的红色了，妥妥的气场女王，又不失复古韵味，非常有格调。",
+        },
+        {
+          id: 5,
+          title: "梅利烤鸭店",
+          tImg: "https://bucuo.liph.top/data/index/5.png",
+          type: "烤鸭店",
+          time: "2小时前",
+          tabs: "新河大附近梅丽烤鸭店",
+          author: "ID：000260",
+          content:
+            "&emsp;&emsp;新河大附近梅丽烤鸭店\n\n&emsp;&emsp;\t实惠，舒适是这家店的特色，因此去这家店吃饭的中老年人特别多，他家的饭菜量很足，味道也很不错，吃起来也让人觉得很舒服。",
+        },
+        {
+          id: 6,
+          title: "学渣学有机",
+          tImg: "https://bucuo.liph.top/data/index/6.png",
+          type: "期末考试",
+          time: "7小时前",
+          tabs: "期末考试反应机理题其实有规律，每年都会有一个合成氨基酸的反应机理，此外还有醇酮之间的比较也经常考",
+          author: "ID：000110",
+          content:
+            "&emsp;&emsp;我喜欢你，有机会吗？有机不会！有机和无机堪称是化学中的拦路虎，作为一名学渣，我的有机考了92分，一个还不错的分数。我是怎么做到的呢？\n\n&emsp;&emsp;    在学有机化学的过程中，我买了一本辅导资料。里面有课本的参考答案和额外的习题，每节课后我都会刷一遍习题。老师布置的习题+辅导资料上的习题，我都会写2遍。\n\n&emsp;&emsp;    在期末考试前，我会找到期中考试试卷，结合老师所说的考试出题题型，预测期末考试可能会出的反应机理题。期末考试反应机理题其实有规律，每年都会有一个合成氨基酸的反应机理，此外还有醇酮之间的比较也经常考……\n\n&emsp;&emsp;    总之，有机化学虽然难，但想挂科还是很难的（除非你平时什么都不学，期末还不好好复习）",
+        },
+        {
+          id: 7,
+          title: "逐本卸妆油",
+          tImg: "https://bucuo.liph.top/data/index/7.png",
+          type: "卸妆油",
+          time: "11小时前",
+          tabs: "特别是新出的卸妆油，里面的成分升级到了95%的天然植物油，采取专业乳化配方，涂在脸上，瞬间感觉到乳化，质地如水般清爽，卸妆力也很好，一如既往的卓越",
+          author: "ID：000941",
+          content:
+            "&emsp;&emsp;敏感皮肤或者皮肤比较薄的女生一定要试试这款卸妆油，比卸妆水和卸妆乳好用多了，还不会伤皮肤，并且卸的很干净。特别是新出的卸妆油，里面的成分升级到了95%的天然植物油，采取专业乳化配方，涂在脸上，瞬间感觉到乳化，质地如水般清爽，卸妆力也很好，一如既往的卓越。卸眼妆、唇妆用它没有任何压力，而且它还里面带着一丢丢甜橙香味，很治愈，很清新。卸妆的时候，仿佛有一种正在做芳香理疗的美妙，除了卸妆效果惊艳之外，它还能够导出黑头，深层次清洁肌肤，所以敏感肌的女生可以尝试一下。",
+        },
+        {
+          id: 8,
+          title: "透亮水珠字教程步骤",
+          tImg: "https://bucuo.liph.top/data/index/8.png",
+          type: "白卡纸",
+          time: "6小时前",
+          tabs: "1.先用橘色彩铅涂一层淡淡的底色",
+          author: "ID：000420",
+          content:
+            "&emsp;&emsp;只需六步教你学会透亮的水珠字\n\n&emsp;&emsp;今天给大家带来最受欢迎的透亮水珠字教程菌步骤如下:\n\n&emsp;&emsp;1.先用橘色彩铅涂一层淡淡的底色。\n\n&emsp;&emsp;2.淡淡的写出“光芒”两字的字骨。\n\n&emsp;&emsp;3.轻微的大致加粗“光芒”两字字骨。\n\n&emsp;&emsp;4.确定加粗字骨的位置及大小并画实线条。在笔画内部从左到右逐渐变淡的涂一层底色并画出阴影。\n\n&emsp;&emsp;5.用棉签把刚涂的底色柔和均匀，并在每个笔画的左.上角画出高光，作品完成V\n\n&emsp;&emsp;用到的工具:\n\n&emsp;&emsp;笔:橘色彩铅、高光笔、棉签.\n\n&emsp;&emsp;纸:荷兰白卡纸.\n\n&emsp;&emsp;",
+        },
+        {
+          id: 9,
+          title: "马克笔教程",
+          tImg: "https://bucuo.liph.top/data/index/9.png",
+          type: "马克笔",
+          time: "2小时前",
+          tabs: "工具:斑马自动笔、樱花勾线笔、樱花橡皮硬(防止画面脏)白色墨水、法卡勒二代马克笔、辉柏嘉红盒彩铅、霹雳马白色彩铅",
+          author: "ID：000709",
+          content:
+            "&emsp;&emsp;马克笔教程，从起形到上色步骤图。上色时配上了彩铅和白色墨水。眼睛结构讲解看《眼睛画法讲解①》后期会更新其他绘画教程，如有讲解不到位，私我。\n\n&emsp;&emsp;工具:斑马自动笔、樱花勾线笔、樱花橡皮硬(防止画面脏)白色墨水、法卡勒二代马克笔、辉柏嘉红盒彩铅、霹雳马白色彩铅。",
+        },
+        {
+          id: 10,
+          title: "七家电影院测评（当地）",
+          tImg: "https://bucuo.liph.top/data/index/10.png",
+          type: "电影城",
+          time: "8小时前",
+          tabs: "毕竟价格在这里，当然，也由于距离近体验较好，所以情侣最多，不建议个人去",
+          author: "ID：000734",
+          content:
+            "&emsp;&emsp;东京电影城。在小宋城里，距离校区较近。价格便宜，但是价格与体验太成正比。首先是音效，声音很小，还很垃圾，其次是屏幕太暗了，如果是3d影片，要租3d眼镜，要押物，还要押金。好吧，除了价格便宜，没有优势，所以我不是经常去。由于距离较近，情侣也较多。星光好莱坞影院。在星光天地，距离校区最近。但是价格稍贵，有巨幕，杜比厅，配置较好，音效屏幕都较佳。毕竟价格在这里，当然，也由于距离近体验较好，所以情侣最多，不建议个人去。开元时代影城。在开元广场，离小西门也近。价格合理，也有大厅，音效很好，性价比较高，情侣相对较少，建议去。三毛豪华影城。我太喜欢它家的沙发座椅，看电影肯定得要坐的舒服，距离学校较远，不过如果有车，也可以去，附近的汉兴路也有很多美食。价格不高，情侣很少，甚至人都很少，我比较喜欢这家影院，很建议去。万达影城。去过一次，价格相对较贵，普通影片不是很值得去，IMAX也只有万达有，所以只有IMAX电影去万达才合适，当然价格也是很贵。如果去万达吃饭，倒是可以去。横店电影城（大宏店）。性价比最高，除了距离有点远，我喜欢它家人少，而且还有大屏幕，体验相对较好，有次还送可乐。奥斯卡影城（万博店）。外部的环境很适合打卡，不过位置不是很好找，如果去鼓楼那边吃饭，比较推荐这家电影院，价格不高，音效、屏幕也没什么缺点。",
+        },
+        {
+          id: 11,
+          title: "我是怎么做到高数97线代100的？",
+          tImg: "https://bucuo.liph.top/data/index/11.png",
+          type: "知识点",
+          time: "7小时前",
+          tabs: "我们只有在深入理解概念的基础上，做题才能游刃有余，努力让自己不看书，也能用自己的话来描述出一个数学概念，和相关的性质和定理，这样才算是理解了",
+          author: "ID：000759",
+          content:
+            "&emsp;&emsp;高数作为很多同学的噩梦，是期末考试中特别容易挂科的一门学科。但如果掌握了恰当的复习方法， 不仅可以轻松通过，而且可以拿到高分。首先，高数笔记是一个很重要的东西，如果你平时上课没有认真做笔记的话，可以在办理其他做笔记做的比较好的同学跟前，借一下他们的笔记，挑出老师上课讲过的重点。一般老师在讲课过程中都会把期末必考的知识点做重要讲解和标注，像导数的求导，求偏导，不定积分和定积分这都是必考的知识点。另外，课后习题是必做的题目，尤其是老师每次布置要交作业所勾画的那些课后习题，有些题目甚至会直接出在期末考试的卷子上。有些题目虽然不会出现在试卷上，但是它的方法都是相通的。最后就是可以做一两套往年的考试卷，看一下题型和知识点，基本上每年考的知识点都不会变。线性代数学很注重推理和逻辑思维，也就是因为这两点，才让它成为众多学子的噩梦！在我看来，其实掌握好学习数学的方法，培养属于自己的数学思维，才是让自己考高分的绝对靠山！论方法的话。第一，深入理解概念！！！大部分人普遍认为，做题永远是第一要义，其实不然。我们每学一个东西，线代书上都会给出标注粗体的概念，公式，定理等等。这些东西是最最最重要的，可却又是很多人最不喜欢看的，因为枯燥无味，看不见摸不着。可这些东西才是出题的依据啊，背后是无数伟大的数学家穷极毕生反复推敲出来的，太值得我们重视了。我们只有在深入理解概念的基础上，做题才能游刃有余，努力让自己不看书，也能用自己的话来描述出一个数学概念，和相关的性质和定理，这样才算是理解了。第二，在理解概念的基础上，要抓住课堂和课本，书上的例题都是十分经典的，不要觉得容易，就忽视它。老师讲的内容，要用心去听，老师真的知道学生会在哪儿犯错！！！不要觉得自己都会了，老师讲的简单，就不去听。同样，书后的练习题，老师布置的作业题，是十分有价值的，真不比那些买的资料差劲。所以线代考试抓好基础题是关键。",
+        },
+        {
+          id: 12,
+          title: "西南财经大学保研经验帖",
+          tImg: "https://bucuo.liph.top/data/index/12.png",
+          type: "认真学习",
+          time: "11小时前",
+          tabs: "最后最重要的一点就是科研经历，面试过程中老师最看重的就是学生的科研能力，所以保研er可以在大二大三的时候参加一些大学生创新创业计划项目来培养自己的科研素养，在大学期间尝试着发表论文，还可以联系专业导师提前接触一下科研工作，这样在面试的时候就不会出现科研经历一片空白、无话可说的尴尬现象",
+          author: "ID：000801",
+          content:
+            "&emsp;&emsp;保研是一场历时三年的拉锯战，从大一开始要认真学习专业课，努力提高自己的成绩和绩点，很多学校在保研初审过程中对专业排名有硬性要求，比如前10%；其次，在大二、大三两年，要多参与学科竞赛以及创新创业比赛，优秀的竞赛获奖经历能够为你的简历增光添彩，即使没有拿到奖，也能够在这一过程中积累比赛经验、丰富自己的经历；同时也不要放松自己对英语的学习，一个优秀的四六级分数在面试过程中会受到老师的青睐，许多学校在面试过程中也设有英语自我介绍、英语问题回答等环节，所以口语也显得尤为重要；最后最重要的一点就是科研经历，面试过程中老师最看重的就是学生的科研能力，所以保研er可以在大二大三的时候参加一些大学生创新创业计划项目来培养自己的科研素养，在大学期间尝试着发表论文，还可以联系专业导师提前接触一下科研工作，这样在面试的时候就不会出现科研经历一片空白、无话可说的尴尬现象。\n\n&emsp;&emsp;    个人感悟：保研过程中心态是很重要的，在这个过程中会出现自己心仪的院校初审没通过、面试发挥失常等许多的问题，会有自卑、焦虑等许多负面的情绪，一定要注意情绪的调节，多与老师以及身边的同学沟通，放平心态。其次要找准自己的定位，结合自己的实际情况选择院校会大大提高保研的成功率。",
+        },
+        {
+          id: 13,
+          title: "花西子散粉",
+          tImg: "https://bucuo.liph.top/data/index/13.png",
+          type: "山茶花",
+          time: "7小时前",
+          tabs: "这款散粉更让人惊艳的就是妆效，简直一秒磨皮，对毛孔具有很好的遮瑕力，摸起来还比较丝滑",
+          author: "ID：000736",
+          content:
+            "&emsp;&emsp;花西子散粉的散粉扑就超级棒，厚重当中又带着蓬松感，颜值还很高。这款散粉号称空气散粉，粉质很细腻，轻轻一拍就能够看到空气当中飘闪过一缕白烟。当它轻轻地扑在脸上的时候，伴随着淡淡的香味，里面没有添加香精、桃花、山茶花的混合香，很清淡。\n\n&emsp;&emsp;    即是对味道敏感的女生，也可以接受。这款散粉更让人惊艳的就是妆效，简直一秒磨皮，对毛孔具有很好的遮瑕力，摸起来还比较丝滑。因为它里面添加了蚕丝有关成分，所以使用妆效还是很不错的，不会出现卡粉。虽说是普通价位，但是无论是妆效、肤感还是气味，都相当不错。",
+        },
+        {
+          id: 14,
+          title: "新手学摄影 ",
+          tImg: "https://bucuo.liph.top/data/index/14.png",
+          type: "有没有",
+          time: "15小时前",
+          tabs: "自己想要学摄影，但是没有基础，完全没有接触过摄影感，会不会学起来很难，零基础的小白有没有可能学会摄影",
+          author: "ID：00063",
+          content:
+            "&emsp;&emsp;自己想要学摄影，但是没有基础，完全没有接触过摄影感，会不会学起来很难，零基础的小白有没有可能学会摄影?\n\n&emsp;&emsp;    新手学摄影是可以学会的，还可以学的很好!!其实大家只要找对学摄影的方法的步骤，完全可以学好~\n\n&emsp;&emsp;接下来，我就来和大家分享学摄影的个步骤\n\n&emsp;&emsp;1.熟悉相机\n\n&emsp;&emsp;学摄影，那么就要先了解好器材，相机怎么使用当然是首先要了解的\n\n&emsp;&emsp;2.摄影基础知识\n\n&emsp;&emsp;●曝光 测光 对焦\n\n&emsp;&emsp;3.光线 构图 色彩\n\n&emsp;&emsp;",
+        },
+        {
+          id: 15,
+          title: "万岁山武侠城",
+          tImg: "https://bucuo.liph.top/data/index/15.png",
+          type: "飞过去",
+          time: "14小时前",
+          tabs: "城寨沙场里面好几个演出，三打祝家庄和打铁花都在这边，想看演出的话一定要提前进入，演出开始后就不让进了",
+          author: "ID：000945",
+          content:
+            "&emsp;&emsp;这是一个武侠主题城，里面以水浒传的题材为主，快活林、十字坡、水浒街、大宋武馆、城寨沙场等这里都有。\n\n&emsp;&emsp;    全天候不间断的演出，各种类型的都有，除了水浒主题情景剧之外，还有魔术类，特技类，以及极富科技感的机器人秀、激光舞秀等。白天可以边看表演边逛庙会，特别好玩!夜场的表演一定不要错过。\n\n&emsp;&emsp;    Tips:海船广场的水上飞人表演一天有好多场，最佳观看点在船上，演员还会飞过去和你击掌互动哦!城寨沙场里面好几个演出，三打祝家庄和打铁花都在这边，想看演出的话一定要提前进入，演出开始后就不让进了。演出安排的很紧，各个地方都有，可以选择自己想看的演出去。打铁花这个演出是一定要看的，非物质文化遗产，特别震撼，一定不能错过!\n\n&emsp;&emsp;这里也适合带小朋友来，有游乐园，小型动物园，还有小盆友看的节目。逛逛庙会看看灯展也是很不错的。",
+        },
+        {
+          id: 16,
+          title: "荒芜（禹王台公园）（当地）",
+          tImg: "https://bucuo.liph.top/data/index/16.png",
+          type: "看不到",
+          time: "11小时前",
+          tabs: "在秋天菊花开时，不再荒芜",
+          author: "ID：000932",
+          content:
+            "&emsp;&emsp;如果要在开封找出荒芜的地方，那必定是禹王台公园。没有水的河流，荒芜。宽阔的河道里，满是荒草。我看不到水的流动，我也看不到，在荒草堆里有希望诞生。高处的院落种有松柏，石狮一对对。没有人的影院，荒芜。古吹台的大字好像写在纸上，地洞不敢进去。影院不再开放，游乐园却欢笑不断。秋千不停地晃，我抬头看到天，也在晃。菊花开时，花香弥漫。在秋天菊花开时，不再荒芜；在春天樱花开时，不再荒芜。勇敢地迈过吊桥，勇敢的攀上小山丘。我在铁路上看到坦克开过，我看到天上的喷气飞机飞过。有的时候安静，有的时候喧闹，但所有的喧闹都不是人，是风在呼啸，是花在飘。不喜欢人潮涌动的清园，不喜欢味道杂乱的夜市，我喜欢的不过是，很安静的公园，有花香，有欢乐，有过去。",
+        },
+        {
+          id: 17,
+          title: "美味家常菜：可乐鸡翅",
+          tImg: "https://bucuo.liph.top/data/index/17.png",
+          type: "植物油",
+          time: "26小时前",
+          tabs: "这时倒入可乐没过鸡翅中（一般一听可乐即可），然后加入一小勺盐（若不嫌鸡翅甜的小伙伴也可以不加哦）、半勺酱油、剩下姜片、大蒜，开至大火加热（切记不要盖锅盖），加热至锅中沸腾后转小火慢煮，将锅内汤汁煮至浓稠就可以关火出锅了，最后装盘撒上一些芝麻，一道美味的家常可乐鸡翅就大功告成了",
+          author: "ID：0001052",
+          content:
+            "&emsp;&emsp;可乐鸡翅准备食材\n\n&emsp;&emsp;【主料】：鸡翅中6个、可乐一听（小编我一般都是用可口可乐）\n\n&emsp;&emsp;【辅料】：盐、料酒、植物油、酱油、八角2个、姜一小段、蒜3瓣、芝麻适量（用白芝麻会好看些哦！）家常可乐鸡翅做法步骤\n\n&emsp;&emsp;【第一步】食材准备\n\n&emsp;&emsp;1.鸡翅中洗干净后在表面用刀切一些口子（为了让可乐汤汁入鸡肉中），备用；\n\n&emsp;&emsp;2.姜洗净后去皮切片备用；\n\n&emsp;&emsp;3.蒜洗净去皮，对半切备用；\n\n&emsp;&emsp;【第二步】煮鸡翅\n\n&emsp;&emsp;锅中放入冷水，将备好的鸡翅放入水中，加三勺料酒、几片姜片（去腥，不要全部放完，后面还要用），开大火将水加热至沸腾，待鸡翅中基本煮熟，这时将水中的浮沫用瓢捞出，然后再将煮熟的鸡翅中捞出，沥干水分，继续放盘备用；\n\n&emsp;&emsp;【第三步】煎鸡翅\n\n&emsp;&emsp;将锅内水分用干抹布擦干，然后开中小火热锅（切记不要开大火，要不然鸡翅一下就煎糊了），放入少许植物油，待油烧热后将沥干水分的放入锅中慢煎，煎至两面金黄即可；\n\n&emsp;&emsp;【第四步】放可乐加辅料出锅\n\n&emsp;&emsp;这时倒入可乐没过鸡翅中（一般一听可乐即可），然后加入一小勺盐（若不嫌鸡翅甜的小伙伴也可以不加哦）、半勺酱油、剩下姜片、大蒜，开至大火加热（切记不要盖锅盖），加热至锅中沸腾后转小火慢煮，将锅内汤汁煮至浓稠就可以关火出锅了，最后装盘撒上一些芝麻，一道美味的家常可乐鸡翅就大功告成了！",
+        },
+        {
+          id: 18,
+          title: "鲜风生活",
+          tImg: "https://bucuo.liph.top/data/index/18.png",
+          type: "应有尽有",
+          time: "24小时前",
+          tabs: "总体来说是可以偶尔经常光顾一下，他想要的生活产品都有，其实价格的话还是看产品部分还是蛮高的，但是用下来感觉种类非常多挺好的，一次购物体验，关键是里边的服务态度都还不错",
+          author: "ID：000343",
+          content:
+            "&emsp;&emsp;鲜风生活，真是回到开封后最爱的一个超市！超出预期，这个超市两层楼应有尽有性价比还算可以价格的话还是要看，具体买什么，你想要的产品基本上这里面都会有。比永辉超市盒马先生都还要多。\n\n&emsp;&emsp;        进口水果这边也是有上选了个榴莲70几块钱，感觉赚到了皮超级薄，你主要是看你会不会选感觉，如果在榴莲货架那里有一个服务员专门帮忙挑选榴莲，我估计销量会更高。\n\n&emsp;&emsp;        其实鲜果类的产品还是非常多的种类，也是非常多人气，非常旺的一家超市，毕竟是在居民区。总体来说是可以偶尔经常光顾一下，他想要的生活产品都有，其实价格的话还是看产品部分还是蛮高的，但是用下来感觉种类非常多挺好的，一次购物体验，关键是里边的服务态度都还不错。\n\n&emsp;&emsp;        永辉是把生鲜当作主营业务，所以店内的生鲜面积毫无疑问是最大的，往往超过店内50%的面积。永辉的定位，是以菜场为对标，所以它的产品以大堆头、大面积陈列为多，价格当然也比较低。它的产品，很多是基地，或者产地的批量采购，所以店内要求有相当的储存空间。所以一方面店内的陈列面积大，第二方面方便移动的陈列道具多。",
+        },
+        {
+          id: 19,
+          title: "现炒盖浇饭",
+          tImg: "https://bucuo.liph.top/data/index/19.png",
+          type: "盖浇饭",
+          time: "21小时前",
+          tabs: "要说南苑餐厅好吃的东西还是蛮多的，但介于个人口味偏清单，不能吃辣的，不喜欢太油太咸的，而且食量小，所以吃饭的时候还是有点挑剔的",
+          author: "ID：000222",
+          content:
+            "&emsp;&emsp;要说南苑餐厅好吃的东西还是蛮多的，但介于个人口味偏清单，不能吃辣的，不喜欢太油太咸的，而且食量小，所以吃饭的时候还是有点挑剔的。所以，今天的分享主要以偏淡口味为主，口味重的朋友可以自行选择是否浏览。\n\n&emsp;&emsp;\t南苑餐厅在新区的几个餐厅中，算是口碑比较好的，很多北苑东苑的朋友都这么说～南苑餐厅的伙食种类比较丰富，米面饼各个种类几乎都有～    其中的现炒盖浇饭堪称一绝！",
+        },
+        {
+          id: 20,
+          title: "星光天地小猪查理",
+          tImg: "https://bucuo.liph.top/data/index/20.png",
+          type: "外焦里嫩",
+          time: "33小时前",
+          tabs: "1.星光天地小猪查理",
+          author: "ID：000300",
+          content:
+            "&emsp;&emsp;1.星光天地小猪查理\n\n&emsp;&emsp;  这是我吃过比较实惠又好吃的烤肉了，肉的种类很多，而且很新鲜，肉本身就是腌制过的不用蘸料就很有味道，再配一个烤肉技术一流的同伴一起去吃，就能吃到鲜嫩多汁的牛肉小方和外焦里嫩的鸡翅，想想就要流口水了～",
+        },
+        {
+          id: 21,
+          title: "私房椒麻鸡",
+          tImg: "https://bucuo.liph.top/data/index/21.png",
+          type: "麻而不木",
+          time: "28小时前",
+          tabs: "椒麻鸡微麻鲜香，肉片肉质细嫩，味道香浓，菜色泽诱人，独具风味，喜欢川菜的朋友就千万不要错过这道椒麻鸡，鸡肉肉质软嫩，有嚼劲，入口鲜爽化渣，在冬天里吃的时候就特别麻辣爽口，开胃又暖身，口感麻而不木，辣却不上火，清香四溢，入口回味无穷，而且鸡肉的皮脆嫩，肉又有嚼劲，可以说是一道非常香辣可口的佳肴",
+          author: "ID：0001000",
+          content:
+            "&emsp;&emsp;创业中心的椒麻鸡yyds！椒麻鸡微麻鲜香，肉片肉质细嫩，味道香浓，菜色泽诱人，独具风味，喜欢川菜的朋友就千万不要错过这道椒麻鸡，鸡肉肉质软嫩，有嚼劲，入口鲜爽化渣，在冬天里吃的时候就特别麻辣爽口，开胃又暖身，口感麻而不木，辣却不上火，清香四溢，入口回味无穷，而且鸡肉的皮脆嫩，肉又有嚼劲，可以说是一道非常香辣可口的佳肴。",
+        },
+        {
+          id: 22,
+          title: "没想象得那么难系列：统计学",
+          tImg: "https://bucuo.liph.top/data/index/22.png",
+          type: "知识点",
+          time: "9小时前",
+          tabs: "因为我们都知道，大学的期末考试考的知识点不深，就是考特别基础的东西，这个知识点知道的话，就会做题，不知道的话就不会做题",
+          author: "ID：000260",
+          content:
+            "&emsp;&emsp;统计学里面有特别多的公式需要记忆，如果这些公式记不下来的话，考场上是无法解题的。除了平时上课好好听课之外，我在期末时也进行了一定的突击。因为我们都知道，大学的期末考试考的知识点不深，就是考特别基础的东西，这个知识点知道的话，就会做题，不知道的话就不会做题。因此，考前考试划的那些知识点和公式都要记下来。可以拿一张A4纸，不要把公式从头抄到尾，这样也没有什么意义，还浪费时间，就按照公式之间的逻辑，将相似和有推导与被推导关系的公式写在一起方便比较和记忆。在记住公式和知识点情况下去刷课本上的课后习题，卷子上的很多考题都是来自课后习题的改编。最后，想说的就是心态！我见过有很多数学特别好的人，特别聪明的人，但是考试考崩。就是因为他们心态不好，太自负，一道题做不出来，就开始慌张，然后满盘皆输，心态！真的很重要！要知道，在考试中，我难人亦难！能得的，一份不丢，太难的，得一分是一分。",
+        },
+        {
+          id: 23,
+          title: "沉浸（汴京公园）（当地）",
+          tImg: "https://bucuo.liph.top/data/index/23.png",
+          type: "饲养员",
+          time: "10小时前",
+          tabs: "当然我喜欢这个动物园最重要的原因，就是人少，人少不代表不好，我很喜欢人少的地方，安安静静地盯着事物看，让自己沉浸在快乐中",
+          author: "ID：000566",
+          content:
+            "&emsp;&emsp;这里的园太多，清明上河园有太多的人，翰园有太多的碑。这里的公园也很多，龙亭公园的皇宫尽显威严，禹王台公园的松柏郁郁葱葱。但在汴京公园，才是真正的开封。我看到老去后的幸福生活，我还看到孩童般的纯真。我还发现生活多美好，在这里我彻底放松。我的好奇心让我学习门球。在汴京公园入口不远处，就是门球场。我是下午两三点到公园的，当时已有三四个人正在打门球。我足足看了，实在忍不住就上前问，我问了比赛的规则，怎么打，热心的爷爷还让我自己打，所以我就试了，很重也很难控制。起初看他们打着好像很轻松，但是实际上并不好打。当然最初，我也不知道哪里好玩。直到知道规则后，才发现这真的可以玩一个下午。动物园也不错，带上学生证也就9块钱。虽然没有名贵的品种，但是像老虎，狮子什么的也都有，在那里我发现以前不知道的奇怪知识。譬如骆驼为什么口吐白沫，骆驼拉尿的方式。孔雀很多，白色的，蓝色的，绿色的，甚至可以在动物园里捡拾孔雀的羽毛。当然我喜欢这个动物园最重要的原因，就是人少，人少不代表不好，我很喜欢人少的地方，安安静静地盯着事物看，让自己沉浸在快乐中。还可以遇到饲养员喂蓝狐，观赏五颜六色的鸟，还有养鸡场里的各类鸡。在那里还有条河，河里有雁有天鹅还有鸭。如果没有距离的限制，我想再去汴京公园，沉浸在快乐中。",
+        },
+      ],
+    };
+  },
+  watch: {},
+  mounted() {
+    // console.log(this.projectList);
+    // this.getData();
+  },
+  methods: {
+    getData() {
+      console.log("数据加载");
+      let opts = {
+        url: "https://bucuo.liph.top/data/index/index.json",
+        method: "get",
+      };
+      uni.showLoading({
+        title: "加载中",
+      });
+      request.httpRequest(opts).then((res) => {
+        console.log(res);
+        uni.hideLoading();
+        if (res.statusCode == 200) {
+          this.projectList = res.data.data;
+        } else {
+        }
+      });
+    },
+    scroll: function (e) {
+      console.log(e);
+      this.old.scrollTop = e.detail.scrollTop;
+    },
+    goProjectList() {
+      uni.navigateTo({
+        url: "../project/list",
+      });
+    },
+    goProject(id) {
+      uni.navigateTo({
+        url: "../project/project?proId=" + id,
+      });
+    },
+    goVideo() {
+      uni.navigateTo({
+        url: "../video",
+      });
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
-	.swiper-box {
-		flex: 1;
-	}
+.swiper-box {
+  flex: 1;
+}
 
-	.swiper-item {
-		height: 100%;
-	}
+.swiper-item {
+  height: 100%;
+}
 
-	.message-box {
-		width: 100%;
-		height: 120rpx;
-		background: url(https://zhoukaiwen.com/img/icon/clock.gif) #FFFFFF;
-		background-repeat: no-repeat;
-		background-size: 100rpx 100rpx;
-		background-position: 15rpx 10rpx;
-		margin: 0rpx 0rpx 10rpx 0rpx;
-		padding-left: 130rpx;
-		
-		.message-tltle {
-			height: 65rpx;
-			line-height: 70rpx;
-			font-weight: 600;
-			font-size: 28rpx;
-		}
+.message-box {
+  width: 100%;
+  height: 120rpx;
+  background: url(https://zhoukaiwen.com/img/icon/clock.gif) #ffffff;
+  background-repeat: no-repeat;
+  background-size: 100rpx 100rpx;
+  background-position: 15rpx 10rpx;
+  margin: 0rpx 0rpx 10rpx 0rpx;
+  padding-left: 130rpx;
 
-		.message-content {
-			color: #0081ff;
+  .message-tltle {
+    height: 65rpx;
+    line-height: 70rpx;
+    font-weight: 600;
+    font-size: 28rpx;
+  }
 
-			span {
-				background-color: #0081ff;
-				color: #FFFFFF;
-				padding: 2rpx 8rpx;
-				border-radius: 8rpx;
-				margin-right: 8rpx;
-			}
-		}
-	}
+  .message-content {
+    color: #0081ff;
 
-	/*scroll-view外层*/
-	.skill-sequence-panel-content-wrapper {
-		position: relative;
-		white-space: nowrap;
-		padding: 10rpx 0 10rpx 10rpx;
-	}
+    span {
+      background-color: #0081ff;
+      color: #ffffff;
+      padding: 2rpx 8rpx;
+      border-radius: 8rpx;
+      margin-right: 8rpx;
+    }
+  }
+}
 
-	/*左右渐变遮罩*/
-	.hide-content-box {
-		position: absolute;
-		top: 0;
-		height: 100%;
-		width: 10px;
-		z-index: 2;
-	}
+/*scroll-view外层*/
+.skill-sequence-panel-content-wrapper {
+  position: relative;
+  white-space: nowrap;
+  padding: 10rpx 0 10rpx 10rpx;
+}
 
-	.hide-content-box-left {
-		left: 0;
-		background-image: linear-gradient(to left, rgba(255, 255, 255, 0), #f3f3f3 60%);
-	}
+/*左右渐变遮罩*/
+.hide-content-box {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 10px;
+  z-index: 2;
+}
 
-	.hide-content-box-right {
-		right: 0;
-		background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #f3f3f3 60%);
-	}
+.hide-content-box-left {
+  left: 0;
+  background-image: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0),
+    #f3f3f3 60%
+  );
+}
 
-	.kite-classify-scroll {
-		width: 100%;
-		height: 380rpx;
-		overflow: hidden;
-		white-space: nowrap;
-	}
+.hide-content-box-right {
+  right: 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    #f3f3f3 60%
+  );
+}
 
-	.kite-classify-cell {
-		display: inline-block;
-		width: 266rpx;
-		height: 370rpx;
-		margin-right: 20rpx;
-		background-color: #ffffff;
-		border-radius: 10rpx;
-		overflow: hidden;
-		box-shadow: 2px 2px 3px rgba(26, 26, 26, 0.2);
-	}
+.kite-classify-scroll {
+  width: 100%;
+  height: 380rpx;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
-	.nav-li {
-		padding: 40rpx 30rpx;
-		width: 100%;
-		background-image: url(https://bucuo.liph.top/images/NyU04x.png);
-		background-size: cover;
-		background-position: center;
-		position: relative;
-		z-index: 1;
-	}
+.kite-classify-cell {
+  display: inline-block;
+  width: 266rpx;
+  height: 370rpx;
+  margin-right: 20rpx;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 2px 2px 3px rgba(26, 26, 26, 0.2);
+}
 
-	.nav-name {
-		font-size: 28upx;
-		text-transform: Capitalize;
-		margin-top: 20upx;
-		position: relative;
-	}
+.nav-li {
+  padding: 40rpx 30rpx;
+  width: 100%;
+  background-image: url(https://bucuo.liph.top/images/NyU04x.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+}
 
-	.nav-name::before {
-		content: '';
-		position: absolute;
-		display: block;
-		width: 40rpx;
-		height: 6rpx;
-		background: #fff;
-		bottom: 0;
-		right: 0;
-		opacity: 0.5;
-	}
+.nav-name {
+  font-size: 28upx;
+  text-transform: Capitalize;
+  margin-top: 20upx;
+  position: relative;
+}
 
-	.nav-name::after {
-		content: '';
-		position: absolute;
-		display: block;
-		width: 100rpx;
-		height: 1px;
-		background: #fff;
-		bottom: 0;
-		right: 40rpx;
-		opacity: 0.3;
-	}
+.nav-name::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40rpx;
+  height: 6rpx;
+  background: #fff;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+}
 
-	.nav-content {
-		width: 100%;
-		padding: 15rpx;
-		display: inline-block;
-		overflow-wrap: break-word;
-		white-space: normal;
-	}
+.nav-name::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100rpx;
+  height: 1px;
+  background: #fff;
+  bottom: 0;
+  right: 40rpx;
+  opacity: 0.3;
+}
 
-	.nav-btn {
-		width: 200rpx;
-		height: 60rpx;
-		margin: 8rpx auto;
-		text-align: center;
-		line-height: 60rpx;
-		border-radius: 10rpx;
-	}
+.nav-content {
+  width: 100%;
+  padding: 15rpx;
+  display: inline-block;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
 
-	.bg-index1 {
-		background-color: #19cf8a;
-		color: #fff;
-	}
+.nav-btn {
+  width: 200rpx;
+  height: 60rpx;
+  margin: 8rpx auto;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+}
 
-	.bg-index2 {
-		background-color: #954ff6;
-		color: #fff;
-	}
+.bg-index1 {
+  background-color: #19cf8a;
+  color: #fff;
+}
 
-	.bg-index3 {
-		background-color: #5177ee;
-		color: #fff;
-	}
+.bg-index2 {
+  background-color: #954ff6;
+  color: #fff;
+}
 
-	.bg-index4 {
-		background-color: #f49a02;
-		color: #fff;
-	}
+.bg-index3 {
+  background-color: #5177ee;
+  color: #fff;
+}
 
-	.bg-index5 {
-		background-color: #ff4f94;
-		color: #fff;
-	}
+.bg-index4 {
+  background-color: #f49a02;
+  color: #fff;
+}
 
-	.bg-index6 {
-		background-color: #7fd02b;
-		color: #fff;
-	}
+.bg-index5 {
+  background-color: #ff4f94;
+  color: #fff;
+}
 
-	.item-name {
-		margin-bottom: 15rpx;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 1;
-		overflow: hidden;
-	}
+.bg-index6 {
+  background-color: #7fd02b;
+  color: #fff;
+}
+
+.item-name {
+  margin-bottom: 15rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
 </style>

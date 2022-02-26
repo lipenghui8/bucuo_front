@@ -84,7 +84,7 @@
 								<view 
 								class="cu-item shadow"
 								@click="goProject(item.id-1)"
-								v-for="(item, index) in articleList_3" 
+								v-for="(item, index) in articleList_2" 
 								:key="index">
 									<view class="content">
 										<image class="imgStyle" style="border-radius:10rpx" :src="item.banner" ></image>
@@ -144,8 +144,78 @@
 				],
 				iconUrl: require("@/static/icons/aixin.png"),
 				orderList: [[], [], [], []],
-				articleList_1: [],
-				articleList_2: [],
+				articleList_1: [{
+            "id": 1,
+            "title": "钢琴入门",
+            "banner":"https://bucuo.liph.top/data/skill/skill_exchange/1.png",
+            "time": 60,
+            "content": "钢琴入门，可教你乐理知识！",
+            "likeNum": 70
+        },
+        {
+            "id": 2,
+            "title": "粤语教学",
+            "banner":"https://bucuo.liph.top/data/skill/skill_exchange/2.png",
+            "time": 60,
+            "content": "土生土长的广东人教你讲地道粤语",
+            "likeNum": 136
+        },
+        {
+            "id": 3,
+            "title": "王者荣耀",
+            "banner":"https://bucuo.liph.top/data/skill/skill_exchange/3.png",
+            "time": 60,
+            "content": "没啥想交换的，只是想秀秀战绩",
+            "likeNum": 521
+        },
+        {
+            "id": 4,
+            "title": "魔方复原",
+            "banner":"https://bucuo.liph.top/data/skill/skill_exchange/4.png",
+            "time": 60,
+            "content": "三阶魔方突破60秒大关，可以一起探讨还原经验",
+            "likeNum": 163
+        }],
+				articleList_2: [{
+            "id": 17,
+            "title": "美味家常菜：可乐鸡翅",
+            "banner":"https://bucuo.liph.top/data/skill/skill_share/1.png",
+            "time": 60,
+            "content": "鲜风生活，真是回到开封后最爱的一个超市！超出预期，这个超市两层楼应有尽有性价比还算可以价格的话还是要看，具体买什么",
+            "likeNum": 70
+        },
+        {
+            "id": 8,
+            "title": "透亮水珠字教程步骤",
+            "banner":"https://bucuo.liph.top/data/skill/skill_share/2.png",
+            "time": 60,
+            "content": "创业中心的椒麻鸡yyds！椒麻鸡微麻鲜香，肉片肉质细嫩，味道香浓，菜色泽诱人，独具风味，喜欢川菜的朋友就千万不要错过这道椒麻鸡",
+            "likeNum": 136
+        },
+        {
+            "id": 9,
+            "title": "马克笔教程",
+            "banner":"https://bucuo.liph.top/data/skill/skill_share/3.png",
+            "time": 60,
+            "content": "要说南苑餐厅好吃的东西还是蛮多的，但介于个人口味偏清单，不能吃辣的，不喜欢太油太咸的，而且食量小，所以吃饭的时候还是有点挑剔的。",
+            "likeNum": 521
+        },
+        {
+            "id": 3,
+            "title": "养生茶",
+            "banner":"https://bucuo.liph.top/data/skill/skill_share/4.png",
+            "time": 60,
+            "content": "打工人一周 养生茶不重样。不要只会泡枸杞我又来分享养生茶啦！多少人跟我一样不喜欢喝寡淡的白开水，一定要泡点什么才能好好喝水的心。",
+            "likeNum": 163
+        },
+        {
+            "id": 14,
+            "title": "新手学摄影 ",
+            "banner":"https://bucuo.liph.top/data/skill/skill_share/5.png",
+            "time": 60,
+            "content": "打工人一周 养生茶不重样。不要只会泡枸杞我又来分享养生茶啦！多少人跟我一样不喜欢喝寡淡的白开水，一定要泡点什么才能好好喝水的心。",
+            "likeNum": 163
+        }],
 				articleList_3: [],
 				itemList: [
 					{
@@ -176,9 +246,9 @@
 			};
 		},
 		mounted() {
-			this.getData_1();
-			this.getData_2();
-			this.getData_3();
+			// this.getData_1();
+			// this.getData_2();
+			// this.getData_3();
 		},
 		computed: {
 			// 价格小数
