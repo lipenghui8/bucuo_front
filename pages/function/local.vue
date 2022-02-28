@@ -83,7 +83,7 @@
 								<view 
 								class="cu-item shadow"
 								@click="goProject(item.id-1)"
-								v-for="(item, index) in articleList_2" 
+								v-for="(item, index) in articleList_3" 
 								:key="index">
 									<view class="content">
 										<image class="imgStyle" style="border-radius:10rpx" :src="item.banner" ></image>
@@ -146,12 +146,12 @@ export default {
       orderList: [[], [], [], []],
       articleList_1: [
         {
-          id: 18,
-          title: "鲜风生活",
-          banner: "https://bucuo.liph.top/data/local/food/banner1.png",
+          id: 20,
+          title: "星光天地小猪查理",
+          banner: "https://bucuo.liph.top/data/index/20.png",
           time: 60,
           content:
-            "鲜风生活，真是回到开封后最爱的一个超市！超出预期，这个超市两层楼应有尽有性价比还算可以价格的话还是要看，具体买什么",
+            "这是我吃过比较实惠又好吃的烤肉了，肉的种类很多，而且很新鲜，肉本身就是腌制过的不用蘸料就很有味道，再配一个烤肉技术一流的同伴一起去吃，就能吃到鲜嫩多汁的牛肉小方和外焦里嫩的鸡翅，想想就要流口水了～",
           likeNum: 70,
         },
         {
@@ -173,12 +173,12 @@ export default {
           likeNum: 521,
         },
         {
-          id: 3,
-          title: "养生茶",
-          banner: "https://bucuo.liph.top/data/local/food/banner4.png",
+          id: 5,
+          title: "梅利烤鸭店",
+          banner: "https://bucuo.liph.top/data/index/5.png",
           time: 60,
           content:
-            "打工人一周 养生茶不重样。不要只会泡枸杞我又来分享养生茶啦！多少人跟我一样不喜欢喝寡淡的白开水，一定要泡点什么才能好好喝水的心。",
+            "新河大附近梅丽烤鸭店实惠，舒适是这家店的特色，因此去这家店吃饭的中老年人特别多，他家的饭菜量很足，味道也很不错，吃起来也让人觉得很舒服。",
           likeNum: 163,
         },
       ],
@@ -220,7 +220,44 @@ export default {
           likeNum: 163,
         },
       ],
-      articleList_3: [],
+      articleList_3: [
+        {
+          id: 13,
+          title: "花西子散粉",
+          banner: "https://bucuo.liph.top/data/index/13.png",
+          time: 60,
+          content:
+            "花西子散粉的散粉扑就超级棒，厚重当中又带着蓬松感，颜值还很高。这款散粉号称空气散粉，粉质很细腻，轻轻一拍就能够看到空气当中飘闪过一缕白烟。当它轻轻地扑在脸上的时候，伴随着淡淡的香味，里面没有添加香精、桃花、山茶花的混合香，很清淡",
+          likeNum: 300,
+        },
+        {
+          id: 18,
+          title: "鲜风生活",
+          banner: "https://bucuo.liph.top/data/index/18.png",
+          time: 60,
+          content:
+            "总体来说是可以偶尔经常光顾一下，他想要的生活产品都有，其实价格的话还是看产品部分还是蛮高的，但是用下来感觉种类非常多挺好的，一次购物体验，关键是里边的服务态度都还不错",
+          likeNum: 136,
+        },
+        {
+          id: 4,
+          title: "完美日记小细跟口红",
+          banner: "https://bucuo.liph.top/data/index/4.png",
+          time: 60,
+          content:
+            "无论薄涂厚涂都很好看，薄涂会明显的感觉到里面带着一丢丢橘色调，有点血橙感的感觉，黄皮的女生可劲儿往前冲，涂在嘴巴上非常显白",
+          likeNum: 521,
+        },
+        {
+          id: 7,
+          title: "逐本卸妆油",
+          banner: "https://bucuo.liph.top/data/index/7.png",
+          time: 60,
+          content:
+            "特别是新出的卸妆油，里面的成分升级到了95%的天然植物油，采取专业乳化配方，涂在脸上，瞬间感觉到乳化，质地如水般清爽，卸妆力也很好，一如既往的卓越",
+          likeNum: 163,
+        },
+      ],
       itemList: [
         {
           name: "美食",

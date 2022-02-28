@@ -223,25 +223,25 @@
 							Column:that.model.column,
 							labels:that.labelHandle
 						}
-						uni.showLoading({
-							title: '提交中'
-						});
-						// request.getToken()
-						request.myHttpTokenRequest(opts,data).then(res => {
-							// console.log(res);
-							uni.hideLoading();
-							if (res.statusCode == 200) {
-								uni.showToast({
-								title: '发布成功！',
-								duration: 2000
-							});
-							} else {
-								uni.showToast({
-								title: '发布失败！',
-								duration: 2000
-							});
-							}
-						});
+						// uni.showLoading({
+						// 	title: '提交中'
+						// });
+						// // request.getToken()
+						// request.myHttpTokenRequest(opts,data).then(res => {
+						// 	// console.log(res);
+						// 	uni.hideLoading();
+						// 	if (res.statusCode == 200) {
+						// 		uni.showToast({
+						// 		title: '发布成功！',
+						// 		duration: 2000
+						// 	});
+						// 	} else {
+						// 		uni.showToast({
+						// 		title: '发布失败！',
+						// 		duration: 2000
+						// 	});
+						// 	}
+						// });
 						
 					} else {
 						console.log('验证失败');
