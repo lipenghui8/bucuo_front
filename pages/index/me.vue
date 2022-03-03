@@ -214,6 +214,8 @@ export default {
       if(!getApp().globalData.hasPermisson){
           this.loginUser()
       }
+      this.initUserInfo()
+
   },
   methods: {
 	  loginUser(){
@@ -230,8 +232,10 @@ export default {
 				desc: "获取你的昵称、头像、地区及性别",
 				success: (res) => {
 				console.log(res);
-				that.userData=res.userInfo;
+			//	that.userData=res.userInfo;
+				getApp().globalData.userInfo= res.userInfo;
 				getApp().globalData.hasPermisson=true;
+				that.initUserInfo()
 				console.log(that.userData);
 				},
 				fail: (res) => {
@@ -259,6 +263,9 @@ export default {
 		},
 		});
 	},
+    initUserInfo(){
+	      this.userData = getApp().globalData.userInfo
+    },
     switchImage(index, name) {
       this.topBackGroupImageIndex = index;
       this.modalName = null;

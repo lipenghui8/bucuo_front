@@ -3,6 +3,9 @@
 	export default {
 	  globalData: {
 	    hasPermisson:false,
+      userInfo:{
+
+      }
     },
 		onLaunch: function() {
 			uni.getSystemInfo({
