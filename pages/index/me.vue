@@ -186,7 +186,7 @@ export default {
 	  userData: [],
       avatarUrl: "",
     };
-	
+
   },
   // 分享小程序
   onShareAppMessage(res) {
@@ -211,7 +211,9 @@ export default {
     // 	icon: 'none',
     //     duration: 2000
     // });
-	this.loginUser()
+      if(!getApp().globalData.hasPermisson){
+          this.loginUser()
+      }
   },
   methods: {
 	  loginUser(){
@@ -229,6 +231,7 @@ export default {
 				success: (res) => {
 				console.log(res);
 				that.userData=res.userInfo;
+				getApp().globalData.hasPermisson=true;
 				console.log(that.userData);
 				},
 				fail: (res) => {

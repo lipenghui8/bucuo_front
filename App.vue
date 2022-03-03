@@ -1,6 +1,9 @@
 <script>
 	import Vue from 'vue'
 	export default {
+	  globalData: {
+	    hasPermisson:false,
+    },
 		onLaunch: function() {
 			uni.getSystemInfo({
 				success: function(e) {
@@ -18,7 +21,7 @@
 					let custom = wx.getMenuButtonBoundingClientRect();
 					Vue.prototype.Custom = custom;
 					Vue.prototype.CustomBar = custom.bottom + custom.top - e.statusBarHeight + 4;
-					// #endif		
+					// #endif
 
 					// #ifdef MP-ALIPAY
 					Vue.prototype.StatusBar = e.statusBarHeight;
